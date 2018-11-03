@@ -1,0 +1,61 @@
+
+.page-container .page-sidebar{
+	background: #223462;
+}
+
+#navSid{
+	background: #223462;
+}
+
+#navSid li{
+	background: #223462;
+	
+}
+
+#navSid li > a:hover{
+	background: #E5480D;
+}
+
+#navSid > li > ul > li > a {
+  padding-left: 25px;
+}
+
+#hozironNav{
+	background: #223462;
+	border-bottom: 3px solid #E5480D;
+}
+
+#transacWidget{
+	margin-left: 360px;
+}
+
+.AssessForm{
+	width: 800px;
+	margin-left: 100px;
+}
+
+.AssessForm > tbody > th > h4{
+	margin-top: 10px;
+}
+#amt{
+	margin-top: 7px;
+}
+#totalamt{
+	margin-top: 7px;
+	margin-bottom: 15px;
+}
+
+.AppRecOverView{
+	width: 800px;
+	margin-left: 100px;
+}
+
+#appRec{
+	background-color: #E4E5A2;
+	width: 300px;
+}
+
+.appRecTransac{
+	width: 700px;
+	margin-left: 150px;
+}
