@@ -25,11 +25,11 @@
 
                                             <input type="text" class="form-control" id="app-no" name="application_no" value="<?php echo $fetch['year']. '-' .$month. '-' .$application_no?>">
                                         </div>
-                                        <!--
-<div class="col-sm-1">
-<input type="checkbox" id="chkAssociation" onclick="enableTextBox();" >
-</div>
--->
+                                        
+                                        <div class="col-sm-1">
+                                        <input type="checkbox" id="chkAssociation" onclick="enableTextBox();" >
+                                        </div>
+
                                     </div>
                                     <div class="form-group">
                                         <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
@@ -76,14 +76,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <!--
-<div class="form-group">
-<label for="date" class="col-sm-4 control-label">Date Applied</label>
-<div class="col-sm-10">
-<input type="date" class="form-control" id="date" name="date">
-</div>
-</div>
--->
+                                    
+                                <div class="form-group">
+                                <label for="date" class="col-sm-4 control-label">Date Applied</label>
+                                <div class="col-sm-10">
+                                <input type="date" class="form-control" id="date" name="date">
+                                </div>
+                                </div>
+
                                     <div class="form-group">
                                         <label for="user-id" class="col-sm-3 control-label">&nbsp;Username</label>
                                         <div class="col-sm-10">

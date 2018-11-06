@@ -69,27 +69,6 @@
                                                 <th>Fire Station</th>
                                                 <th>Action</th>
                                             </tr>
-
-                                            <tbody>
-                                                            <?php
-                                                                require 'require/databaseconnection.php';
-                                                                $query = $conn->query("select * from `employee`") or die(mysqli_error());
-                                                                while($fetch = $query->fetch_array()){
-                                                            ?>
-
-                                                            <tr>
-                                                                <td><?php echo $fetch['id']?></td>
-                                                                <td><?php echo $fetch['officer']?></td>
-                                                                <td><?php echo $fetch['officer_type']?></td>
-                                                                <td><?php echo $fetch['rank']?></td>
-                                                                <td><?php echo $fetch['firestation']?></td>
-                                                                <td> <a href="#Employee-Reg" data-toggle="modal" class="btn btn-info btn-sm"> Edit</a> </td>
-                                                            </tr>
-                                                            <?php
-                                                            }
-                                                            $conn->close();
-                                                            ?>
-                                                        </tbody>
                                         </thead>
                                     </table>
                                 </div>
@@ -120,11 +99,8 @@
 <!-- END PAGE CONTAINER -->
 
 <!--Start MODAL-->
-<?php require 'modals/addemployee.php'; ?>
-
-<!--Start Modal view employee-->
-
-<div id="View-Employee-Reg" class="modal fade">
+<!--Start modal add employee-->
+<div id="Employee-Reg" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -162,7 +138,7 @@
                         <div class="form-group">
                             <label for="officer" class="col-sm-6 control-label">Officer Name</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="officer" placeholder="Kenneth Cayetano" disabled="">
+                                <input type="text" class="form-control" id="officer">
                             </div>
                         </div>
                         <div class="form-group">
@@ -182,6 +158,85 @@
                                     <option value="1">5</option>
                                     <option value="1">6</option>
                                     <option value="1">7</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div class="col-sm-6">
+                    <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
+                </div>
+                <button type="submit" class="btn btn-info" name="add_new_ipt"><span class="fa fa-check"></span>Save</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End modal Add employee-->
+
+<!--Start Modal view employee-->
+
+<div id="View-Employee-Reg" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Employee Form</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="officer-type" class="col-sm-6 control-label">Officer Type</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="officer-type">
+                                    <option value="0">CRO</option>
+                                    <option value="1">Assessor</option>
+                                    <option value="2">Inspector</option>
+                                    <option value="3">Evaluator</option>
+                                    <option value="4">Inspection-CRO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="rank-code" class="col-sm-6 control-label">Rank Code</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="Rank">
+                                    <option value="0">F01</option>
+                                    <option value="1">F02</option>
+                                    <option value="2">F03</option>
+                                    <option value="3">F04</option>
+                                    <option value="4">SF01</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="officer" class="col-sm-6 control-label">Officer Name</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="officer" placeholder="Kenneth Cayetano" disabled="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-sm-6 control-label">Password</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="form-control" id="password">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="firestation" class="col-sm-6 control-label">Fire Station</label>
+                            <div class="col-sm-8">
+                                <select class="form-control" id="firestation">
+                                    <option value="0">1</option>
+                                    <option value="1">2</option>
+                                    <option value="2">3</option>
+                                    <option value="3">4</option>
+                                    <option value="4">5</option>
+                                    <option value="5">6</option>
+                                    <option value="6">7</option>
                                 </select>
                             </div>
                         </div>
