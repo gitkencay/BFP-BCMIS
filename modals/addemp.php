@@ -10,7 +10,9 @@ $conn = new mysqli($host, $user, $password, $dbname) or die(mysqli_error());
 if(isset($_POST['username'])) {
     $offtype=$_POST['officer-type'];
     $rankcode=$_POST['Rank'];
-    $offname=$_POST['officer'];
+    $officer_fname = $_POST['officer_fname'];
+    $officer_mname = $_POST['officer_mname'];
+    $officer_lname = $_POST['officer_lname'];
     $password=$_POST['password'];
     $firestation=$_POST['firestation'];
 

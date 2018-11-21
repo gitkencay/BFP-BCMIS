@@ -22,6 +22,7 @@ while($fetch = $query->fetch_array()){
                             <div class="form-group">
                                 <label for="app-no" class="col-sm-5 control-label">Application No.&nbsp;&nbsp;&nbsp;</label>
                                 <div class="col-sm-8">
+                                    
                                     <input type="text" class="form-control" id="app-no" name="application_no" value="<?php echo $fetch['application_no']?>" readonly>
                                 </div>
                                 <!--

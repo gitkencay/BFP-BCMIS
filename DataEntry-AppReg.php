@@ -140,7 +140,7 @@
                                                                 <td><?php echo $fetch['status']?></td>
                                                                 <td><?php echo $fetch['date_applied']?></td>
                                                                 <td>
-                                                                    <a href="#updatefsic <?php echo $fetch['application_no'];?>" data-target="#updatefsic<?php echo $fetch['application_no'];?>" data-toggle="modal" class="btn btn-info btn-sm">Edit</a>
+                                                                    <a href="#updatefsic<?php echo $fetch['application_no'];?>" data-target="#updatefsic<?php echo $fetch['application_no'];?>" data-toggle="modal" class="btn btn-info btn-sm">Edit</a>
                                                                 </td>
                                                             </tr>
                                                             <?php

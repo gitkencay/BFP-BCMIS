@@ -62,8 +62,8 @@
                                     <table class="table datatable" id="dataTables-example-emp">
                                         <thead>
                                             <tr>
-                                                <th>Office ID</th>
-                                                <th>Officer Name</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
                                                 <th>Officer Category</th>
                                                 <th>Rank</th>
                                                 <th>Fire Station</th>
@@ -72,18 +72,21 @@
 
                                             <tbody>
                                                             <?php
+                                                                require 'modals/updateEmployee.php';
                                                                 require 'require/databaseconnection.php';
                                                                 $query = $conn->query("select * from `employee`") or die(mysqli_error());
                                                                 while($fetch = $query->fetch_array()){
                                                             ?>
 
                                                             <tr>
-                                                                <td><?php echo $fetch['id']?></td>
-                                                                <td><?php echo $fetch['officer']?></td>
+                                                                <td><?php echo $fetch['officer_fname']?></td>
+                                                                <td><?php echo $fetch['officer_lname']?></td>
                                                                 <td><?php echo $fetch['officer_type']?></td>
                                                                 <td><?php echo $fetch['rank']?></td>
                                                                 <td><?php echo $fetch['firestation']?></td>
-                                                                <td> <a href="#Employee-Reg" data-toggle="modal" class="btn btn-info btn-sm"> Edit</a> </td>
+                                                                <td>
+                                                                <a href="#updateEmployee<?php echo $fetch['id'];?>" data-target="#updateEmployee<?php echo $fetch['id'];?>" data-toggle="modal" class="btn btn-info btn-sm">Edit</a>
+                                                                </td>
                                                             </tr>
                                                             <?php
                                                             }
