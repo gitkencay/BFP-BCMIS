@@ -1,5 +1,5 @@
-<div class="modal fade" id="FSIC-Reg" role="dialog">
-    <div class="modal-dialog">
+<div class="modal fade" id="FSIC-Reg" role="dialog" aria-labelledby="largeModalHead" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -12,7 +12,7 @@
                             <div class="form-group">
                                 <?php 
                                 require 'require/databaseconnection.php';
-                                $query = $conn->query("select * from `fsic_application` order by application_no DESC limit 1") or die(mysqli_error());
+                                $query = $conn->query("select * from `application` order by application_no DESC limit 1") or die(mysqli_error());
                                 $fetch = $query->fetch_array();
                                 // convert ang month nga name format to number format;
                                 $month = date("m", strtotime($fetch['month']));
@@ -21,9 +21,9 @@
                                 // gina merge ang month, year kag ang application no;
                                 ?>
                                 <label for="app-no" class="col-sm-5 control-label">Application No.&nbsp;&nbsp;&nbsp;</label>
-                                <div class="col-sm-8">
+                                <div class="col-sm-10">
 
-                                    <input type="text" class="form-control" id="app-no" name="application_no" value="<?php echo $fetch['year']. '-' .$month. '-' .$application_no?>">
+                                    <input readonly type="text" class="form-control text-primary" id="app-no" name="application_no" value="<?php echo $fetch['year']. '-' .$month. '-' .$application_no?>">
                                 </div>
                                 <!--
 <div class="col-sm-1">
@@ -52,7 +52,7 @@
                             <div class="form-group">
                                 <label for="bldg-code" class="col-sm-5 control-label">Building Type&emsp;&nbsp;&nbsp;</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control" id="bldg-code" name="building_type">
+                                    <select class="form-control select" id="bldg-code" name="building_type">
                                         <option value="0">Select</option>
                                         <option value="0">Assembly</option>
                                         <option value="1">Business-Office</option>
@@ -63,16 +63,32 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="brgy-no" class="col-sm-3 control-label">&nbsp;Barangay</label>
-                                    <div class="col-sm-10">
-                                        <select class="form-control" id="brgy-no" name="barangay">
-                                            <option value="0">Select</option>
-                                            <option value="Brgy. 1">Brgy.1</option>
-                                            <option value="Brgy. 2">Brgy.2</option>
-                                            <option value="Brgy. 3">Brgy.3</option>
-                                        </select>
-                                    </div>
+                                <label for="brgy-no" class="col-sm-3 control-label">&nbsp;Barangay</label>
+                                <div class="col-sm-10">
+                                <select class="form-control select" data-live-search="true" name="barangay_name">
+                                <option selected disabled>Select</option>
+                                <?php
+                               require 'require/databaseconnection.php';
+                                $query = $conn->query("SELECT * FROM `barangay`") or die(mysqli_error());
+                                while($fetch = $query->fetch_array()){
+                                                ?>
+                                                <option value="<?php echo $fetch['barangay_name'];?>"><?php echo $fetch['barangay_name']?></option>
+                                                <?php
+                                }
+                                ?> 
+                            </select>
                                 </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="brgy-no" class="col-sm-12 control-label">&nbsp;Type of Permit</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control select" id="type_of_permit" name="type_of_permit">
+                                        <option value="0">Select</option>
+                                        <option value="Building">Building</option>
+                                        <option value="Occupancy">Occupancy</option>
+                                    </select>
+                                </div>
+                            </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -85,16 +101,7 @@
 </div>
 -->
 
-                            <div class="form-group">
-                                <label for="brgy-no" class="col-sm-12 control-label">&nbsp;Type of Permit</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control" id="type_of_permit" name="type_of_permit">
-                                        <option value="0">Select</option>
-                                        <option value="Building">Building</option>
-                                        <option value="Occupancy">Occupancy</option>
-                                    </select>
-                                </div>
-                            </div>
+                            
                             <div class="form-group">
                                 <label for="user-id" class="col-sm-3 control-label">&nbsp;Username</label>
                                 <div class="col-sm-10">
@@ -127,12 +134,21 @@
                             <div class="form-group">
                                 <label for="status" class="col-sm-2 control-label">&nbsp;Status</label>
                                 <div class="col-sm-12">
-                                    <select class="form-control" id="status" name="status">
+                                    <select class="form-control select" id="status" name="status">
                                         <option value="0">Select</option>
                                         <option value="Pending">Pending</option>
                                         <option value="Incomplete">Incomplete</option>
                                         <option value="Complete">Complete</option>
                                     </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="status" class="col-sm-12 control-label"><br>Initial Requirements</label>
+                                <div class="col-sm-12">
+                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from building Official" name="initial_requirements[]">Endorsement from building Official</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Set of Building Plans (3)" name="initial_requirements[]">&nbsp;Set of Building Plans (3)</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Bill of Materials and Cost Estimate (1)" name="initial_requirements[]">&nbsp;Bill of Materials and Cost Estimate (1)</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="FALAR-1 (3)" name="initial_requirements[]">&nbsp;FALAR-1 (3)</label>
                                 </div>
                             </div>
                         </div>

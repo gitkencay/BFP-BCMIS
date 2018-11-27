@@ -205,8 +205,6 @@
 <!--End Modal view employee-->
 
 
-<!--End MODAL-->
-<!-- MESSAGE BOX-->
 <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
     <div class="mb-container">
         <div class="mb-middle">
@@ -224,45 +222,21 @@
         </div>
     </div>
 </div>
-<!-- END MESSAGE BOX-->
-
-<!-- START PRELOADS -->
 <audio id="audio-alert" src="audio/alert.mp3" preload="auto"></audio>
 <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
-<!-- END PRELOADS -->                  
-
-<!-- START SCRIPTS -->
-<!-- START PLUGINS -->
 <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
 <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>
+<script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>  
 <script type="text/javascript" src="js/plugins/bootstrap/bootstrap.min.js"></script>        
-<!-- END PLUGINS -->
-
-<!-- START THIS PAGE PLUGINS-->        
 <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
 <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
 <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
-
-
-<!--<script src="assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>-->
-<script>
-    $(document).ready(function () {
-        $('#dataTables-example-emp').dataTable();
-    });
-</script>
-<!-- END THIS PAGE PLUGINS-->        
-
-<!-- START TEMPLATE -->
 <script type="text/javascript" src="js/settings.js"></script>
 
 <script type="text/javascript" src="js/plugins.js"></script>        
 <script type="text/javascript" src="js/actions.js"></script>
 
 <script type="text/javascript" src="js/demo_dashboard.js"></script>
-<!-- END TEMPLATE -->
-
-<!-- END SCRIPTS -->         
 </body>
 </html>
 
