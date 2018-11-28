@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>        
@@ -18,50 +20,44 @@
     <body>
         <!-- START PAGE CONTAINER -->
         <div class="page-container">
-
-            <!-- START PAGE SIDEBAR -->
-            <?php require 'require/sidebar.php'?>
-            <!-- END PAGE SIDEBAR -->
-
-            <!-- PAGE CONTENT -->
-            <div class="page-content">
-
-                <!-- START X-NAVIGATION VERTICAL -->
-                <ul id="hozironNav" class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- SIGN OUT -->
-                    <li class="xn-icon-button pull-right">
-                        <a href="pages-login.html" class="mb-control" data-box="#mb-signout"><span class="glyphicon glyphicon-off"></span></a>
-                    </li> 
-                    <!-- END SIGN OUT -->
-                </ul>
-                <!-- END X-NAVIGATION VERTICAL -->                     
+        <?php require 'require/sidebar.php'?>
+        <div class="page-content">
+        <?php require 'require/header.php'?>
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
-                    <li><a href="#">Transaction</a></li>                    
-                    <li class="active"><a href="Transaction-Assessment.html">Assessment & Payment</a></li>
+                    <li><a href="#">Data Entry</a></li>                    
+                    <li class="active"><a href="Transaction-AssessForm.php">Assessment Form</a></li>
                 </ul>
-                <!-- END BREADCRUMB -->                       
-
+                <!-- END BREADCRUMB -->  
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap"> 
                     <div class="AssessForm">
                         <div class="panel panel-default">
                             <div class="panel-body">
+                            <?php
+                                        require 'require/databaseconnection.php';
+                                        $query = $conn->query("SELECT * FROM `application`") or die(mysqli_error());
+
+                                        while($fetch = $query->fetch_array()){
+                                            $month = date("m", strtotime($fetch['month']));
+                                            $application_no = $fetch['application_no'] + 1;
+                                        ?>
                             <table>
                                 <thead>
                                     <tr>
                                         <th>
+                                        
                                             <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="app-nme" placeholder="Kenneth Cayetano" disabled="">  
+                                                <input type="text" class="form-control" id="app-nme" value="<?php echo $fetch['application_name']?>" disabled="">  
                                             </div>
                                         </th>
                                         <th>
                                             <label for="bus-name" class="col-sm-5 control-label">Business Name&nbsp;&nbsp;</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="bus-name" placeholder="Kenneth Salon" disabled="">  
+                                                <input type="text" class="form-control" id="bus-name" value="<?php echo $fetch['business_name']?>" disabled="">  
                                             </div>
                                         </th>
                                     </tr>
@@ -69,27 +65,37 @@
                                         <th>
                                             <label for="location" class="col-md-8 control-label"><br>Location&nbsp;&nbsp;</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="location" placeholder="Magsungay, Brgy. Singcang Airport" disabled="">  
+                                                <input type="text" class="form-control" id="location" value="<?php echo $fetch['establishment_address']?>" disabled="">  
                                             </div>
                                         </th>
                                         <th>
                                             <label for="cert" class="col-md-8 control-label"><br>Certificate Applying For&nbsp;&nbsp;</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="cert" placeholder="FSIC" disabled="">  
+                                                <input type="text" class="form-control" id="cert" value="<?php echo $fetch['application_type']?>" disabled="">  
                                             </div>
                                         </th>
                                     </tr>
+                                    <?php
+                                }
+                                $conn->close();
+                                ?> 
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th><h4><br>Applicable Fees</h4></th>
-                                        <th><h4><br>Amount</h4></th>
+                                        <th><h5><br>Applicable Fees</h5></th>
+                                        <th><h5><br>Initial Amount</h5></th>
+                                        <th><h5><br>Extended Amount</h5></th>
                                     </tr>
                                     <tr>
                                         <td><label>Fire Code Construction Tax</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_FC_Constr" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_FC_Constr" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -97,7 +103,12 @@
                                         <td><label>Fire Code Reality Tax</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_FC_RT" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_FC_RT" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -105,7 +116,12 @@
                                         <td><label>Fire Code Premium Tax</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_FC_PT" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_FC_PT" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -113,7 +129,12 @@
                                         <td><label>Fire Code Sales Tax</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_FC_ST" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_FC_ST" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -121,7 +142,12 @@
                                         <td><label>Fire Code Proceeds Tax</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_FC_PT" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                         <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_FC_PT" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -129,7 +155,12 @@
                                         <td><label>Fire Safety Inspection Fee</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_FS_InspFee" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_FS_InspFee" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -137,7 +168,12 @@
                                         <td><label>Storage Clearance</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_StorClear" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_StorClear" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -145,7 +181,12 @@
                                         <td><label>Conveyance Clearance</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_ConvClear" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_ConvClear" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -153,7 +194,12 @@
                                         <td><label>Installation Clearance</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_InstClear" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_InstClear" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -161,7 +207,12 @@
                                         <td><label>Other Clearance Fee</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="amt" placeholder="Enter Amount">  
+                                                <input type="text" class="form-control" id="Ini_OtherClear" placeholder="Enter Amount">  
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="col-sm-14">
+                                                <input type="text" class="form-control" id="Com_OtherClear" placeholder="Computated Amount" disabled="">  
                                             </div>
                                         </td>
                                     </tr>
@@ -179,12 +230,13 @@
                                      <!-- <div class="col-sm-6">
                                             <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
                                         </div>  -->                                     
-                                        <button class="btn btn-primary pull-right">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
+                                        <button class="btn btn-primary pull-right" id=>Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
                                     </div>
                         </div>
                         </div>
                     </div>
                 </div>
+                
         <!-- END PAGE CONTAINER -->
 
         <!--Start MODAL-->
@@ -249,9 +301,4 @@
         <!-- END SCRIPTS -->         
     </body>
 </html>
-
-
-
-
-
 

@@ -78,7 +78,7 @@
                             <div class="form-group">
                                 <label for="date" class="col-sm-4 control-label">Date Applied</label>
                                 <div class="col-sm-10">
-                                <input data-toggle="tooltip" data-placement="bottom" title="Birthdate" type="text" class="form-control datepicker"  name="date_applied" required/>
+                                <input type="text" class="form-control datepicker"  name="date_applied" required/>
                                 </div>
                                 </div>
                                 </div>
@@ -101,12 +101,12 @@
                                     <div class="form-group">
                                         <label for="owner-name" class="col-sm-5 control-label">Owner Name&emsp;</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" id="owner-name" name="owner_name">
+                                            <input type="text" class="form-control" value=" " id="owner-name" name="owner_name">
                                         </div>
                                     </div>
                                     <div class="col-sm-1">
                                         <input type="checkbox" id="chkAssociation" onclick="enableTextBox();" >
-                                        </div>
+                                    </div>
                                     <div class="form-group">
                                         <label for="floor-number" class="col-sm-6 control-label">Number of Floors&emsp;</label>
                                         <label for="lot-size" class="col-sm-3 control-label">Lot Size</label>
@@ -132,10 +132,10 @@
                                     <div class="form-group">
                                 <label for="status" class="col-sm-12 control-label"><br>Initial Requirements</label>
                                 <div class="col-sm-12">
-                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from building Official" name="initial_requirements[]">Endorsement from building Official</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Set of Building Plans (3)" name="initial_requirements[]">&nbsp;Set of Building Plans (3)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Bill of Materials and Cost Estimate (1)" name="initial_requirements[]">&nbsp;Bill of Materials and Cost Estimate (1)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="FALAR-1 (3)" name="initial_requirements[]">&nbsp;FALAR-1 (3)</label>
+                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from Building Official (BO)" name="initial_requirements[]">&nbsp;Endorsement from Building Official (BO)</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Three (3) Sets of Building Plans and Specifications" name="initial_requirements[]">&nbsp;Three (3) Sets of Building Plans and Specifications</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="One (1) Set of Bills of Materials and Cost Estimate" name="initial_requirements[]">&nbsp;One (1) Set of Bills of Materials and Cost Estimate</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessment Report-1 (FALAR-1) for Occupancy of at least 50 persons" name="initial_requirements[]">&nbsp; Three (3) Sets  of Detailes Fire Safety Plans and Specifications or &emsp;&emsp; (FALAR-1) for Occupancy of at least 50 persons</label>
                                 </div>
                             </div>
                                 </div>

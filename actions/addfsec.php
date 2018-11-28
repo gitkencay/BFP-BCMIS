@@ -8,7 +8,6 @@ if(isset($_POST['submit'])){
     $barangay_name = $_POST['barangay_name'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $owner_name = $_POST['owner_name'];
     $number_of_floors = $_POST['number_of_floors'];
     $lot_size = $_POST['lot_size'];
     $status = $_POST['status'];
@@ -27,14 +26,21 @@ if(isset($_POST['submit'])){
 		{  
 			$new .= $value . ",";  
 		}
-	}
+    }
+    
+    if (empty($owner_name)) {
+        $owner_name == $_POST['application_name'];
+    }
+    else{
+        $owner_name = $_POST['owner_name'];
+    }
 
 
 
     require '../require/databaseconnection.php';
 
     // blank ang sa first field kay auto increment ang id followed sang application name, business name ... .. 
-    $conn->query("INSERT INTO `application` VALUES('', 'FSEC', '$application_name', '$business_name', '$establishment_address', '$building_type', '$barangay_name', 'NA', '$date_applied', '$username', '$password', '$owner_name', '$number_of_floors', '$lot_size', '$status', '$new', '$month', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `application` VALUES('', 'FSEC', '$application_name', '$business_name', '$establishment_address', '$building_type', '$barangay_name', '$owner_name', '$date_applied', '$username', '$password', '$owner_name', '$number_of_floors', '$lot_size', '$status', '$new', '$month', '$year')") or die(mysqli_error());
     $conn->close();
 
     echo "<script type='text/javascript'>alert('Successfully added new FSEC application!');</script>";

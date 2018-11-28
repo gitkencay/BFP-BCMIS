@@ -128,36 +128,48 @@ while($fetch = $query->fetch_array()){
                                         $initial_requirements = $fetch['initial_requirements'];
                                         $check = explode(",", $initial_requirements);
                                     ?>
-                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from building Official" name="initial_requirements[]"
+                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)" name="initial_requirements[]"
                                     <?php 
-                                    if (in_array("Endorsement from building Official", $check)){
+                                    if (in_array("Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)", $check)){
                                         echo "checked";
                                     }
                                     ?>
-                                    >Endorsement from building Official</label> <br>
+                                    >Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)</label> <br>
                                   
 
-                                    <label><input type="checkbox" class="icheckbox" value="Set of Building Plans (3)" name="initial_requirements[]" <?php 
-                                    if (in_array("Set of Building Plans (3)", $check)){
+                                    <label><input type="checkbox" class="icheckbox" value="Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe" name="initial_requirements[]" <?php 
+                                    if (in_array("Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe", $check)){
                                         echo "checked";
                                     }
                                     ?>
-                                    >&nbsp;Set of Building Plans (3)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Bill of Materials and Cost Estimate (1)" name="initial_requirements[]"
+                                    >&nbsp;"Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Copy of Fire Insurance Policy (If Any)" name="initial_requirements[]"
                                     <?php 
-                                    if (in_array("Bill of Materials and Cost Estimate (1)", $check)){
+                                    if (in_array("Copy of Fire Insurance Policy (If Any)", $check)){
                                         echo "checked";
                                     }
                                     ?>
-                                    >&nbsp;Bill of Materials and Cost Estimate (1)</label> <br>
+                                    >&nbsp;Copy of Fire Insurance Policy (If Any)</label> <br>
                                     <label><input type="checkbox" class="icheckbox" value="FALAR-1 (3)" name="initial_requirements[]"
                                     <?php 
-                                    if (in_array("FALAR-1 (3)", $check)){
+                                    if (in_array("Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)", $check)){
                                         echo "checked";
                                     }
                                     ?>
+                                    >&nbsp;Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)</label>
                                     
-                                    >&nbsp;FALAR-1 (3)</label>
+                                    <?php
+                                        $initial_requirements = $fetch['initial_requirements'];
+                                        $check = explode(",", $initial_requirements);
+                                    ?>
+                                    <label><input type="checkbox" class="icheckbox" value="Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)" name="initial_requirements[]"
+                                    <?php 
+                                    if (in_array("Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)", $check)){
+                                        echo "checked";
+                                    }
+                                    ?>
+                                    >Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)</label> <br>
+                                  
                                 </div>
                             </div>
                             <div class="form-group">

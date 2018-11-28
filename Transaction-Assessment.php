@@ -25,22 +25,14 @@
 
             <!-- PAGE CONTENT -->
             <div class="page-content">
-
-                <!-- START X-NAVIGATION VERTICAL -->
-                <ul id="hozironNav" class="x-navigation x-navigation-horizontal x-navigation-panel">
-                    <!-- SIGN OUT -->
-                    <li class="xn-icon-button pull-right">
-                        <a href="pages-login.html" class="mb-control" data-box="#mb-signout"><span class="glyphicon glyphicon-off"></span></a>
-                    </li> 
-                    <!-- END SIGN OUT -->
-                </ul>
-                <!-- END X-NAVIGATION VERTICAL -->                     
+            <?php require 'require/header.php'?>
+            
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Transaction</a></li>                    
-                    <li class="active"><a href="Transaction-Assessment.html">Assessment & Payment</a></li>
+                    <li class="active"><a href="Transaction-Assessment.php">Assessment & Payment</a></li>
                 </ul>
                 <!-- END BREADCRUMB -->                       
 
@@ -329,73 +321,7 @@
             <!-- END PAGE CONTENT -->
         </div>
         <!-- END PAGE CONTAINER -->
-
-        <!--Start MODAL-->
-        <!--Start Modal View FSEC-REG-->
-        <div class="modal fade" id="View-FSEC-Reg" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h3 class="modal-title">Pending List(Assessment)</h3>
-                    </div>
-
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <div class=col-md-4>
-                                        <input type="text" class="form-control" id="assessSearch" placeholder="Search">
-                                    </div>
-                                </div>
-                                <br>
-                                <br>
-                                <table class="table table-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Application No.</th>
-                                            <th>Date Applied</th>
-                                            <th>Time-In</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>2018-1-1</td>
-                                            <td>1-2-2018</td>
-                                            <td>1-3-18/11:30am</td>
-                                            <td><a href="Transaction-AssessForm.html"><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-1-1</td>
-                                            <td>1-2-2018</td>
-                                            <td>1-3-18/11:30am</td>
-                                            <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-1-1</td>
-                                            <td>1-2-2018</td>
-                                            <td>1-3-18/11:30am</td>
-                                            <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2018-1-1</td>
-                                            <td>1-2-2018</td>
-                                            <td>1-3-18/11:30am</td>
-                                            <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>                      
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
-                                </div>
-                            </div>                                                              
-                        </div>                                                            
-                    </div> 
-                </div>
-                <!--End Modal View FSEC REG-->
-
-                <!--End MODAL-->
+        <?php require 'modals/viewPendingFSEC.php'?>
                 <!-- MESSAGE BOX-->
                 <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
                     <div class="mb-container">

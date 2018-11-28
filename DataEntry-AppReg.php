@@ -19,7 +19,7 @@
 				<ul class="breadcrumb">
 					<li><a href="home.php">Home</a></li>
 					<li>Data Entry</li>
-					<li class="active"><strong><mark>Patient Master File</mark></strong></li>
+					<li class="active"><strong><mark>Applicant Registration</mark></strong></li>
 				</ul>
 				<div class="page-content-wrap">
 					<div class="row">

@@ -115,10 +115,13 @@
                                 </div>                                                                                            
                             </div>
                             <div class="form-group">
-                                <label for="owner-name" class="col-sm-5 control-label">Owner Name&emsp;&nbsp;&nbsp;&nbsp;</label>
-                                <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="owner-name" name="owner_name">
-                                </div>
+                            <label for="owner-name2" class="col-sm-5 control-label">Owner Name&emsp;</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" value=" "id="owner-name2" name="owner_name">
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="checkbox" id="chkAssociation2" onclick="enableTextBox();" >
+                            </div>
                             </div>
                             <div class="form-group">
                                 <label for="floor-number" class="col-sm-6 control-label">Number of Floors&emsp;&nbsp;&nbsp;&nbsp;</label>
@@ -145,10 +148,11 @@
                             <div class="form-group">
                                 <label for="status" class="col-sm-12 control-label"><br>Initial Requirements</label>
                                 <div class="col-sm-12">
-                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from building Official" name="initial_requirements[]">Endorsement from building Official</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Set of Building Plans (3)" name="initial_requirements[]">&nbsp;Set of Building Plans (3)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Bill of Materials and Cost Estimate (1)" name="initial_requirements[]">&nbsp;Bill of Materials and Cost Estimate (1)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="FALAR-1 (3)" name="initial_requirements[]">&nbsp;FALAR-1 (3)</label>
+                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)" name="initial_requirements[]">Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe" name="initial_requirements[]">&nbsp;Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Copy of Fire Insurance Policy (If Any)" name="initial_requirements[]">&nbsp;Copy of Fire Insurance Policy (If Any)</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)" name="initial_requirements[]">&nbsp;Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)</label>
+                                    <label><input type="checkbox" class="icheckbox" value="Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)" name="initial_requirements[]">&nbsp;Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)</label> <br>
                                 </div>
                             </div>
                         </div>
@@ -163,15 +167,15 @@
                 </div>
             </form>
             <SCRIPT LANGUAGE="JavaScript">
-                function enableTextBox()
-                {
-                    if (document.getElementById("chkAssociation").checked == true)
-                        document.getElementById("owner-name").disabled = false;
-                    else
-                        document.getElementById("owner-name").disabled = true;
+                        function enableTextBox()
+                        {
+                            if (document.getElementById("chkAssociation2").checked == true)
+                                document.getElementById("owner-name2").disabled = false;
+                            else
+                                document.getElementById("owner-name2").disabled = true;
 
-                }
-                </script>
+                        }
+                        </script>
 
         </div>                                                              
     </div>                                                            

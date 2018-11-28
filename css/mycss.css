@@ -30,19 +30,74 @@
 }
 
 .AssessForm{
-	width: 800px;
-	margin-left: 100px;
+	width: 885px;
+	margin-left: 80px;
+	margin-top: 30px;
 }
 
-.AssessForm > tbody > th > h4{
-	margin-top: 10px;
+#Ini_FC_Constr{
+	margin-bottom: 10px;
 }
-#amt{
-	margin-top: 7px;
+#Com_FC_Constr{
+	margin-bottom: 10px;
+}
+#Ini_FC_RT{
+	margin-bottom: 10px;
+}
+#Com_FC_RT{
+	margin-bottom: 10px;
+}
+#Ini_FC_PT{
+	margin-bottom: 10px;
+}
+#Com_FC_PT{
+	margin-bottom: 10px;
+}
+#Ini_FC_ST{
+	margin-bottom: 10px;
+}
+#Com_FC_ST{
+	margin-bottom: 10px;
+}
+#Ini_FC_PT{
+	margin-bottom: 10px;
+}
+#Com_FC_PT{
+	margin-bottom: 10px;
+}
+#Ini_FS_InspFee{
+	margin-bottom: 10px;
+}
+#Com_FS_InspFee{
+	margin-bottom: 10px;
+}
+#Ini_StorClear{
+	margin-bottom: 10px;
+}
+#Com_StorClear{
+	margin-bottom: 10px;
+}
+#Ini_ConvClear{
+	margin-bottom: 10px;
+}
+#Com_ConvClear{
+	margin-bottom: 10px;
+}
+#Ini_InstClear{
+	margin-bottom: 10px;
+}
+#Com_InstClear{
+	margin-bottom: 10px;
+}
+#Ini_OtherClear{
+	margin-bottom: 10px;
+}
+#Com_OtherClear{
+	margin-bottom: 10px;
 }
 #totalamt{
-	margin-top: 7px;
-	margin-bottom: 15px;
+	margin-bottom: 40px;
+	margin-top: 20px;
 }
 
 .AppRecOverView{
