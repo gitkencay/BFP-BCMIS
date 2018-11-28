@@ -38,11 +38,8 @@
                             <div class="panel-body">
                             <?php
                                         require 'require/databaseconnection.php';
-                                        $query = $conn->query("SELECT * FROM `application`") or die(mysqli_error());
-
-                                        while($fetch = $query->fetch_array()){
-                                            $month = date("m", strtotime($fetch['month']));
-                                            $application_no = $fetch['application_no'] + 1;
+                                        $query = $conn->query("SELECT * FROM `application` WHERE 'application_no' = '$_GET[application_no]'") or die(mysqli_error());
+                                        $fetch = $query->fetch_array();
                                         ?>
                             <table>
                                 <thead>
@@ -76,7 +73,7 @@
                                         </th>
                                     </tr>
                                     <?php
-                                }
+                                
                                 $conn->close();
                                 ?> 
                                 </thead>

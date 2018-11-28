@@ -40,7 +40,7 @@
                                                 <td><?php echo $fetch['owner_name']?></td>
                                                 <td><?php echo $fetch['date_applied']?></td>
                                                 <td>
-                                                    <a href="Transaction-AssessFormCopy.php?id=<?php echo $fetch['application_no'];?>" class="btn btn-info btn-sm">Assess</a>
+                                                    <a href="Transaction-AssessFormCopy.php?application_no=<?php echo $fetch['application_no'];?>" class="btn btn-info btn-sm">Assess</a>
                                                     </td>
                                             </tr>
                                                 <?php

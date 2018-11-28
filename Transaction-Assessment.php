@@ -25,14 +25,22 @@
 
             <!-- PAGE CONTENT -->
             <div class="page-content">
-            <?php require 'require/header.php'?>
-            
+
+                <!-- START X-NAVIGATION VERTICAL -->
+                <ul id="hozironNav" class="x-navigation x-navigation-horizontal x-navigation-panel">
+                    <!-- SIGN OUT -->
+                    <li class="xn-icon-button pull-right">
+                        <a href="pages-login.html" class="mb-control" data-box="#mb-signout"><span class="glyphicon glyphicon-off"></span></a>
+                    </li> 
+                    <!-- END SIGN OUT -->
+                </ul>
+                <!-- END X-NAVIGATION VERTICAL -->                     
 
                 <!-- START BREADCRUMB -->
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Transaction</a></li>                    
-                    <li class="active"><a href="Transaction-Assessment.php">Assessment & Payment</a></li>
+                    <li class="active"><a href="Transaction-Assessment.html">Assessment & Payment</a></li>
                 </ul>
                 <!-- END BREADCRUMB -->                       
 
@@ -140,11 +148,12 @@
                                         <div class="tab-pane" id="tab-second-assessment">
                                             <!--Start Default Table-->
                                             <div class="panel panel-default">
-                                                <div class="panel-heading">                                
-                                                    <!-- <ul class="panel-controls">
-<button class="btn btn-info"><i class="fa fa-plus"></i></button>
-</ul>-->
-                                                </div>
+                                            <div class="panel-heading">                                
+                                            <ul class="panel-controls">
+                                                <button type="button" class="btn btn-info" data-toggle="modal" data-target="#View-FSIC-Reg"><i class="fa fa-plus"></i>Create Assessment</button>
+                                                <!--<button type="button" class="btn btn-info" data-toggle="modal" data-target="#View-FSEC-Reg">Create Assessment<i class="fa fa-plus"></i>-->
+                                            </ul>
+                                            </div>
                                                 <div class="panel-body">
                                                     <table class="table datatable" id="dataTables-fsic-assessment">
                                                         <thead>
@@ -321,7 +330,125 @@
             <!-- END PAGE CONTENT -->
         </div>
         <!-- END PAGE CONTAINER -->
-        <?php require 'modals/viewPendingFSEC.php'?>
+
+        <!--Start MODAL-->
+        <!--Start Modal View FSEC-REG-->
+        <div class="modal fade" id="View-FSEC-Reg" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Pending List(Assessment)</h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class=col-md-4>
+                                        <input type="text" class="form-control" id="assessSearch" placeholder="Search">
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Application No.</th>
+                                            <th>Owner Name</th>
+                                            <th>Date Applied</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+    require 'require/databaseconnection.php';
+            $query = $conn->query("select * from `application` where status = 'Complete' && application_type = 'FSEC' ") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $month = date("m", strtotime($fetch['month']));
+                                        ?>                                      
+                                        <tr>
+                                            <td><?php echo $fetch['year']. '-' . $month. '-' .$fetch['application_no']?></td>
+                                            <td><?php echo $fetch['owner_name']?></td>
+                                            <td><?php echo $fetch['date_applied']?></td>
+                                            <td>
+                                                <a href="transaction-overviewassess.php?application_no=<?php echo $fetch['application_no']?>" class="btn btn-sm btn-info">Assess</a>
+                                            </td>
+                                        </tr>
+                                        <?php
+            }
+            $conn->close();
+                                        ?>
+                                    </tbody>
+                                </table>                      
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                                </div>
+                            </div>                                                              
+                        </div>                                                            
+                    </div> 
+                </div>
+                <!--End Modal View FSEC REG-->
+
+
+<!--Start Modal View FSIC-REG-->
+        <div class="modal fade" id="View-FSIC-Reg" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3 class="modal-title">Pending List(Assessment)</h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class=col-md-4>
+                                        <input type="text" class="form-control" id="assessSearch" placeholder="Search">
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Application No.</th>
+                                            <th>Owner Name</th>
+                                            <th>Date Applied</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+    require 'require/databaseconnection.php';
+            $query = $conn->query("select * from `application` where status = 'Complete' && application_type = 'FSIC' ") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $month = date("m", strtotime($fetch['month']));
+                                        ?>                                      
+                                        <tr>
+                                            <td><?php echo $fetch['year']. '-' . $month. '-' .$fetch['application_no']?></td>
+                                            <td><?php echo $fetch['owner_name']?></td>
+                                            <td><?php echo $fetch['date_applied']?></td>
+                                            <td>
+                                                <a href="transaction-overviewassess.php?application_no=<?php echo $fetch['application_no']?>" class="btn btn-sm btn-info">Assess</a>
+                                            </td>
+                                        </tr>
+                                        <?php
+            }
+            $conn->close();
+                                        ?>
+                                    </tbody>
+                                </table>                      
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                                </div>
+                            </div>                                                              
+                        </div>                                                            
+                    </div> 
+                </div>
+                <!--End Modal View FSIC REG-->
+                <!--End MODAL-->
                 <!-- MESSAGE BOX-->
                 <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
                     <div class="mb-container">

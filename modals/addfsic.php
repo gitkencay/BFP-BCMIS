@@ -92,16 +92,14 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <!--
-<div class="form-group">
-<label for="date" class="col-sm-4 control-label">Date Applied</label>
-<div class="col-sm-10">
-<input type="date" class="form-control" id="date" name="date">
-</div>
-</div>
--->
-
-                            
+                        <div class="form-group">
+                        <label for="date" class="col-sm-4 control-label">Date Applied</label>
+                        <div class="col-sm-10">
+                        <input type="text" class="form-control datepicker"  name="date_applied" required/>
+                        </div>
+                        </div>
+                        </div>
+                    <div class="col-md-6">
                             <div class="form-group">
                                 <label for="user-id" class="col-sm-3 control-label">&nbsp;Username</label>
                                 <div class="col-sm-10">

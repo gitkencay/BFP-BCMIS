@@ -82,7 +82,7 @@
                                 </div>
                                 </div>
                                 </div>
-                                <div class="col-md-6">
+                            <div class="col-md-6">
                                
 
 
@@ -101,7 +101,7 @@
                                     <div class="form-group">
                                         <label for="owner-name" class="col-sm-5 control-label">Owner Name&emsp;</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" value=" " id="owner-name" name="owner_name">
+                                            <input type="text" class="form-control" id="owner-name" name="owner_name">
                                         </div>
                                     </div>
                                     <div class="col-sm-1">

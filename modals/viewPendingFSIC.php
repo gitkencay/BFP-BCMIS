@@ -31,7 +31,7 @@
                                     <tbody>
                                         <?php
                                         require 'require/databaseconnection.php';
-                                        $query = $conn->query("select * from `application` where status = 'Pending'") or die(mysqli_error());
+                                        $query = $conn->query("select * from `application` where status = 'Complete' && application_type = 'FSIC'") or die(mysqli_error());
                                         while($fetch = $query->fetch_array()){
                                         $month = date("m", strtotime($fetch['month']));
                                         ?>
