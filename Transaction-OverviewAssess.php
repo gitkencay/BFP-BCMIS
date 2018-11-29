@@ -70,7 +70,7 @@
                                             <th>
                                                 <label for="cert" class="col-md-8 control-label"><br>Certificate Applying For&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="cert" placeholder="FSEC" disabled="">  
+                                                    <input type="text" class="form-control" id="cert"  value="<?php echo $fetch['application_type']?>" disabled="">  
                                                 </div>
                                             </th>
                                         </tr>
