@@ -54,12 +54,12 @@
                                 <div class="col-sm-10">
                                     <select class="form-control select" id="bldg-code" name="building_type">
                                         <option value="0">Select</option>
-                                        <option value="0">Assembly</option>
-                                        <option value="1">Business-Office</option>
-                                        <option value="1">Educational</option>
-                                        <option value="1">Mercantile</option>
-                                        <option value="1">Small-Business</option>
-                                        <option value="1">Storage</option>
+                                        <option value="Assembly">Assembly</option>
+                                        <option value="Business-Office">Business-Office</option>
+                                        <option value="Educational">Educational</option>
+                                        <option value="Mercantile">Mercantile</option>
+                                        <option value="Small-Business">Small-Business</option>
+                                        <option value="Storage">Storage</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -138,7 +138,6 @@
                                     <select class="form-control select" id="status" name="status">
                                         <option value="0">Select</option>
                                         <option value="Pending">Pending</option>
-                                        <option value="Incomplete">Incomplete</option>
                                         <option value="Complete">Complete</option>
                                     </select>
                                 </div>
@@ -146,11 +145,15 @@
                             <div class="form-group">
                                 <label for="status" class="col-sm-12 control-label"><br>Initial Requirements</label>
                                 <div class="col-sm-12">
-                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)" name="initial_requirements[]">Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe" name="initial_requirements[]">&nbsp;Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Copy of Fire Insurance Policy (If Any)" name="initial_requirements[]">&nbsp;Copy of Fire Insurance Policy (If Any)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)" name="initial_requirements[]">&nbsp;Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)</label>
-                                    <label><input type="checkbox" class="icheckbox" value="Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)" name="initial_requirements[]">&nbsp;Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)</label> <br>
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq5" name="initial_requirements[]">Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)</label> <br>
+
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq6" name="initial_requirements[]">&nbsp;Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe</label> <br>
+
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq7" name="initial_requirements[]">&nbsp;Copy of Fire Insurance Policy (If Any)</label> <br>
+
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq8" name="initial_requirements[]">&nbsp;Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)</label>
+
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq9" name="initial_requirements[]">&nbsp;Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)</label> <br>
                                 </div>
                             </div>
                         </div>
