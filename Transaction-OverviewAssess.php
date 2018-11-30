@@ -74,7 +74,7 @@
                                         </tr>
                                         <tr>
                                             <th>
-                                                 <input type="hidden" class="form-control" id="applicant_no"  value="<?php echo $fetch['application_no']?>" disabled="">  
+                                                 <input type="hidden" class="form-control" id="application_no" name="application_no"  value="<?php echo $fetch['application_no']?>" disabled="">  
                                                  <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="applicant_name" value="<?php echo $fetch['application_name']?>" disabled="">  
@@ -304,7 +304,7 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="installation_clearance" placeholder="Extended Total" disabled="">  
+                                                    <input type="text" class="form-control qty" id="installation_clearance" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
                                             <script>
@@ -327,17 +327,17 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="other_clearance" placeholder="Extended Total" disabled="">  
+                                                    <input type="text" class="form-control qty" id="other_clearance" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_OtherClear", function() {
-                                                var main = $('#other_clearance').val();
+                                                var main = $('#Ini_OtherClear').val();
                                                 var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
                                                 var discount = main-mult;
-                                                $('#installation_clearance').val(discount);
+                                                $('#other_clearance').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -345,27 +345,35 @@
                                             <td><label>Total Amount of Fire Code Fees</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="total_amount" placeholder="Total Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="total_amount" value="100">  
                                                 </div>
                                             </td>
                                             <script>
-                                                $(document).on("change keyup blur", "#Ini_OtherClear", function() {
-                                                var main = $('#other_clearance').val();
-                                                var disc = 10;
-                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
-                                                var mult = main*dec; // gives the value for subtract from main value
-                                                var discount = main-mult;
-                                                $('#installation_clearance').val(discount);
+                                                $(document).on("change", ".form-controls qty", function() {
+                                                    var sum = 0;
+                                                    $(".form-controls qty").each(function(){
+                                                        sum += +$(this).val();
+                                                    });
+                                                    $("#total_amount").val(sum);
                                                 });
+
+                                                // $(document).on("change keyup blur", "#Ini_OtherClear", function() {
+                                                // var main = $('#other_clearance').val();
+                                                // var disc = 10;
+                                                // var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                // var mult = main*dec; // gives the value for subtract from main value
+                                                // var discount = main-mult;
+                                                // $('#installation_clearance').val(discount);
+                                                // });
                                             </script>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <div class="panel-footer">  
-                                    <!-- <div class="col-sm-6">
-<p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
-</div>  -->                                     
-                                    <button class="btn btn-primary pull-right" id="Save">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
+                                    <div class="col-sm-6">
+                                    <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
+                                    </div> 
+                                    <button type="submit" class="btn btn-info" name="submit"><span class="fa fa-check"></span>Save Changes</button>
                                 </div>
                             </div>
                             </form>

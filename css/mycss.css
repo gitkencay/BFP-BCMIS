@@ -59,10 +59,10 @@
 #Com_FC_ST{
 	margin-bottom: 10px;
 }
-#Ini_FC_PT{
+#Ini_FC_PreT{
 	margin-bottom: 10px;
 }
-#Com_FC_PT{
+#Com_FC_ProT{
 	margin-bottom: 10px;
 }
 #Ini_FS_InspFee{
@@ -72,6 +72,9 @@
 	margin-bottom: 10px;
 }
 #Ini_StorClear{
+	margin-bottom: 10px;
+}
+#Ini_FC_ST{
 	margin-bottom: 10px;
 }
 #Com_StorClear{

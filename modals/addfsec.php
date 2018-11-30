@@ -23,7 +23,7 @@
                                         ?>
                                         <label for="app-no" class="col-sm-5 control-label">Application No.</label>
                                         <div class="col-sm-10">
-                                            <input type="text" readonly class="form-control text-primary" id="app-no" name="application_no" value="<?php echo $year. '-' .$month. '-' .$application_no?>">
+                                            <input type="text" readonly class="form-control text-primary" id="application_no" name="application_no" value="<?php echo $year. '-' .$month. '-' .$application_no?>">
                                         </div>
                                      </div>
                                     <div class="form-group">
@@ -48,7 +48,7 @@
                                         <label for="bldg-code" class="col-sm-5 control-label">Building Type&emsp;</label>
                                         <div class="col-sm-10">
                                             <select class="form-control select" id="bldg-code" name="building_type">
-                                                <option value="0">Select</option>
+                                                <option value="0" readonly>Select</option>
                                                 <option value="0">Assembly</option>
                                                 <option value="1">Business-Office</option>
                                                 <option value="1">Educational</option>
