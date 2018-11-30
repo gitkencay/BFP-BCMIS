@@ -47,171 +47,143 @@
                 <!-- PAGE CONTENT WRAPPER -->
                 <div class="page-content-wrap">
 
-                     <div class="row">
+                    <div class="row">
                         <div class="col-md-12">
 
-                                           <!--Start Default Table-->
-                                           
-                                             <div class="panel panel-default">
-                                                <div class="panel-heading">
-                                                    <ul class="panel-controls">
-                                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#inspModal"><i class="fa fa-plus"></i>Inpection Order Form</button>   
-                                                        </ul>                             
-                                                 </div>
-                                             </div>
-                                                <div class="panel-body">
-                                                    <table class="table datatable" id="dataTables-inspection">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>OPS No.</th>
-                                                                <th>Inspector</th>
-                                                                <th>Business Name</th>
-                                                                <th>Location</th>
-                                                                <th>Status</th>
-                                                                <th>Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>Cardo Dalisay</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Araneta Street</td>
-                                                                <td>Inspection Order</td>
-                                                                <td><a href="inspection-order.html"><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>22-33-44</td>
-                                                                <td>Cardo Dalisay</td>
-                                                                <td>Puatu Bar</td>
-                                                                <td>Golden Field</td>
-                                                                <td>After Inspection Report</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>33-44-55</td>
-                                                                <td>Lito Lapid</td>
-                                                                <td>Maximus</td>
-                                                                <td>Araneta Street</td>
-                                                                <td>Notice To Comply</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>Cardo Dalisay</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Araneta Street</td>
-                                                                <td>Inspection Order</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>22-33-44</td>
-                                                                <td>Cardo Dalisay</td>
-                                                                <td>Puatu Bar</td>
-                                                                <td>Golden Field</td>
-                                                                <td>After Inspection Report</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>33-44-55</td>
-                                                                <td>Lito Lapid</td>
-                                                                <td>Maximus</td>
-                                                                <td>Araneta Street</td>
-                                                                <td>Notice To Comply</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <!-- END DEFAULT DATATABLE -->
+                            <!--Start Default Table-->
 
-                                        </div>
-                                       
-
-                                        </div>                                        
-                                        
-                                    </div>
-                                    <div class="panel-footer">                                                                        
-                                        <button class="btn btn-primary pull-right">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
-                                    </div>
-                                </div>                                
-
-                            </form>
-
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <ul class="panel-controls">
+                                        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#inspModal"><i class="fa fa-plus"></i>Inpection Order Form</button>   
+                                    </ul>                             
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <table class="table datatable">
+                                    <thead>
+                                        <tr>
+                                            <th>Inspection Order No</th>
+                                            <th>Inspection Report No</th>
+                                            <th>Application No</th>
+                                            <th>Building Construction No</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+    require 'require/databaseconnection.php';
+            $query = $conn->query("select * from `inspection` order by inspection_report_no DESC") or die(mysqli_error());
+            while($fetch = $query->fetch_array()){
+                $month = date("m", strtotime($fetch['month']));
+                                        ?>                                      
+                                        <tr>
+                                            <td><?php echo $fetch['year']. '-' . $month. '-' .$fetch['inspection_order_no']?></td>
+                                            <td><?php echo $fetch['inspection_report_no']?></td>
+                                            <td><?php echo $fetch['application_no']?></td>
+                                            <td><?php echo $fetch['building_construction_no']?></td>
+                                            <td><?php echo $fetch['status']?></td>
+                                            <td>
+                                                <a href="transaction-viewinspection.php?inspection_order_no=<?php echo $fetch['application_no']?>" class="btn btn-sm btn-info">View</a>
+                                            </td>
+                                        </tr>
+                                        <?php
+            }
+            $conn->close();
+                                        ?>
+                                    </tbody>
+                                </table>         
+                            </div>
                         </div>
-                    </div>       
+                        <!-- END DEFAULT DATATABLE -->
 
-                </div>
-                <!-- END PAGE CONTENT WRAPPER -->                                
-            </div>            
-            <!-- END PAGE CONTENT -->
+                    </div>
+
+
+                </div>                                        
+
+            </div>
+            <div class="panel-footer">                                                                        
+                <button class="btn btn-primary pull-right">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
+            </div>
+        </div>                                
+
+        </form>
+
+    </div>
+</div>       
+
+</div>
+<!-- END PAGE CONTENT WRAPPER -->                                
+</div>            
+<!-- END PAGE CONTENT -->
+</div>
+<!-- END PAGE CONTAINER -->
+
+<!--Start MODAL-->
+<div class="modal fade" id="inspModal" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 class="modal-title">Pending List(Inspection & Compliance)</h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <div class=col-md-4>
+                                <input type="text" class="form-control" id="assessSearch" placeholder="Search">
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Application No.</th>
+                                    <th>Date Applied</th>
+                                    <th>Time-In</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2018-1-1</td>
+                                    <td>1-2-2018</td>
+                                    <td>1-3-18/11:30am</td>
+                                    <td><a href="inspection-order.html"><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
+                                </tr>
+                                <tr>
+                                    <td>2018-1-1</td>
+                                    <td>1-2-2018</td>
+                                    <td>1-3-18/11:30am</td>
+                                    <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>2018-1-1</td>
+                                    <td>1-2-2018</td>
+                                    <td>1-3-18/11:30am</td>
+                                    <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td>2018-1-1</td>
+                                    <td>1-2-2018</td>
+                                    <td>1-3-18/11:30am</td>
+                                    <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>                      
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
+                        </div>
+                    </div>                                                              
+                </div>                                                            
+            </div> 
         </div>
-        <!-- END PAGE CONTAINER -->
 
-        <!--Start MODAL-->
-          <div class="modal fade" id="inspModal" role="dialog">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                              <h3 class="modal-title">Pending List(Inspection & Compliance)</h3>
-                                                    </div>
-
-                                                    <div class="modal-body">
-                                                     <div class="row">
-                                                       <div class="col-lg-12">
-                                                        <div class="form-group">
-                                                            <div class=col-md-4>
-                                                            <input type="text" class="form-control" id="assessSearch" placeholder="Search">
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <br>
-                                                               <table class="table table-hover">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Application No.</th>
-                                                                        <th>Date Applied</th>
-                                                                        <th>Time-In</th>
-                                                                        <th>Action</th>
-                                                                    </tr>
-                                                                </thead>
-                                                                <tbody>
-                                                                    <tr>
-                                                                        <td>2018-1-1</td>
-                                                                        <td>1-2-2018</td>
-                                                                        <td>1-3-18/11:30am</td>
-                                                                        <td><a href="inspection-order.html"><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>2018-1-1</td>
-                                                                        <td>1-2-2018</td>
-                                                                        <td>1-3-18/11:30am</td>
-                                                                        <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>2018-1-1</td>
-                                                                        <td>1-2-2018</td>
-                                                                        <td>1-3-18/11:30am</td>
-                                                                        <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>2018-1-1</td>
-                                                                        <td>1-2-2018</td>
-                                                                        <td>1-3-18/11:30am</td>
-                                                                        <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                                    </tr>
-                                                                </tbody>
-                                                               </table>                      
-                                                            <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
-                                                            </div>
-                                                            </div>                                                              
-                                                        </div>                                                            
-                                                    </div> 
-                                                </div>
-                                       
         <!--End MODAL-->
         <!-- MESSAGE BOX-->
         <div class="message-box animated fadeIn" data-sound="alert" id="mb-signout">
@@ -251,13 +223,13 @@
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
 
 
-         <script src="assets/js/dataTables/jquery.dataTables.js"></script>
-         <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>-->
-             <script>
-                 $(document).ready(function () {
-                      $('#dataTables-example').dataTable();
-                  });
-             </script>
+        <script src="assets/js/dataTables/jquery.dataTables.js"></script>
+        <script src="assets/js/dataTables/dataTables.bootstrap.js"></script>-->
+        <script>
+            $(document).ready(function () {
+                $('#dataTables-example').dataTable();
+            });
+        </script>
 
         <!-- END THIS PAGE PLUGINS-->        
 
@@ -271,8 +243,8 @@
         <!-- END TEMPLATE -->
 
         <!-- END SCRIPTS -->         
-    </body>
-</html>
+        </body>
+    </html>
 
 
 

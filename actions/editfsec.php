@@ -30,8 +30,7 @@ if(isset($_POST['editfsec'])){
 		}
 	}
 
-    $conn->query("UPDATE `application` SET `application_name` = '$application_name', `business_name` = '$business_name', `establishment_address` = '$establishment_address', `building_type` = '$building_type', `barangay_name` = '$barangay_name', 'date_applied' = '$date_applied', `username` = '$username', `password` = '$password', `owner_name` = '$owner_name', `number_of_floors` = '$number_of_floors', `lot_size` = '$lot_size', `status` = '$status', `initial_requirements` = '$new' WHERE `application_no` = '$application_no'") or die(mysqli_error());
-
+    $conn->query("UPDATE `application` SET `application_name` = '$application_name', `business_name` = '$business_name', `establishment_address` = '$establishment_address', `building_type` = '$building_type', `barangay_name` = '$barangay_name', `username` = '$username', `password` = '$password', `owner_name` = '$owner_name', `number_of_floors` = '$number_of_floors', `lot_size` = '$lot_size', `status` = '$status', `initial_requirements` = '$new' WHERE `application_no` = '$application_no'") or die(mysqli_error());
 
     echo "<script type='text/javascript'>alert('Successfully edited FSEC application!');</script>";
     echo "<script>document.location='../DataEntry-AppReg.php'</script>";

@@ -111,25 +111,26 @@
                                             <th><h5><br>Extended Amount</h5></th>
                                         </tr>
                                         <tr>
+                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
                                             <td><label>Fire Code Construction Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_FC_Constr" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_FC_Constr" placeholder="Enter Amount" >  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="construction_tax" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="construction_tax" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
                                             <script>
-                                                $(document).on("change keyup blur", "#chDiscount", function() {
+                                                $(document).on("change keyup blur", "#Ini_FC_Constr", function() {
                                                 var main = $('#Ini_FC_Constr').val();
                                                 var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
-                                                var discont = main-mult;
-                                                $('#construction_tax').val(discont);
+                                                var discount = main-mult;
+                                                $('#construction_tax').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -142,22 +143,42 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="reality_tax" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="reality_tax" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_FC_RT", function() {
+                                                var main = $('#Ini_FC_RT').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#reality_tax').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Fire Code Premium Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_FC_PT" placeholder="Enter Amount">  
+                                                    <input type="text" class="form-control" id="Ini_FC_PreT" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="premium_tax" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="premium_tax" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_FC_PreT", function() {
+                                                var main = $('#Ini_FC_PreT').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#premium_tax').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Fire Code Sales Tax</label></td>
@@ -168,22 +189,42 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="sales_tax" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="sales_tax" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_FC_ST", function() {
+                                                var main = $('#Ini_FC_ST').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#sales_tax').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Fire Code Proceeds Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_FC_PT" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_FC_ProT" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="proceeds_tax" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="proceeds_tax" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_FC_ProT", function() {
+                                                var main = $('#Ini_FC_ProT').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#proceeds_tax').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Fire Safety Inspection Fee</label></td>
@@ -194,9 +235,19 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="number" class="form-control" id="inspection_fee" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="number" class="form-control" id="inspection_fee" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_FS_InspFee", function() {
+                                                var main = $('#Ini_FS_InspFee').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#inspection_fee').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Storage Clearance</label></td>
@@ -207,9 +258,19 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="storage_clearance" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="storage_clearance" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_StorClear", function() {
+                                                var main = $('#Ini_StorClear').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#storage_clearance').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Conveyance Clearance</label></td>
@@ -220,10 +281,20 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="conveyance_clearance" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="conveyance_clearance" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
+                                        <script>
+                                                $(document).on("change keyup blur", "#Ini_ConvClear", function() {
+                                                var main = $('#Ini_ConvClear').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#conveyance_clearance').val(discount);
+                                                });
+                                        </script>
                                         <tr>
                                             <td><label>Installation Clearance</label></td>
                                             <td>
@@ -233,9 +304,19 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="installation_clearance" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="installation_clearance" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_InstClear", function() {
+                                                var main = $('#Ini_InstClear').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#installation_clearance').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Other Clearance Fee</label></td>
@@ -246,17 +327,37 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="other_clearance" value="100" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="other_clearance" placeholder="Extended Total" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_OtherClear", function() {
+                                                var main = $('#other_clearance').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#installation_clearance').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Total Amount of Fire Code Fees</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="total_amount" value="1000" placeholder="Total Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="total_amount" placeholder="Total Amount" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#Ini_OtherClear", function() {
+                                                var main = $('#other_clearance').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#installation_clearance').val(discount);
+                                                });
+                                            </script>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -334,7 +435,7 @@
                 <!-- END TEMPLATE -->
                 <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
                 <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
-	
+                    
                 <!-- END SCRIPTS -->  
                 </body>
             </html>
