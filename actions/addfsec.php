@@ -26,7 +26,8 @@ if(isset($_POST['submit'])){
 		{  
 			$new .= $value . ",";  
 		}
-	}
+    }
+    
     if (empty($_POST['owner_name'])){
          $owner_name = $_POST['application_name'];
     }
@@ -39,10 +40,11 @@ if(isset($_POST['submit'])){
     require '../require/databaseconnection.php';
 
 
-    $conn->query("INSERT INTO `application` VALUES('', 'FSEC', '$application_name', '$business_name', '$establishment_address', '$building_type', '$barangay_name', '$date_applied', '$username', '$password', '$owner_name', '$number_of_floors', '$lot_size', '$status', '$new', '$month', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `application` VALUES('', 'FSEC', '$application_name', '$business_name', '$establishment_address', '$building_type', '$barangay_name', '', '$date_applied', '$username', '$password', '$owner_name', '$number_of_floors', '$lot_size', '$status', '$new', '$month', '$year')") or die(mysqli_error());
     $conn->close();
 
     echo "<script type='text/javascript'>alert('Successfully added new FSEC application!');</script>";
     echo "<script>document.location='../DataEntry-AppReg.php'</script>";
+
 }
 ?>
