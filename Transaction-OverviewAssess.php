@@ -35,28 +35,55 @@
                 <div class="page-content-wrap"> 
                     <div class="AssessForm">
                         <div class="panel panel-default">
+                        <form method="post" action="actions/assessFSEC.php" onsubmit="return confirm('Are you sure you want to add this FSEC assessment?');"  >
                             <div class="panel-body">
                                 <table>
                                     <thead>
                                         <tr>
+                                        
+                                            <?php
+                                                require 'require/databaseconnection.php';
+                                                $query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
+                                                $fetch = $query->fetch_array();
+
+                                                $query2 = $conn->query("SELECT * FROM `assessment` order by ops_no DESC limit 1") or die(mysqli_error());
+                                                $fetch2 = $query->fetch_array();
+                                                // convert ang month nga name format to number format;
+                                                $month = date("m");
+                                                $year = date('Y');
+                                                // plus 1 siya kay tungod ang pinaka latest na application no gna add 1 pra sa next na ma apply sa registration
+                                                $ops_no = $fetch2['ops_no'] + 1;
+                                                // gina merge ang month, year kag ang application no;
+                                            ?>
                                             <th>
-                                                <?php
-    require 'require/databaseconnection.php';
-            $query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
-            $fetch = $query->fetch_array();
-
-
-
-                                                ?>
-                                                <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
+                                                <label for="location" class="col-md-8 control-label"><br>OPS No. &nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="app-nme" value="<?php echo $fetch['application_name']?>" disabled="">  
+                                                    <input type="text" class="form-control" id="ops_no"  value="<?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$ops_no?>">  
+                                                </div>
+                                            </th>
+                                            <th>
+                                                <label for="cert" class="col-md-8 control-label"><br>Status&nbsp;&nbsp;</label>
+                                                <div class="col-sm-10">
+                                                    <select class="form-control select" id="status" name="status">
+                                                    <option value="Select">Select</option>
+                                                    <option value="Pending">Pending</option>
+                                                    <option value="Complete">Complete</option>
+                                                    </select>   
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th>
+                                                 <input type="hidden" class="form-control" id="applicant_no"  value="<?php echo $fetch['application_no']?>" disabled="">  
+                                                 <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="applicant_name" value="<?php echo $fetch['application_name']?>" disabled="">  
                                                 </div>
                                             </th>
                                             <th>
                                                 <label for="bus-name" class="col-sm-5 control-label">Business Name&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="bus-name" value="<?php echo $fetch['business_name']?>" disabled="">  
+                                                    <input type="text" class="form-control" id="business_name" value="<?php echo $fetch['business_name']?>" disabled="">  
                                                 </div>
                                             </th>
                                         </tr>
@@ -70,10 +97,11 @@
                                             <th>
                                                 <label for="cert" class="col-md-8 control-label"><br>Certificate Applying For&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="cert"  value="<?php echo $fetch['application_type']?>" disabled="">  
+                                                    <input type="text" class="form-control" id="type_of_certificate"  value="<?php echo $fetch['application_type']?>" disabled="">  
                                                 </div>
                                             </th>
                                         </tr>
+
 
                                     </thead>
                                     <tbody>
@@ -86,14 +114,24 @@
                                             <td><label>Fire Code Construction Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_FC_Constr" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_FC_Constr" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_FC_Constr" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="construction_tax" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
+                                            <script>
+                                                $(document).on("change keyup blur", "#chDiscount", function() {
+                                                var main = $('#Ini_FC_Constr').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discont = main-mult;
+                                                $('#construction_tax').val(discont);
+                                                });
+                                            </script>
                                         </tr>
                                         <tr>
                                             <td><label>Fire Code Reality Tax</label></td>
@@ -104,7 +142,7 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_FC_RT" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="reality_tax" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -117,7 +155,7 @@
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_FC_PT" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="premium_tax" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -125,12 +163,12 @@
                                             <td><label>Fire Code Sales Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_FC_ST" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_FC_ST" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_FC_ST" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="sales_tax" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -138,12 +176,12 @@
                                             <td><label>Fire Code Proceeds Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_FC_PT" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_FC_PT" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_FC_PT" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="proceeds_tax" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -151,12 +189,12 @@
                                             <td><label>Fire Safety Inspection Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_FS_InspFee" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_FS_InspFee" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_FS_InspFee" placeholder="Computated Amount" disabled="">  
+                                                    <input type="number" class="form-control" id="inspection_fee" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -164,12 +202,12 @@
                                             <td><label>Storage Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_StorClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_StorClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_StorClear" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="storage_clearance" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -177,12 +215,12 @@
                                             <td><label>Conveyance Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_ConvClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_ConvClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_ConvClear" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="conveyance_clearance" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -190,12 +228,12 @@
                                             <td><label>Installation Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_InstClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_InstClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_InstClear" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="installation_clearance" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -203,12 +241,12 @@
                                             <td><label>Other Clearance Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_OtherClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control" id="Ini_OtherClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="Com_OtherClear" placeholder="Computated Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="other_clearance" value="100" placeholder="Computated Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -216,7 +254,7 @@
                                             <td><label>Total Amount of Fire Code Fees</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="totalamt" placeholder="Total Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="total_amount" value="1000" placeholder="Total Amount" disabled="">  
                                                 </div>
                                             </td>
                                         </tr>
@@ -226,9 +264,10 @@
                                     <!-- <div class="col-sm-6">
 <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
 </div>  -->                                     
-                                    <button class="btn btn-primary pull-right" id=>Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
+                                    <button class="btn btn-primary pull-right" id="Save">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -245,7 +284,7 @@
                             <div class="mb-title"><span class="glyphicon glyphicon-off"></span> Log <strong>Out</strong> ?</div>
                             <div class="mb-content">
                                 <p>Are you sure you want to log out?</p>                    
-                                <p>Press No if youwant to continue work. Press Yes to logout current user.</p>
+                                <p>Press No if you want to continue work. Press Yes to logout current user.</p>
                             </div>
                             <div class="mb-footer">
                                 <div class="pull-right">
@@ -293,8 +332,10 @@
 
                 <script type="text/javascript" src="js/demo_dashboard.js"></script>
                 <!-- END TEMPLATE -->
-
-                <!-- END SCRIPTS -->         
+                <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
+                <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
+	
+                <!-- END SCRIPTS -->  
                 </body>
             </html>
 
