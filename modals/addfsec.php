@@ -131,7 +131,7 @@
                                     <div class="form-group">
                                 <label for="iniReq" class="col-sm-12 control-label"><br>Initial Requirements</label>
                                 <div class="col-sm-12">
-                                    <label><input type="checkbox" class="icheckbox" value="IniReq1" name="initial_requirements[]">&nbsp;Endorsement from Building Official (BO)</label> <br>
+                                   <label><input type="checkbox" class="icheckbox" value="IniReq1" name="initial_requirements[]">&nbsp;Endorsement from Building Official (BO)</label> <br>
 
                                     <label><input type="checkbox" class="icheckbox" value="IniReq2" name="initial_requirements[]">&nbsp;Three (3) Sets of Building Plans and Specifications</label> <br>
 

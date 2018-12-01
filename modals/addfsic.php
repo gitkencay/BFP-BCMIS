@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title">New FSEC Applicant</h3>
+                <h3 class="modal-title">New FSIC Applicant</h3>
             </div>
             <form method="post" action="actions/addfsic.php" onsubmit="return confirm('Are you sure you want to add this FSEC application?');"  >
                 <div class="modal-body">

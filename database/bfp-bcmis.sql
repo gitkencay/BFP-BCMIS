@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2018 at 05:39 PM
+-- Generation Time: Dec 01, 2018 at 07:22 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -54,28 +54,9 @@ CREATE TABLE `application` (
 --
 
 INSERT INTO `application` (`application_no`, `application_type`, `application_name`, `business_name`, `establishment_address`, `building_type`, `barangay_name`, `type_of_permit`, `date_applied`, `username`, `password`, `owner_name`, `number_of_floors`, `lot_size`, `status`, `initial_requirements`, `month`, `year`) VALUES
-(3, 'FSEC', 'Kenneth Cayetano', 'Puatu Peps', 'San Enrique', '1', 'Alangilan', '', 'November 26, 2018 7:19 pm', 'clarkcan2018', '8080', 'asdasd', '1', '1', 'Pending', 'Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(7, 'FSEC', 'Alvin Yansons', 'Printing', 'Bacolod City', '1', 'Alangilan', 'NA', 'November 27, 2018 4:26 pm', 'alvin', 'alvin', 'Alvin Yanson', '3', '400', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1)', 'Nov', '2018'),
-(9, 'FSEC', 'qwewq', 'qwewq', 'wqewq', '1', 'Alijis', 'NA', 'November 27, 2018 5:33 pm', 'qwewqeqw', 'qwewq', 'wqeqweqw', '1', '1', 'Incomplete', 'Endorsement from building Official,Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(10, 'FSEC', 'Alson Bayon-on', 'Printing', 'Bacolod City', '1', 'Alijis', 'NA', 'November 27, 2018 6:06 pm', 'alson', 'alson', 'Alson Bayon-on', '1', '1', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1)', 'Nov', '2018'),
-(12, 'FSIC', 'Alson Bayon-on', 'Drugs', 'Banago, Bacolod City', '1', 'Alijis', 'Building', 'November 27, 2018 6:25 pm', 'alson', 'alson', 'Alvin Yanson', '1', '1', 'Complete', 'Endorsement from building Official,Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(13, 'FSIC', 'Kenneth D. Cayetano', 'Printing', 'Bacolod City', '1', 'Alijis', 'Building', 'November 27, 2018 6:37 pm', 'clarkcan2018', '8080', 'Alson Bayon-on', '1', '1', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1)', 'Nov', '2018'),
-(14, 'FSIC', 'Erul John Ubas', 'Printing', 'Bacolod City', '1', 'Alangilan', 'Building', 'November 27, 2018 6:39 pm', 'erulgg', 'erulgg', 'Alson Bayon-on', '2', '2', 'Pending', 'Endorsement from building Official,Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(15, 'FSEC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '0', 'Barangay 5 (Poblaciï¿½n)', 'NA', 'November 27, 2018 6:45 pm', 'clarkcan2018', '8080', '', '2', '9', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),', 'Nov', '2018'),
-(16, 'FSEC', 'Clark Canlog', 'IT Solutions', 'Magsungay', '1', 'Barangay 37 ', 'NA', 'November 27, 2018 11:07 pm', 'clarkcan2018', '8080', '', '1', '2', 'Pending', 'Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(17, 'FSEC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '1', 'Barangay 4', 'NA', 'November 27, 2018 11:49 pm', 'clarkcan2018', '8080', '', '3', '3', 'Complete', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(18, 'FSEC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '1', 'Barangay 5', 'NA', 'November 28, 2018 6:24 pm', 'clarkcan2018', '8080', ' asd', '2', '3', 'Incomplete', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Nov', '2018'),
-(19, 'FSEC', 'lol', 'lol2', 'lol3', '1', 'Barangay 5', ' ', 'November 28, 2018 10:42 pm', 'clarkcan2018', '8080', ' ', '44', '44', 'Pending', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Nov', '2018'),
-(20, 'FSEC', 'dsad', 'asda', 'asdad', '1', 'Barangay 12', '', 'November 28, 2018 10:57 pm', 'clarkcan2018', '8080', '', '9', '2', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Nov', '2018'),
-(21, 'FSEC', 'Just', 'Tin', 'Puatu', '1', 'Barangay 36', ' ', 'November 28, 2018 11:19 pm', 'clarkcan2018', '8080', ' ', '9', '12', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Nov', '2018'),
-(22, 'FSEC', 'Elmer Haro', 'Information Technology', 'Sitio 6', '1', 'Vista Alegre', ' ', 'November 28, 2018 11:31 pm', 'clarkcan2018', '8080', ' ', '3', '4', 'Complete', 'One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessment Report-1 (FALAR-1) for Occupancy of at least 50 ', 'Nov', '2018'),
-(23, 'FSEC', 'Sir Jose', 'Gibroen', 'Lol', '1', 'Barangay 5', 'Sir Good', 'November 28, 2018 11:46 pm', 'clarkcan2018', '8080', 'Sir Good', '4', '44', 'Complete', 'Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessment Report-1 (FALAR-1) for Occupancy of at least 50 persons,', 'Nov', '2018'),
-(24, 'FSEC', 'Kenneth Cayetano', 'Puatu Peps', 'Bacolod City', '1', 'Barangay 5', 'NA', 'November 28, 2018 11:48 pm', 'clarkcan2018', '8080', 'Kenneth Cayetano', '1', '1', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Nov', '2018'),
-(25, 'FSIC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '0', 'Barangay 5', 'Building', 'November 29, 2018 12:13 am', 'clarkcan2018', '8080', ' ', '1', '1', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Nov', '2018'),
-(26, 'FSIC', 's', 'Printing', 'Bacolod City', '0', 'Barangay 5', 'Building', 'November 29, 2018 12:19 am', 'clarkcan2018', '8080', ' ', '2', '2', 'Pending', 'Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe,Copy of Fire Insurance Polic', 'Nov', '2018'),
-(27, 'FSIC', 's', 'Printing', 'San Enrique', '0', 'Barangay 5', 'Building', 'November 29, 2018 12:27 am', 'clarkcan2018', '8080', ' ', '9', '44', 'Incomplete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),FALAR-1 (3),', 'Nov', '2018'),
-(28, 'FSIC', 'sdad', 'Puatu Peps', 'San Enrique', '1', 'Barangay 5', 'Occupancy', 'December 1, 2018 12:32 am', 'clarkcan2018', '8080', ' ', '4', '2', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Dec', '2018'),
-(29, 'FSEC', 'Clark', 'Canlog', 'Magsungay', '1', 'Barangay 5', '', 'December 1, 2018 12:38 am', 'clarkcan2018', '8080', 'Justin', '3', '4', 'Incomplete', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Dec', '2018');
+(1, 'FSEC', 'Kenneth Cayetano', 'Security Firm', 'Bacolod City', '1', 'Barangay 4', '', 'December 1, 2018 1:16 am', 'Kenneth', 'Cayetano', 'Kenneth Cayetano', '11', '22', 'Pending', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Dec', '2018'),
+(2, 'FSIC', 'Kenneth Cayetano', 'Internet Firms', 'Granada', '1', 'Barangay 22', 'Occupancy', 'December 1, 2018 1:19 am', 'qwewqeqw', 'ww', ' as', '22', '44', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Dec', '2018'),
+(3, 'FSEC', 'Sir Jose', 'Good', 'Magsungay', '1', 'Barangay 5', '', 'December 1, 2018 1:25 am', 'clarkcan2018', '8080', 'Kenneth Cayetano', '1', '44', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Dec', '2018');
 
 -- --------------------------------------------------------
 
@@ -85,7 +66,6 @@ INSERT INTO `application` (`application_no`, `application_type`, `application_na
 
 CREATE TABLE `assessment` (
   `ops_no` int(100) NOT NULL,
-  `application_no` varchar(100) NOT NULL,
   `applicant_name` varchar(100) NOT NULL,
   `location` varchar(100) NOT NULL,
   `status` varchar(50) NOT NULL,
@@ -105,6 +85,14 @@ CREATE TABLE `assessment` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `assessment`
+--
+
+INSERT INTO `assessment` (`ops_no`, `applicant_name`, `location`, `status`, `business_name`, `type_of_certificate`, `construction_tax`, `reality_tax`, `premium_tax`, `sales_tax`, `proceeds_tax`, `inspection_fee`, `storage_clearance`, `conveyance_clearance`, `installation_clearance`, `other_clearance`, `total_amount`, `month`, `year`) VALUES
+(1, '', '', 'Complete', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Dec', '2018'),
+(2, '', '', 'Complete', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Dec', '2018');
 
 -- --------------------------------------------------------
 
@@ -340,13 +328,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `application`
 --
 ALTER TABLE `application`
-  MODIFY `application_no` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `application_no` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `assessment`
 --
 ALTER TABLE `assessment`
-  MODIFY `ops_no` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `ops_no` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `barangay`

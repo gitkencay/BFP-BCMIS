@@ -58,7 +58,7 @@
                                             <th>
                                                 <label for="location" class="col-md-8 control-label"><br>OPS No. &nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="ops_no"  value="<?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$ops_no?>">  
+                                                    <input type="text" class="form-control" id="ops_no"  value="<?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$ops_no?>" readonly>  
                                                 </div>
                                             </th>
                                             <th>
@@ -74,10 +74,9 @@
                                         </tr>
                                         <tr>
                                             <th>
-                                                 <input type="hidden" class="form-control" id="applicant_no"  value="<?php echo $fetch['application_no']?>" disabled="">  
                                                  <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="applicant_name" value="<?php echo $fetch['application_name']?>" disabled="">  
+                                                    <input type="text" class="form-control" id="applicant_name" name="applicant_name" value="<?php echo $fetch['application_name']?>" disabled="">  
                                                 </div>
                                             </th>
                                             <th>
@@ -115,7 +114,7 @@
                                             <td><label>Fire Code Construction Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_FC_Constr" placeholder="Enter Amount" >  
+                                                    <input type="number" class="form-control-qty" id="Ini_FC_Constr" placeholder="Enter Amount" >  
                                                 </div>
                                             </td>
                                             <td>
@@ -138,7 +137,7 @@
                                             <td><label>Fire Code Reality Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_FC_RT" placeholder="Enter Amount">  
+                                                    <input type="text" class="form-control-qty" id="Ini_FC_RT" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -161,7 +160,7 @@
                                             <td><label>Fire Code Premium Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="Ini_FC_PreT" placeholder="Enter Amount">  
+                                                    <input type="text" class="form-control-qty" id="Ini_FC_PreT" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -184,7 +183,7 @@
                                             <td><label>Fire Code Sales Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_FC_ST" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_FC_ST" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -207,7 +206,7 @@
                                             <td><label>Fire Code Proceeds Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_FC_ProT" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_FC_ProT" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -230,7 +229,7 @@
                                             <td><label>Fire Safety Inspection Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_FS_InspFee" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_FS_InspFee" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -253,7 +252,7 @@
                                             <td><label>Storage Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_StorClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_StorClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -276,7 +275,7 @@
                                             <td><label>Conveyance Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_ConvClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_ConvClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -299,7 +298,7 @@
                                             <td><label>Installation Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_InstClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_InstClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -322,7 +321,7 @@
                                             <td><label>Other Clearance Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control" id="Ini_OtherClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_OtherClear" placeholder="Enter Amount">  
                                                 </div>
                                             </td>
                                             <td>
@@ -332,12 +331,12 @@
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_OtherClear", function() {
-                                                var main = $('#other_clearance').val();
+                                                var main = $('#Ini_OtherClear').val();
                                                 var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
                                                 var discount = main-mult;
-                                                $('#installation_clearance').val(discount);
+                                                $('#other_clearance').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -345,27 +344,32 @@
                                             <td><label>Total Amount of Fire Code Fees</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control" id="total_amount" placeholder="Total Amount" disabled="">  
+                                                    <input type="text" class="form-control" id="total_amount">  
                                                 </div>
                                             </td>
                                             <script>
-                                                $(document).on("change keyup blur", "#Ini_OtherClear", function() {
-                                                var main = $('#other_clearance').val();
-                                                var disc = 10;
+                                            $(".form-control-qty").change(function () {
+                                            var total = 0;
+                                            $(".form-control-qty").each(function () {
+                                                total += parseInt(this.value) || 0;
+
+                                            });
+                                            var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
-                                                var mult = main*dec; // gives the value for subtract from main value
-                                                var discount = main-mult;
-                                                $('#installation_clearance').val(discount);
+                                                var mult = total*dec; // gives the value for subtract from main value
+                                                var discount = total-mult;
+                                            $('#total_amount').val(discount);
                                                 });
+                                                
                                             </script>
                                         </tr>
                                     </tbody>
                                 </table>
                                 <div class="panel-footer">  
-                                    <!-- <div class="col-sm-6">
-<p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
-</div>  -->                                     
-                                    <button class="btn btn-primary pull-right" id="Save">Save Changes <span class="fa fa-floppy-o fa-right"></span></button>
+                                    <div class="col-sm-6">
+                                    <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
+                                    </div> 
+                                    <button type="submit" class="btn btn-info" name="submit"><span class="fa fa-check"></span>Save Changes</button>
                                 </div>
                             </div>
                             </form>

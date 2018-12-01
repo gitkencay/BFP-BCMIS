@@ -13,7 +13,7 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title"><?php echo $fetch['year']. '-' .$month. '-' .$fetch['application_no']?></h3>
+                <h3 class="modal-title">Application No: <?php echo $fetch['year']. '-' .$month. '-' .$fetch['application_no']?></h3>
             </div>
             <form method="post" action="actions/editfsic.php" onsubmit="return confirm('Are you sure you want to edit this FSIC application?');"  >
                 <div class="modal-body">
@@ -43,12 +43,12 @@ while($fetch = $query->fetch_array()){
                                 <div class="col-sm-10">
                                     <select class="form-control" id="bldg-code" name="building_type">
                                         <option value="<?php echo $fetch['building_type']?>"><?php echo $fetch['building_type']?></option>
-                                        <option value="Assembly">Assembly</option>
-                                        <option value="Business-Office">Business-Office</option>
-                                        <option value="Educational">Educational</option>
-                                        <option value="Mercantile">Mercantile</option>
-                                        <option value="Small-Business">Small-Business</option>
-                                        <option value="Storage">Storage</option>
+                                        <option value="0">Assembly</option>
+                                        <option value="1">Business-Office</option>
+                                        <option value="1">Educational</option>
+                                        <option value="1">Mercantile</option>
+                                        <option value="1">Small-Business</option>
+                                        <option value="1">Storage</option>
                                     </select>
                                 </div>
                             </div>
@@ -122,19 +122,19 @@ while($fetch = $query->fetch_array()){
                             </div>
                             
                             <div class="form-group">
-                                <label for="InitialReq" class="col-sm-12 control-label"><br>Initial Requirements</label>
+                                <label for="status" class="col-sm-12 control-label"><br>Initial Requirements</label>
                                 <div class="col-sm-12">
                                     <?php
                                         $initial_requirements = $fetch['initial_requirements'];
                                         $check = explode(",", $initial_requirements);
                                     ?>
-                                    <label><input type="checkbox" class="icheckbox" value="IniReq5" name="initial_requirements[]">
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq5" name="initial_requirements[]"
                                     <?php 
                                     if (in_array("IniReq5", $check)){
                                         echo "checked";
                                     }
                                     ?>
-                                    Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)</label> <br>
+                                    >Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)</label> <br>
                                   
 
                                     <label><input type="checkbox" class="icheckbox" value="IniReq6" name="initial_requirements[]" <?php 
@@ -178,6 +178,7 @@ while($fetch = $query->fetch_array()){
                                     <select class="form-control select" id="status" name="status" >
                                         <option value="<?php echo $fetch['status']?>"><?php echo $fetch['status']?></option>
                                         <option value="Pending">Pending</option>
+                                        <option value="Incomplete">Incomplete</option>
                                         <option value="Complete">Complete</option>
                                     </select>
                                 </div>
