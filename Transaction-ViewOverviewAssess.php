@@ -35,7 +35,7 @@
                 <div class="page-content-wrap"> 
                     <div class="AssessForm">
                         <div class="panel panel-default">
-                        <form method="post" action="actions/addAssessment.php" onsubmit="return confirm('Are you sure you want to add this Assessment?');"  >
+                        <form method="post" action="actions/editAssessment.php" onsubmit="return confirm('Are you sure you want to edit this Assessment?');"  >
                             <div class="panel-body">
                                 <table>
                                     <thead>
@@ -43,41 +43,34 @@
                                         
                                             <?php
                                                 require 'require/databaseconnection.php';
-                                                $query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
-                                                $fetch = $query->fetch_array();
-
-                                                $query2 = $conn->query("SELECT * FROM `assessment` order by ops_no DESC limit 1") or die(mysqli_error());
-                                                $fetch2 = $query->fetch_array();
-                                                // convert ang month nga name format to number format;
-                                                $month = date("m");
-                                                $year = date('Y');
-                                                // plus 1 siya kay tungod ang pinaka latest na application no gna add 1 pra sa next na ma apply sa registration
-                                                $ops_no = $fetch2['ops_no'] + 1;
-                                                // gina merge ang month, year kag ang application no;
+                                                $query = $conn->query("SELECT * FROM `assessment` WHERE `ops_no` = '$_GET[ops_no]'") or die(mysqli_error());
+                                               
+                                                while($fetch = $query->fetch_array()){
+                                                    $month = date("m", strtotime($fetch['month']));
                                             ?>
                                             <th>
                                                 <label for="location" class="col-md-8 control-label"><br>OPS No. &nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="ops_no"  value="<?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$ops_no?>">  
+                                                    <input type="text" class="form-control" id="ops_no"  name="ops_no" value="<?php echo 'OPS'. '-' .$fetch['year']. '-' .$month. '-' .$fetch['ops_no']?>" readonly>  
                                                 </div>
                                             </th>
                                             <th>
                                                 <label for="cert" class="col-md-8 control-label"><br>Status&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <select class="form-control select" id="status" name="status">
-                                                    <option value="Select">Select</option>
-                                                    <option value="Pending">Pending</option>
-                                                    <option value="Complete">Complete</option>
+                                                    <select class="form-control select" id="status" name="status"> 
+                                                    <option value="<?php echo $fetch['status']?>"><?php echo $fetch['status']?></option>
+                                                    <option disabled value="Select">Select</option>
+                                                    <option disabled value="Pending">Pending</option>
+                                                    <option disabled value="Complete">Complete</option>
                                                     </select>   
                                                 </div>
                                             </th>
                                         </tr>
                                         <tr>
                                             <th>
-                                                 
                                                  <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="applicant_name" name="application_name" value="<?php echo $fetch['application_name']?>" readonly>  
+                                                    <input type="text" class="form-control" id="applicant_name" name="applicant_name" value="<?php echo $fetch['applicant_name']?>" readonly>  
                                                 </div>
                                             </th>
                                             <th>
@@ -91,13 +84,13 @@
                                             <th>
                                                 <label for="location" class="col-md-8 control-label"><br>Location&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="location" name="location" value="<?php echo $fetch['establishment_address']?>" readonly>  
+                                                    <input type="text" class="form-control" id="location" name="location" value="<?php echo $fetch['location']?>" readonly>  
                                                 </div>
                                             </th>
                                             <th>
                                                 <label for="cert" class="col-md-8 control-label"><br>Certificate Applying For&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="application_type" name="application_type" value="<?php echo $fetch['application_type']?>" readonly>  
+                                                    <input type="text" class="form-control" id="type_of_certificate" name="type_of_certificate" value="<?php echo $fetch['type_of_certificate']?>" readonly>  
                                                 </div>
                                             </th>
                                         </tr>
@@ -113,12 +106,12 @@
                                             <td><label>Fire Code Construction Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FC_Constr" placeholder="Enter Amount" >  
+                                                    <input type="number" class="form-control-qty" id="Ini_FC_Constr" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="construction_tax" name="construction_tax" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="construction_tax" name="construction_tax" value="<?php echo $fetch['construction_tax']?>"  readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -127,7 +120,8 @@
                                                 var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
-                                                $('#construction_tax').val(mult);
+                                                var discount = main-mult;
+                                                $('#construction_tax').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -135,21 +129,22 @@
                                             <td><label>Fire Code Reality Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control-qty" id="Ini_FC_RT" placeholder="Enter Amount">  
+                                                    <input type="text" class="form-control-qty" id="Ini_FC_RT" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="reality_tax" name="reality_tax" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="reality_tax" name="reality_tax" value="<?php echo $fetch['reality_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_FC_RT", function() {
                                                 var main = $('#Ini_FC_RT').val();
-                                                var disc = 1;
+                                                var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
-                                                $('#reality_tax').val(mult);
+                                                var discount = main-mult;
+                                                $('#reality_tax').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -157,22 +152,22 @@
                                             <td><label>Fire Code Premium Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control-qty" id="Ini_FC_PreT" placeholder="Enter Amount">  
+                                                    <input type="text" class="form-control-qty" id="Ini_FC_PreT" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="premium_tax" name="premium_tax" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="premium_tax" name="premium_tax" value="<?php echo $fetch['premium_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_FC_PreT", function() {
                                                 var main = $('#Ini_FC_PreT').val();
-                                                var disc = 2;
+                                                var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
-                                               
-                                                $('#premium_tax').val(mult);
+                                                var discount = main-mult;
+                                                $('#premium_tax').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -180,22 +175,22 @@
                                             <td><label>Fire Code Sales Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FC_ST" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_FC_ST" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="sales_tax" name="sales_tax" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="sales_tax" name="sales_tax" value="<?php echo $fetch['sales_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_FC_ST", function() {
                                                 var main = $('#Ini_FC_ST').val();
-                                                var disc = 2;
+                                                var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
                                                 var discount = main-mult;
-                                                $('#sales_tax').val(mult);
+                                                $('#sales_tax').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -203,22 +198,22 @@
                                             <td><label>Fire Code Proceeds Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FC_ProT" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_FC_ProT" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="proceeds_tax" name="proceeds_tax" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="proceeds_tax" name="proceeds_tax" value="<?php echo $fetch['proceeds_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_FC_ProT", function() {
                                                 var main = $('#Ini_FC_ProT').val();
-                                                var disc = 2;
+                                                var disc = 10;
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
                                                 var discount = main-mult;
-                                                $('#proceeds_tax').val(mult);
+                                                $('#proceeds_tax').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -226,12 +221,12 @@
                                             <td><label>Fire Safety Inspection Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FS_InspFee" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_FS_InspFee" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="number" class="form-control" id="inspection_fee" name="inspection_fee" placeholder="Discounted Amount" readonly>  
+                                                    <input type="number" class="form-control" id="inspection_fee" name="inspection_fee" value="<?php echo $fetch['inspection_fee']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -241,7 +236,7 @@
                                                 var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                                 var mult = main*dec; // gives the value for subtract from main value
                                                 var discount = main-mult;
-                                                $('#inspection_fee').val(mult);
+                                                $('#inspection_fee').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -249,19 +244,22 @@
                                             <td><label>Storage Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_StorClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_StorClear" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="storage_clearance" name="storage_clearance" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="storage_clearance" name="storage_clearance" value="<?php echo $fetch['storage_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_StorClear", function() {
                                                 var main = $('#Ini_StorClear').val();
-                                                
-                                                $('#storage_clearance').val(main);
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#storage_clearance').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -269,39 +267,45 @@
                                             <td><label>Conveyance Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_ConvClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_ConvClear" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="conveyance_clearance" name="conveyance_clearance" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="conveyance_clearance" name="conveyance_clearance" value="<?php echo $fetch['conveyance_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                         </tr>
                                         <script>
                                                 $(document).on("change keyup blur", "#Ini_ConvClear", function() {
                                                 var main = $('#Ini_ConvClear').val();
-                                                
-                                                $('#conveyance_clearance').val(main);
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#conveyance_clearance').val(discount);
                                                 });
                                         </script>
                                         <tr>
                                             <td><label>Installation Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_InstClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_InstClear" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="installation_clearance" name="installation_clearance" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="installation_clearance" name="installation_clearance" value="<?php echo $fetch['installation_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_InstClear", function() {
                                                 var main = $('#Ini_InstClear').val();
-                                               
-                                                $('#installation_clearance').val(main);
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#installation_clearance').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -309,18 +313,22 @@
                                             <td><label>Other Clearance Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_OtherClear" placeholder="Enter Amount">  
+                                                    <input type="number" class="form-control-qty" id="Ini_OtherClear" placeholder="Enter Amount" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="other_clearance" name="other_clearance" placeholder="Discounted Amount" readonly>  
+                                                    <input type="text" class="form-control" id="other_clearance" name="other_clearance" value="<?php echo $fetch['other_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_OtherClear", function() {
-                                                
-                                                $('#other_clearance').val(main);
+                                                var main = $('#Ini_OtherClear').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#other_clearance').val(discount);
                                                 });
                                             </script>
                                         </tr>
@@ -328,7 +336,7 @@
                                         <td><label>Total Amount of Fire Code Fees</label></td>
                                         <td>
                                             <div class="col-sm-8">
-                                                <input type="text" class="form-control" id="total_amount" name="total_amount" readonly>  
+                                                <input type="text" class="form-control" id="total_amount" name="total_amount" value="<?php echo $fetch['total_amount']?>" readonly>  
                                             </div>
                                         </td>
                                         <script>
@@ -338,7 +346,7 @@
                                             total += parseInt(this.value) || 0;
 
                                         });
-                                            var disc = 10;
+                                        var disc = 10;
                                             var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                                             var mult = total*dec; // gives the value for subtract from main value
                                             var discount = total-mult;
@@ -359,6 +367,10 @@
                         </div>
                     </div>
                 </div>
+                <?php
+                }
+                $conn->close();
+                ?> 
 
                 <!-- END PAGE CONTAINER -->
 

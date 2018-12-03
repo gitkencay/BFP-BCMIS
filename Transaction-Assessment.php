@@ -73,69 +73,31 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>OPS No.</th>
-                                                                <th>Applicant No</th>
                                                                 <th>Owner Name</th>
                                                                 <th>Business Name</th>
                                                                 <th>Status</th>
-                                                                <th>Date Applied</th>
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                        <?php
+                                                        require 'require/databaseconnection.php';
+                                                        $query = $conn->query("SELECT * from `assessment` where type_of_certificate = 'FSEC' ") or die(mysqli_error());
+                                                        while($fetch = $query->fetch_array()){
+                                                            $month = date("m");
+                                                            $year = date('Y');
+                                                            ?> 
                                                             <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>2018-01-01</td>
-                                                                <td>Kenneth Cayetano</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Complete</td>
-                                                                <td>2018/01/1</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
+                                                                <td><?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$fetch['ops_no']?></td>
+                                                                <td><?php echo $fetch['applicant_name']?></td>
+                                                                <td><?php echo $fetch['business_name']?></td>
+                                                                <td><?php echo $fetch['status']?></td>
+                                                                <td><a href="transaction-viewoverviewassess.php?ops_no=<?php echo $fetch['ops_no']?>" class="btn btn-sm btn-info">View</a></td>
                                                             </tr>
-                                                            <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>2018-01-01</td>
-                                                                <td>Kenneth Cayetano</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Complete</td>
-                                                                <td>2018/01/1</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>2018-01-01</td>
-                                                                <td>Kenneth Cayetano</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Complete</td>
-                                                                <td>2018/01/1</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>   
-                                                            <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>2018-01-01</td>
-                                                                <td>Kenneth Cayetano</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Complete</td>
-                                                                <td>2018/01/1</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>2018-01-01</td>
-                                                                <td>Kenneth Cayetano</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Complete</td>
-                                                                <td>2018/01/1</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>11-22-33</td>
-                                                                <td>2018-01-01</td>
-                                                                <td>Kenneth Cayetano</td>
-                                                                <td>Kenneth Salon</td>
-                                                                <td>Complete</td>
-                                                                <td>2018/01/1</td>
-                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                            </tr>                                                  
+                                                            <?php
+                                                                }
+                                                                $conn->close();
+                                                            ?>                                              
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -157,45 +119,34 @@
                                         <div class="panel-body">
                                             <table class="table datatable" id="dataTables-fsic-assessment">
                                                 <thead>
-                                                    <tr>
-                                                        <th>OPS No.</th>
-                                                        <th>Applicant No</th>
-                                                        <th>Owner Name</th>
-                                                        <th>Business Name</th>
-                                                        <th>Status</th>
-                                                        <th>Date Applied</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>11-22-33</td>
-                                                        <td>2018-01-01</td>
-                                                        <td>Kenneth Cayetano</td>
-                                                        <td>Kenneth Salon</td>
-                                                        <td>Complete</td>
-                                                        <td>2018/01/1</td>
-                                                        <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11-22-33</td>
-                                                        <td>2018-01-01</td>
-                                                        <td>Kenneth Cayetano</td>
-                                                        <td>Kenneth Salon</td>
-                                                        <td>Complete</td>
-                                                        <td>2018/01/1</td>
-                                                        <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>11-22-33</td>
-                                                        <td>2018-01-01</td>
-                                                        <td>Kenneth Cayetano</td>
-                                                        <td>Kenneth Salon</td>
-                                                        <td>Complete</td>
-                                                        <td>2018/01/1</td>
-                                                        <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                                    </tr>                                                  
-                                                </tbody>
+                                                <tr>
+                                                    <th>OPS No.</th>
+                                                    <th>Owner Name</th>
+                                                    <th>Business Name</th>
+                                                    <th>Status</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                            <?php
+                                            require 'require/databaseconnection.php';
+                                            $query = $conn->query("SELECT * from `assessment` where type_of_certificate = 'FSIC'") or die(mysqli_error());
+                                            while($fetch = $query->fetch_array()){
+                                                $month = date("m");
+                                                $year = date('Y');
+                                                ?> 
+                                                <tr>
+                                                    <td><?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$fetch['ops_no']?></td>
+                                                    <td><?php echo $fetch['applicant_name']?></td>
+                                                    <td><?php echo $fetch['business_name']?></td>
+                                                    <td><?php echo $fetch['status']?></td>
+                                                    <td><a href="transaction-viewoverviewassess.php?ops_no=<?php echo $fetch['ops_no']?>" class="btn btn-sm btn-info">View</a></td>
+                                                </tr>
+                                                    <?php
+                                                    }
+                                                    $conn->close();
+                                                ?>                                              
+                                            </tbody>
                                             </table>
                                         </div>
                                     </div>

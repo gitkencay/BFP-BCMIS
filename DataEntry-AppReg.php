@@ -104,7 +104,7 @@
                                                                 <th>Action</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
+                                                        <tbody> 
                                                             <?php
                                                             require 'require/databaseconnection.php';
                                                             $query = $conn->query("select * from `application` where application_type = 'FSIC'") or die(mysqli_error());
