@@ -82,7 +82,11 @@
                                                         <tbody>
                                                         <?php
                                                         require 'require/databaseconnection.php';
+<<<<<<< HEAD
                                                         $query = $conn->query("SELECT * from `assessment` where type_of_certificate = 'FSEC' ") or die(mysqli_error());
+=======
+                                                        $query = $conn->query("SELECT * from `assessment` where status = 'Complete'") or die(mysqli_error());
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
                                                         while($fetch = $query->fetch_array()){
                                                             $month = date("m");
                                                             $year = date('Y');
@@ -92,7 +96,11 @@
                                                                 <td><?php echo $fetch['applicant_name']?></td>
                                                                 <td><?php echo $fetch['business_name']?></td>
                                                                 <td><?php echo $fetch['status']?></td>
+<<<<<<< HEAD
                                                                 <td><a href="transaction-viewoverviewassess.php?ops_no=<?php echo $fetch['ops_no']?>" class="btn btn-sm btn-info">View</a></td>
+=======
+                                                                <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
                                                             </tr>
                                                             <?php
                                                                 }

@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Nov 30, 2018 at 05:39 PM
+=======
+-- Generation Time: Dec 01, 2018 at 07:22 AM
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -54,6 +58,7 @@ CREATE TABLE `application` (
 --
 
 INSERT INTO `application` (`application_no`, `application_type`, `application_name`, `business_name`, `establishment_address`, `building_type`, `barangay_name`, `type_of_permit`, `date_applied`, `username`, `password`, `owner_name`, `number_of_floors`, `lot_size`, `status`, `initial_requirements`, `month`, `year`) VALUES
+<<<<<<< HEAD
 (3, 'FSEC', 'Kenneth Cayetano', 'Puatu Peps', 'San Enrique', '1', 'Alangilan', '', 'November 26, 2018 7:19 pm', 'clarkcan2018', '8080', 'asdasd', '1', '1', 'Pending', 'Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
 (7, 'FSEC', 'Alvin Yansons', 'Printing', 'Bacolod City', '1', 'Alangilan', 'NA', 'November 27, 2018 4:26 pm', 'alvin', 'alvin', 'Alvin Yanson', '3', '400', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1)', 'Nov', '2018'),
 (9, 'FSEC', 'qwewq', 'qwewq', 'wqewq', '1', 'Alijis', 'NA', 'November 27, 2018 5:33 pm', 'qwewqeqw', 'qwewq', 'wqeqweqw', '1', '1', 'Incomplete', 'Endorsement from building Official,Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
@@ -76,6 +81,11 @@ INSERT INTO `application` (`application_no`, `application_type`, `application_na
 (27, 'FSIC', 's', 'Printing', 'San Enrique', '0', 'Barangay 5', 'Building', 'November 29, 2018 12:27 am', 'clarkcan2018', '8080', ' ', '9', '44', 'Incomplete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),FALAR-1 (3),', 'Nov', '2018'),
 (28, 'FSIC', 'sdad', 'Puatu Peps', 'San Enrique', '1', 'Barangay 5', 'Occupancy', 'December 1, 2018 12:32 am', 'clarkcan2018', '8080', ' ', '4', '2', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Dec', '2018'),
 (29, 'FSEC', 'Clark', 'Canlog', 'Magsungay', '1', 'Barangay 5', '', 'December 1, 2018 12:38 am', 'clarkcan2018', '8080', 'Justin', '3', '4', 'Incomplete', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Dec', '2018');
+=======
+(1, 'FSEC', 'Kenneth Cayetano', 'Security Firm', 'Bacolod City', '1', 'Barangay 4', '', 'December 1, 2018 1:16 am', 'Kenneth', 'Cayetano', 'Kenneth Cayetano', '11', '22', 'Pending', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Dec', '2018'),
+(2, 'FSIC', 'Kenneth Cayetano', 'Internet Firms', 'Granada', '1', 'Barangay 22', 'Occupancy', 'December 1, 2018 1:19 am', 'qwewqeqw', 'ww', ' as', '22', '44', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Dec', '2018'),
+(3, 'FSEC', 'Sir Jose', 'Good', 'Magsungay', '1', 'Barangay 5', '', 'December 1, 2018 1:25 am', 'clarkcan2018', '8080', 'Kenneth Cayetano', '1', '44', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Dec', '2018');
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
 
 -- --------------------------------------------------------
 
@@ -85,7 +95,10 @@ INSERT INTO `application` (`application_no`, `application_type`, `application_na
 
 CREATE TABLE `assessment` (
   `ops_no` int(100) NOT NULL,
+<<<<<<< HEAD
   `application_no` varchar(100) NOT NULL,
+=======
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
   `applicant_name` varchar(100) NOT NULL,
   `location` varchar(100) NOT NULL,
   `status` varchar(50) NOT NULL,
@@ -105,6 +118,17 @@ CREATE TABLE `assessment` (
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+<<<<<<< HEAD
+=======
+
+--
+-- Dumping data for table `assessment`
+--
+
+INSERT INTO `assessment` (`ops_no`, `applicant_name`, `location`, `status`, `business_name`, `type_of_certificate`, `construction_tax`, `reality_tax`, `premium_tax`, `sales_tax`, `proceeds_tax`, `inspection_fee`, `storage_clearance`, `conveyance_clearance`, `installation_clearance`, `other_clearance`, `total_amount`, `month`, `year`) VALUES
+(1, '', '', 'Complete', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Dec', '2018'),
+(2, '', '', 'Complete', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Dec', '2018');
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
 
 -- --------------------------------------------------------
 
@@ -340,13 +364,21 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `application`
 --
 ALTER TABLE `application`
+<<<<<<< HEAD
   MODIFY `application_no` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+=======
+  MODIFY `application_no` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
 
 --
 -- AUTO_INCREMENT for table `assessment`
 --
 ALTER TABLE `assessment`
+<<<<<<< HEAD
   MODIFY `ops_no` int(100) NOT NULL AUTO_INCREMENT;
+=======
+  MODIFY `ops_no` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
 
 --
 -- AUTO_INCREMENT for table `barangay`

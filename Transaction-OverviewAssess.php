@@ -58,7 +58,7 @@
                                             <th>
                                                 <label for="location" class="col-md-8 control-label"><br>OPS No. &nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="ops_no"  value="<?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$ops_no?>">  
+                                                    <input type="text" class="form-control" id="ops_no"  value="<?php echo 'OPS'. '-' .$year. '-' .$month. '-' .$ops_no?>" readonly>  
                                                 </div>
                                             </th>
                                             <th>
@@ -74,10 +74,16 @@
                                         </tr>
                                         <tr>
                                             <th>
+<<<<<<< HEAD
                                                  
                                                  <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="applicant_name" name="application_name" value="<?php echo $fetch['application_name']?>" readonly>  
+=======
+                                                 <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" class="form-control" id="applicant_name" name="applicant_name" value="<?php echo $fetch['application_name']?>" disabled="">  
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
                                                 </div>
                                             </th>
                                             <th>
@@ -319,12 +325,22 @@
                                             </td>
                                             <script>
                                                 $(document).on("change keyup blur", "#Ini_OtherClear", function() {
+<<<<<<< HEAD
                                                 
                                                 $('#other_clearance').val(main);
+=======
+                                                var main = $('#Ini_OtherClear').val();
+                                                var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = main*dec; // gives the value for subtract from main value
+                                                var discount = main-mult;
+                                                $('#other_clearance').val(discount);
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
                                                 });
                                             </script>
                                         </tr>
                                         <tr>
+<<<<<<< HEAD
                                         <td><label>Total Amount of Fire Code Fees</label></td>
                                         <td>
                                             <div class="col-sm-8">
@@ -345,6 +361,29 @@
                                         $('#total_amount').val(discount);
                                             });
                                         </script>
+=======
+                                            <td><label>Total Amount of Fire Code Fees</label></td>
+                                            <td>
+                                                <div class="col-sm-8">
+                                                    <input type="text" class="form-control" id="total_amount">  
+                                                </div>
+                                            </td>
+                                            <script>
+                                            $(".form-control-qty").change(function () {
+                                            var total = 0;
+                                            $(".form-control-qty").each(function () {
+                                                total += parseInt(this.value) || 0;
+
+                                            });
+                                            var disc = 10;
+                                                var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
+                                                var mult = total*dec; // gives the value for subtract from main value
+                                                var discount = total-mult;
+                                            $('#total_amount').val(discount);
+                                                });
+                                                
+                                            </script>
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
                                         </tr>
                                     </tbody>
                                 </table>

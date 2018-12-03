@@ -13,7 +13,7 @@ while($fetch = $query->fetch_array()){
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h3 class="modal-title"><?php echo $fetch['year']. '-' .$month. '-' .$fetch['application_no']?></h3>
+                <h3 class="modal-title">Application No: <?php echo $fetch['year']. '-' .$month. '-' .$fetch['application_no']?></h3>
             </div>
             <form method="post" action="actions/editfsic.php" onsubmit="return confirm('Are you sure you want to edit this FSIC application?');"  >
                 <div class="modal-body">
@@ -73,7 +73,7 @@ while($fetch = $query->fetch_array()){
                                 <div class="col-sm-10">
                                     <select class="form-control select" id="type_of_permit" name="type_of_permit">
                                         <option value="<?php echo $fetch['type_of_permit']?>"><?php echo $fetch['type_of_permit']?></option>
-                                        <option value="0">Brgy.1</option>
+                                        <option value="0">Select</option>
                                         <option value="Building">Building</option>
                                         <option value="Occupancy">Occupancy</option>
                                     </select>
@@ -128,31 +128,31 @@ while($fetch = $query->fetch_array()){
                                         $initial_requirements = $fetch['initial_requirements'];
                                         $check = explode(",", $initial_requirements);
                                     ?>
-                                    <label><input type="checkbox" class="icheckbox" value="Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)" name="initial_requirements[]"
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq5" name="initial_requirements[]"
                                     <?php 
-                                    if (in_array("Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)", $check)){
+                                    if (in_array("IniReq5", $check)){
                                         echo "checked";
                                     }
                                     ?>
                                     >Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO)</label> <br>
                                   
 
-                                    <label><input type="checkbox" class="icheckbox" value="Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe" name="initial_requirements[]" <?php 
-                                    if (in_array("Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe", $check)){
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq6" name="initial_requirements[]" <?php 
+                                    if (in_array("IniReq6", $check)){
                                         echo "checked";
                                     }
                                     ?>
                                     >&nbsp;"Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="Copy of Fire Insurance Policy (If Any)" name="initial_requirements[]"
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq7" name="initial_requirements[]"
                                     <?php 
-                                    if (in_array("Copy of Fire Insurance Policy (If Any)", $check)){
+                                    if (in_array("IniReq7", $check)){
                                         echo "checked";
                                     }
                                     ?>
                                     >&nbsp;Copy of Fire Insurance Policy (If Any)</label> <br>
-                                    <label><input type="checkbox" class="icheckbox" value="FALAR-1 (3)" name="initial_requirements[]"
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq8" name="initial_requirements[]"
                                     <?php 
-                                    if (in_array("Copy of Latest Fire Safety Inspection Certificate Immediately Preceding this Application (If Any)", $check)){
+                                    if (in_array("IniReq8", $check)){
                                         echo "checked";
                                     }
                                     ?>
@@ -162,9 +162,9 @@ while($fetch = $query->fetch_array()){
                                         $initial_requirements = $fetch['initial_requirements'];
                                         $check = explode(",", $initial_requirements);
                                     ?>
-                                    <label><input type="checkbox" class="icheckbox" value="Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)" name="initial_requirements[]"
+                                    <label><input type="checkbox" class="icheckbox" value="IniReq9" name="initial_requirements[]"
                                     <?php 
-                                    if (in_array("Three (3) sets of Fire and Life Safety Assessment Report-2 (FALAR-2) for Occupancy Permit or FALAR 3 for Business Permit (For Occupancy of at least 50 Persons)", $check)){
+                                    if (in_array("IniReq9", $check)){
                                         echo "checked";
                                     }
                                     ?>

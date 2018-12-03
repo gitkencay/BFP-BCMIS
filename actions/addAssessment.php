@@ -26,8 +26,14 @@ if(isset($_POST['submit'])){
     '$construction_tax', '$reality_tax', '$premium_tax', '$sales_tax', '$proceeds_tax', '$inspection_fee', '$storage_clearance', 
     '$conveyance_clearance', '$installation_clearance', '$other_clearance', '$total_amount', '$month', '$year')") or die(mysqli_error());
     $conn->close();
+<<<<<<< HEAD:actions/addAssessment.php
 
     echo "<script type='text/javascript'>alert('Successfully added new FSEC Assessment!');</script>";
     echo "<script>document.location='../Transaction-Assessment.php'</script>";
+=======
+    
+        echo "<script type='text/javascript'>alert('Successfully added new FSEC Assessment!');</script>";
+        echo "<script>document.location='../Transaction-Assessment.php'</script>";
+>>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a:actions/assessFSEC.php
 }
 ?>

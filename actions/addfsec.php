@@ -26,8 +26,7 @@ if(isset($_POST['submit'])){
 		{  
 			$new .= $value . ",";  
 		}
-    }
-    
+	}
     if (empty($_POST['owner_name'])){
          $owner_name = $_POST['application_name'];
     }
@@ -45,6 +44,5 @@ if(isset($_POST['submit'])){
 
     echo "<script type='text/javascript'>alert('Successfully added new FSEC application!');</script>";
     echo "<script>document.location='../DataEntry-AppReg.php'</script>";
-
 }
 ?>
