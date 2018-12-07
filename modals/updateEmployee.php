@@ -2,10 +2,10 @@
 <?php
 require 'require/databaseconnection.php';
 $query = $conn->query("SELECT * FROM `employee`") or die(mysqli_error());
-while($fetch = $query->fetch_array()){
-?>
+while ($fetch = $query->fetch_array()) {
+    ?>
 
-<div id="updateEmployee<?php echo $fetch['id'];?>" class="modal fade">
+<div id="updateEmployee<?php echo $fetch['id']; ?>" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,11 +17,11 @@ while($fetch = $query->fetch_array()){
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group">
-                        <input type="hidden" name="id" value="<?php echo $fetch['id']?>"/>
+                        <input type="hidden" name="id" value="<?php echo $fetch['id'] ?>"/>
                             <label for="officer-type" class="col-sm-6 control-label">Officer Type</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="officer_type" name = "officer_type">
-                                <option value="<?php echo $fetch['officer_type']?>"><?php echo $fetch['officer_type']?></option>
+                                <option value="<?php echo $fetch['officer_type'] ?>"><?php echo $fetch['officer_type'] ?></option>
                                     <option value="CRO">CRO</option>
                                     <option value="Assessor">Assessor</option>
                                     <option value="Inspector">Inspector</option>
@@ -34,7 +34,7 @@ while($fetch = $query->fetch_array()){
                             <label for="rank-code" class="col-sm-6 control-label">Rank Code</label>
                             <div class="col-sm-8">
                                 <select class="form-control" id="Rank" name="rank">
-                                <option value="<?php echo $fetch['rank']?>"><?php echo $fetch['rank']?></option>
+                                <option value="<?php echo $fetch['rank'] ?>"><?php echo $fetch['rank'] ?></option>
                                     <option value="F01">F01</option>
                                     <option value="F02">F02</option>
                                     <option value="F03">F03</option>
@@ -46,43 +46,43 @@ while($fetch = $query->fetch_array()){
                         <div class="form-group">
                         <label for="officer" class="col-sm-6 control-label">First Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="officer_fname" name="officer_fname" value="<?php echo $fetch['officer_fname']?>">
+                            <input type="text" class="form-control" id="officer_fname" name="officer_fname" value="<?php echo $fetch['officer_fname'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="officer" class="col-sm-6 control-label">Middle Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="officer_mname" name="officer_mname" value="<?php echo $fetch['officer_mname']?>">
+                            <input type="text" class="form-control" id="officer_mname" name="officer_mname" value="<?php echo $fetch['officer_mname'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="officer" class="col-sm-6 control-label">Last Name</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="officer_lname" name="officer_lname" value="<?php echo $fetch['officer_lname']?>">
+                            <input type="text" class="form-control" id="officer_lname" name="officer_lname" value="<?php echo $fetch['officer_lname'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-6 control-label">Username</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="username" name="username" value="<?php echo $fetch['username']?>">
+                            <input type="text" class="form-control" id="username" name="username" value="<?php echo $fetch['username'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-6 control-label">Password</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" id="password" name="password" value="<?php echo $fetch['password']?>">
+                            <input type="password" class="form-control" id="password" name="password" value="<?php echo $fetch['password'] ?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-6 control-label">Confirm Password</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" value="<?php echo $fetch['confirm_password']?>">
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" value="<?php echo $fetch['confirm_password'] ?>">
                         </div>
                     </div>
                         <div class="form-group">
                             <label for="firestation" class="col-sm-6 control-label">Fire Station</label>
                             <div class="col-sm-8">
-                                <select class="form-control" id="firestation" name="firestation" value="<?php echo $fetch['firestation']?>">
+                                <select class="form-control" id="firestation" name="firestation" value="<?php echo $fetch['firestation'] ?>">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -97,7 +97,7 @@ while($fetch = $query->fetch_array()){
                     </div>
                 </div>
             </div>
-            
+
             <div class="modal-footer">
                 <div class="col-sm-6">
                     <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
@@ -113,4 +113,4 @@ while($fetch = $query->fetch_array()){
 <?php
 }
 $conn->close();
-?> 
+?>

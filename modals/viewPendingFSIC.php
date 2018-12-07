@@ -1,5 +1,5 @@
 <!--Start Modal View FSIC-REG-->
-<div class="modal fade" id="View-FSIC-Reg2" role="dialog">
+<div class="modal fade" id="View-FSIC-Reg" role="dialog">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -18,41 +18,41 @@
                     <br>
                     <br>
                     <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th>Application No.</th>
-                                <th>Owner Name</th>
-                                <th>Date Applied</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                                require 'require/databaseconnection.php';
-                                $query = $conn->query("select * from `application` where status = 'Complete' && application_type = 'FSIC' ") or die(mysqli_error());
-                                while($fetch = $query->fetch_array()){
-                                $month = date("m", strtotime($fetch['month']));
-                            ?>                                      
-                            <tr>
-                                <td><?php echo $fetch['year']. '-' . $month. '-' .$fetch['application_no']?></td>
-                                <td><?php echo $fetch['owner_name']?></td>
-                                <td><?php echo $fetch['date_applied']?></td>
-                                <td>
-                                    <a href="transaction-overviewassess.php?application_no=<?php echo $fetch['application_no']?>" class="btn btn-sm btn-info">Assess</a>
-                                </td>
-                            </tr>
-                            <?php
+                    <thead>
+                    <tr>
+                        <th>Application No.</th>
+                        <th>Owner Name</th>
+                        <th>Date Applied</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+require 'require/databaseconnection.php';
+$query = $conn->query("select * from `application` where assessment_status = 'Unassessed' && status = 'Complete' && application_type = 'FSIC'") or die(mysqli_error());
+while ($fetch = $query->fetch_array()) {
+    $month = date("m", strtotime($fetch['month']));
+    ?>
+                    <tr>
+                        <td><?php echo $fetch['year'] . '-' . $month . '-' . $fetch['application_no'] ?></td>
+                        <td><?php echo $fetch['owner_name'] ?></td>
+                        <td><?php echo $fetch['date_applied'] ?></td>
+                        <td>
+                            <a href="transaction-overviewassesscopy.php?application_no=<?php echo $fetch['application_no'] ?>" class="btn btn-sm btn-info">Proceed</a>
+                        </td>
+                    </tr>
+                    <?php
 }
 $conn->close();
-                            ?>
-                        </tbody>
-                    </table>                      
+?>
+                </tbody>
+                    </table>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                     </div>
-                </div>                                                              
-            </div>                                                            
-        </div> 
+                </div>
+            </div>
+        </div>
     </div>
     </div>
     </div>

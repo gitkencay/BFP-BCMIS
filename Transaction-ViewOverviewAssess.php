@@ -106,12 +106,12 @@
                                             <td><label>Fire Code Construction Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FC_Constr" placeholder="Enter Amount" readonly>  
+                                                    <input type="number" class="form-control" id="Ini_FC_Constr" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="construction_tax" name="construction_tax" value="<?php echo $fetch['construction_tax']?>"  readonly>  
+                                                    <input type="text" class="form-control-qty" id="construction_tax" name="construction_tax" value="<?php echo $fetch['construction_tax']?>"  readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -129,12 +129,12 @@
                                             <td><label>Fire Code Reality Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control-qty" id="Ini_FC_RT" placeholder="Enter Amount" readonly>  
+                                                    <input type="text" class="form-control" id="Ini_FC_RT" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="reality_tax" name="reality_tax" value="<?php echo $fetch['reality_tax']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="reality_tax" name="reality_tax" value="<?php echo $fetch['reality_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -152,12 +152,12 @@
                                             <td><label>Fire Code Premium Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="text" class="form-control-qty" id="Ini_FC_PreT" placeholder="Enter Amount" readonly>  
+                                                    <input type="text" class="form-control" id="Ini_FC_PreT" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="premium_tax" name="premium_tax" value="<?php echo $fetch['premium_tax']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="premium_tax" name="premium_tax" value="<?php echo $fetch['premium_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -175,12 +175,12 @@
                                             <td><label>Fire Code Sales Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FC_ST" placeholder="Enter Amount" readonly>  
+                                                    <input type="number" class="form-control" id="Ini_FC_ST" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="sales_tax" name="sales_tax" value="<?php echo $fetch['sales_tax']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="sales_tax" name="sales_tax" value="<?php echo $fetch['sales_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -198,12 +198,12 @@
                                             <td><label>Fire Code Proceeds Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FC_ProT" placeholder="Enter Amount" readonly>  
+                                                    <input type="number" class="form-control" id="Ini_FC_ProT" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="proceeds_tax" name="proceeds_tax" value="<?php echo $fetch['proceeds_tax']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="proceeds_tax" name="proceeds_tax" value="<?php echo $fetch['proceeds_tax']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -221,12 +221,12 @@
                                             <td><label>Fire Safety Inspection Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_FS_InspFee" placeholder="Enter Amount" readonly>  
+                                                    <input type="number" class="form-control" id="Ini_FS_InspFee" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="number" class="form-control" id="inspection_fee" name="inspection_fee" value="<?php echo $fetch['inspection_fee']?>" readonly>  
+                                                    <input type="number" class="form-control-qty" id="inspection_fee" name="inspection_fee" value="<?php echo $fetch['inspection_fee']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -244,12 +244,12 @@
                                             <td><label>Storage Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_StorClear" placeholder="Enter Amount" readonly>  
+                                                    <input type="number" class="form-control" id="Ini_StorClear" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="storage_clearance" name="storage_clearance" value="<?php echo $fetch['storage_clearance']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="storage_clearance" name="storage_clearance" value="<?php echo $fetch['storage_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -267,12 +267,12 @@
                                             <td><label>Conveyance Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_ConvClear" placeholder="Enter Amount" readonly>  
+                                                    <input type="number" class="form-control" id="Ini_ConvClear" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="conveyance_clearance" name="conveyance_clearance" value="<?php echo $fetch['conveyance_clearance']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="conveyance_clearance" name="conveyance_clearance" value="<?php echo $fetch['conveyance_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                         </tr>
@@ -290,12 +290,12 @@
                                             <td><label>Installation Clearance</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_InstClear" placeholder="Enter Amount" readonly>  
+                                                    <input type="number" class="form-control" id="Ini_InstClear" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="installation_clearance" name="installation_clearance" value="<?php echo $fetch['installation_clearance']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="installation_clearance" name="installation_clearance" value="<?php echo $fetch['installation_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>
@@ -313,12 +313,12 @@
                                             <td><label>Other Clearance Fee</label></td>
                                             <td>
                                                 <div class="col-sm-8">
-                                                    <input type="number" class="form-control-qty" id="Ini_OtherClear" placeholder="Enter Amount" readonly>  
+                                                    <input type="text" class="form-control" id="Ini_OtherClear" readonly>  
                                                 </div>
                                             </td>
                                             <td>
                                                 <div class="col-sm-14">
-                                                    <input type="text" class="form-control" id="other_clearance" name="other_clearance" value="<?php echo $fetch['other_clearance']?>" readonly>  
+                                                    <input type="text" class="form-control-qty" id="other_clearance" name="other_clearance" value="<?php echo $fetch['other_clearance']?>" readonly>  
                                                 </div>
                                             </td>
                                             <script>

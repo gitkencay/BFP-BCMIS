@@ -29,18 +29,13 @@ if(isset($_POST['submit'])){
 			$new .= $value . ",";  
 		}
 	}
-    if (empty($_POST['owner_name'])){
-         $owner_name = $_POST['application_name'];
-    }
-    else {
-         $owner_name = $_POST['owner_name'];
-    }
+
 
 
     require '../require/databaseconnection.php';
 
     // blank ang sa first field kay auto increment ang id followed sang application name, business name ... .. 
-    $conn->query("INSERT INTO `application` VALUES('', 'FSIC', '$application_name', '$business_name', '$establishment_address', '$building_type', '$barangay_name', '$type_of_permit', '$date_applied', '$username', '$password', '$owner_name', '$number_of_floors', '$lot_size', '$status', '$new', '$month', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `application` VALUES('', 'FSIC', '$application_name', '$business_name', '$establishment_address', '$building_type', '$barangay_name', '$type_of_permit', '$date_applied', '$username', '$password', '$owner_name', '$number_of_floors', '$lot_size', '$status', '$new', 'Unassessed', '$month', '$year')") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added new FSIC application!');</script>";
     echo "<script>document.location='../DataEntry-AppReg.php'</script>";
