@@ -40,7 +40,6 @@
                                 <table>
                                     <thead>
                                         <tr>
-
                                             <?php
 require 'require/databaseconnection.php';
 $query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
@@ -54,9 +53,8 @@ $year = date('Y');
 // plus 1 siya kay tungod ang pinaka latest na application no gna add 1 pra sa next na ma apply sa registration
 $ops_no = $fetch2['ops_no'] + 1;
 // gina merge ang month, year kag ang application no;
-?>                                          
-                                            <input type="hidden" class="form-control" id="application_no" name="application_no"  value="<?php echo $fetch['year'] . '-' . $month2 . '-' . $fetch['application_no'] ?>" readonly>
-                                            <th>
+?>
+                                         <th>
                                                 <label for="location" class="col-md-8 control-label"><br>OPS No. &nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
                                                     <input type="text" class="form-control" id="ops_no"  value="<?php echo 'OPS' . '-' . $year . '-' . $month . '-' . $ops_no ?>" readonly>
@@ -73,13 +71,13 @@ $ops_no = $fetch2['ops_no'] + 1;
                                                 </div>
                                             </th>
                                         </tr>
-                                        <tr>
-                                            <th>
-                                                 <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
-                                                <div class="col-sm-10">
-                                                    <input type="text" class="form-control" name="application_name"  id="application_name" value="<?php echo $fetch['application_name'] ?>"  disabled="">
-                                                </div>
-                                            </th>
+                                        <tr>                                                <th>
+                                        <input type="hidden" class="form-control" id="application_no" name="application_no"  value="<?php echo $fetch['application_no']?>">
+                                        <label for="app-name" class="col-sm-5 control-label">Applicant Name&nbsp;&nbsp;</label>
+                                            <div class="col-sm-10">
+                                                <input type="text" class="form-control" id="applicant_name" name="application_name" value="<?php echo $fetch['application_name']?>" readonly>  
+                                            </div>
+                                        </th>
                                             <th>
                                                 <label for="bus-name" class="col-sm-5 control-label">Business Name&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
@@ -102,6 +100,7 @@ $ops_no = $fetch2['ops_no'] + 1;
                                             </th>
                                         </tr>
                                     </thead>
+                                    <script type="text/javascript" src="js/jquery.min.js"></script>
                                     <tbody>
                                         <tr>
                                             <th><h5><br>Applicable Fees</h5></th>
@@ -109,7 +108,7 @@ $ops_no = $fetch2['ops_no'] + 1;
                                             <th><h5><br>Amount to be Paid</h5></th>
                                         </tr>
                                         <tr>
-                                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
                                             <td><label>Fire Code Construction Tax</label></td>
                                             <td>
                                                 <div class="col-sm-8">
@@ -360,7 +359,7 @@ $ops_no = $fetch2['ops_no'] + 1;
                         </div>
                     </div>
                 </div>
-                <script type="text/javascript" src="js/jquery.min.js"></script>
+
                 <script>
                     $(document).on("change keyup blur", "#total_amount",
                     function() {
@@ -368,49 +367,49 @@ $ops_no = $fetch2['ops_no'] + 1;
                     var disc = 10;
                     var dec = (disc/100).toFixed(2); //its convert 10 into 0.10
                     var mult = main*dec; // gives the value for subtract from main value
-                    $('#construction_tax').val(mult);
+
 
                     var main1 = $('#Ini_FC_RT').val();
                     var disc1 = 1;
                     var dec1 = (disc1/100).toFixed(2); //its convert 10 into 0.10
                     var mult1 = main1*dec1; // gives the value for subtract from main value
-                    $('#reality_tax').val(mult1);
+
 
                     var main2 = $('#Ini_FC_PreT').val();
                     var disc2 = 2;
                     var dec2 = (disc2/100).toFixed(2); //its convert 10 into 0.10
                     var mult2 = main2*dec2; // gives the value for subtract from main value
-                    $('#premium_tax').val(mult2);
+
 
                     var main3 = $('#Ini_FC_ST').val();
                     var disc3 = 2;
                     var dec3 = (disc3/100).toFixed(2); //its convert 10 into 0.10
                     var mult3 = main3*dec3; // gives the value for subtract from main value
-                    $('#sales_tax').val(mult3);
+
 
                     var main4 = $('#Ini_FC_ProT').val();
                     var disc4 = 2;
                     var dec4 = (disc4/100).toFixed(2); //its convert 10 into 0.10
                     var mult4 = main4*dec4; // gives the value for subtract from main value
-                    $('#proceeds_tax').val(mult4);
+
 
                     var main5 = $('#Ini_FS_InspFee').val();
                     var disc5 = 10;
                     var dec5 = (disc/100).toFixed(2); //its convert 10 into 0.10
                     var mult5 = main5*dec5; // gives the value for subtract from main value
-                    $('#inspection_fee').val(mult5);
+
 
                     var main6 = $('#Ini_StorClear').val();
-                    $('#storage_clearance').val(main6);
+
 
                     var main7 = $('#Ini_ConvClear').val();
-                    $('#conveyance_clearance').val(main7);
+
 
                     var main8 = $('#Ini_InstClear').val();
-                    $('#installation_clearance').val(main8);
+
 
                     var main9 = $('#Ini_OtherClear').val();
-                    $('#other_clearance').val(main9);
+
 
                     var output1 = parseFloat(mult);
                     var output2 = parseFloat(mult1);
@@ -424,12 +423,12 @@ $ops_no = $fetch2['ops_no'] + 1;
                     var output10 = parseFloat(main9);
 
                     var total = parseFloat(output1+output2+output3+output4+output5+output6+output7+output8+output9+output10);
-                    $('#total_amount').val(total);//show total 
-                    
+                    $('#total_amount').val(total);//show total
+
                     var main10 = $('#payment').val();
                     var output11 = parseFloat(main10);
                     var change = parseFloat(output11-total); //compute for change
-                    
+
                     $('#changed').val(change);
 
 

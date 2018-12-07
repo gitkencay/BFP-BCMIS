@@ -144,6 +144,7 @@
                             <thead>
                                 <tr>
                                     <th>Application No.</th>
+                                    <th>Applicant Name</th>
                                     <th>Date Applied</th>
                                     <th>Action</th>
                                 </tr>
@@ -151,15 +152,16 @@
                             <tbody>
                                 <?php
                                 require 'require/databaseconnection.php';
-                                $query = $conn->query("select * from `application` where assessment_status = 'Assessed'") or die(mysqli_error());
+                                $query = $conn->query("select * from `application` where assessment_status = 'Assessed' && 	application_type = 'FSIC' ") or die(mysqli_error());
                                 while($fetch = $query->fetch_array()){
                                     $month = date("m", strtotime($fetch['month']));
                                 ?>                                      
                                 <tr>
+                                    <td><?php echo $fetch['application_name']?></td>
                                     <td><?php echo $fetch['year']. '-' . $month. '-' .$fetch['application_no']?></td>
                                     <td><?php echo $fetch['date_applied']?></td>
                                     <td>
-                                        <a href="inspection-order.php?application_no=<?php echo $fetch['application_no']?>" class="btn btn-sm btn-info">Proceed</a>
+                                    <a href="inspection-orderCopy.php?application_no=<?php echo $fetch['application_no'] ?>" class="btn btn-sm btn-info">Proceed</a>
                                     </td>
                                 </tr>
                                 <?php
@@ -227,7 +229,7 @@
 
         <!-- START TEMPLATE -->
         <script type="text/javascript" src="js/settings.js"></script>
-
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-datepicker.js'></script>
         <script type="text/javascript" src="js/plugins.js"></script>        
         <script type="text/javascript" src="js/actions.js"></script>
 

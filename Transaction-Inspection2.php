@@ -74,7 +74,7 @@
                                     <tbody>
                                         <?php
     require 'require/databaseconnection.php';
-            $query = $conn->query("select * from `inspection` order by inspection_report_no DESC") or die(mysqli_error());
+            $query = $conn->query("select * from `inspection_order` order by inspection_report_no DESC") or die(mysqli_error());
             while($fetch = $query->fetch_array()){
                 $month = date("m", strtotime($fetch['month']));
                                         ?>                                      
@@ -144,36 +144,30 @@
                             <thead>
                                 <tr>
                                     <th>Application No.</th>
+                                    <th>Applicant Name</th>
                                     <th>Date Applied</th>
-                                    <th>Time-In</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                <?php
+                                require 'require/databaseconnection.php';
+                                $query = $conn->query("select * from `application` where assessment_status = 'Assessed'") or die(mysqli_error());
+                                while($fetch = $query->fetch_array()){
+                                    $month = date("m", strtotime($fetch['month']));
+                                ?>                                      
                                 <tr>
-                                    <td>2018-1-1</td>
-                                    <td>1-2-2018</td>
-                                    <td>1-3-18/11:30am</td>
-                                    <td><a href="inspection-order.html"><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></a></td>
+                                    <td><?php echo $fetch['application_name']?></td>
+                                    <td><?php echo $fetch['year']. '-' . $month. '-' .$fetch['application_no']?></td>
+                                    <td><?php echo $fetch['date_applied']?></td>
+                                    <td>
+                                        <a href="inspection-order.php?application_no=<?php echo $fetch['application_no']?>" class="btn btn-sm btn-info">Proceed</a>
+                                    </td>
                                 </tr>
-                                <tr>
-                                    <td>2018-1-1</td>
-                                    <td>1-2-2018</td>
-                                    <td>1-3-18/11:30am</td>
-                                    <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>2018-1-1</td>
-                                    <td>1-2-2018</td>
-                                    <td>1-3-18/11:30am</td>
-                                    <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                </tr>
-                                <tr>
-                                    <td>2018-1-1</td>
-                                    <td>1-2-2018</td>
-                                    <td>1-3-18/11:30am</td>
-                                    <td><button class="btn btn-info"><i class="glyphicon glyphicon-user"></i></button></td>
-                                </tr>
+                                <?php
+                                }
+                                $conn->close();
+                                ?>
                             </tbody>
                         </table>                      
                         <div class="modal-footer">

@@ -29,6 +29,13 @@ if(isset($_POST['submit'])){
 			$new .= $value . ",";  
 		}
 	}
+    if (empty($_POST['owner_name'])){
+         $owner_name = $_POST['application_name'];
+    }
+    else 
+         $owner_name = $_POST['owner_name'];
+    
+
 
 
 

@@ -22,12 +22,13 @@ if(isset($_POST['submit'])){
     date_default_timezone_set('Asia/Manila');
     $month = date("M");
     $year = date("Y");
+    $date_applied=date("F j, Y g:i a");
 
     require '../require/databaseconnection.php';
 
     $conn->query("INSERT INTO `assessment` VALUES('', '$application_no', '$application_name', '$location', '$status', '$business_name', '$application_type', 
     '$construction_tax', '$reality_tax', '$premium_tax', '$sales_tax', '$proceeds_tax', '$inspection_fee', '$storage_clearance', 
-    '$conveyance_clearance', '$installation_clearance', '$other_clearance', '$total_amount', 'payment', 'changed', '$month', '$year')") or die(mysqli_error());
+    '$conveyance_clearance', '$installation_clearance', '$other_clearance', '$total_amount', '$payment', '$changed', '$month', '$year', '$date_applied')") or die(mysqli_error());
 
     $conn->query("UPDATE `application` SET `assessment_status` = 'Assessed' WHERE `application_no` = '$application_no'") or die(mysqli_error());
     $conn->close();
@@ -36,3 +37,4 @@ if(isset($_POST['submit'])){
     echo "<script>document.location='../Transaction-Assessment.php'</script>";
 }
 ?>
+

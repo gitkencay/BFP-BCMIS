@@ -84,14 +84,14 @@
                                                 <tbody>
                                                     <?php
 require 'require/databaseconnection.php';
-$query = $conn->query("select * from `application` where application_type = 'FSEC'") or die(mysqli_error());
+$query = $conn->query("select * from `assessment` where type_of_certificate = 'FSEC'") or die(mysqli_error());
 while ($fetch = $query->fetch_array()) {
     $month = date("m", strtotime($fetch['month']));
     ?>
                                                     <tr>
                                                         <td><?php echo "OPS-" . $fetch['year'] . '-' . $month . '-' . $fetch['application_no'] ?></td>
                                                         <td><?php echo $fetch['year'] . '-' . $month . '-' . $fetch['application_no'] ?></td>
-                                                        <td><?php echo $fetch['owner_name'] ?></td>
+                                                        <td><?php echo $fetch['application_name'] ?></td>
                                                         <td><?php echo $fetch['business_name'] ?></td>
                                                         <td><?php if ($fetch['status'] == 'Complete') {
         echo "<span class='badge badge-success'>Complete</span>";
@@ -153,14 +153,14 @@ $conn->close();
                                                 <tbody>
                                                     <?php
 require 'require/databaseconnection.php';
-$query = $conn->query("select * from `application` where application_type = 'FSIC'") or die(mysqli_error());
+$query = $conn->query("select * from `assessment` where type_of_certificate = 'FSIC'") or die(mysqli_error());
 while ($fetch = $query->fetch_array()) {
     $month = date("m", strtotime($fetch['month']));
     ?>
                                                     <tr>
                                                         <td><?php echo "OPS-" . $fetch['year'] . '-' . $month . '-' . $fetch['application_no'] ?></td>
                                                         <td><?php echo $fetch['year'] . '-' . $month . '-' . $fetch['application_no'] ?></td>
-                                                        <td><?php echo $fetch['owner_name'] ?></td>
+                                                        <td><?php echo $fetch['application_name'] ?></td>
                                                         <td><?php echo $fetch['business_name'] ?></td>
                                                         <td><?php if ($fetch['status'] == 'Complete') {
         echo "<span class='badge badge-success'>Complete</span>";

@@ -1,0 +1,26 @@
+<?php
+// ang 'submit', name na sa ka button sa may modal ang SAVE na button
+if(isset($_POST['Save'])){
+    $application_no = $_POST['application_no'];
+    $inspectors = $_POST['inspectors'];
+    $owner_name = $_POST['owner_name'];
+    $business_name = $_POST['business_name'];
+    $establishment_address = $_POST['establishment_address'];
+    $date = $_POST['date'];
+    $inspection_date = $_POST['inspection_date'];
+    $inspection_time = $_POST['inspection_time'];
+    date_default_timezone_set('Asia/Manila');
+    $date_applied=date("F j, Y g:i a");
+    $month = date("M");
+    $year = date("Y");
+
+
+    require '../require/databaseconnection.php';
+
+    // blank ang sa first field kay auto increment ang id followed sang application name, business name ... .. 
+    $conn->query("INSERT INTO `application` VALUES('', '$application_no', '$inspectors', '$owner_name', '$business_name', '$establishment_address', '$date', '$inspection_date', '$inspection_time', '$date_applied', '$month', '$year')") or die(mysqli_error());
+    $conn->close();
+    echo "<script type='text/javascript'>alert('Successfully added new Schedule!');</script>";
+    echo "<script>document.location='../Transaction-Inspection.php'</script>";
+}
+?>
