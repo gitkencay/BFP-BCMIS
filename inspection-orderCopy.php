@@ -147,6 +147,10 @@ $year = date('Y');
 $io_no = $fetch2['io_no'] + 1;
 
 $today = date("y-d-m");
+
+$query3 = $conn->query("SELECT * FROM `inspection_report` order by ir_no DESC limit 1") or die(mysqli_error());
+$fetch3 = $query->fetch_array();
+$ir_no = $fetch3['ir_no'] + 1;
 ?>
 <div class="row">
 
@@ -176,7 +180,7 @@ $today = date("y-d-m");
             <div class="form-group">
             <label class="col-md-3 control-label">Inspectors</label>
                             <div class="col-md-4 col-xs-12">
-                                <select class="form-control"  id="inspectors" name="inspectors">
+                                <select class="form-control"  id="inspector_name" name="inspector_name">
                                     <option value="Select">Select</option>
                                     <option value="Inspector Dalisay0">Inspector Dalisay</option>
                                     <option value="Inspector Dionisio">Inspector Dionisio</option>
@@ -244,7 +248,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Inspection Report No. :</label>
             <div class="col-md-6 col-md-12">
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled="" value="123456789" />
+                    <input type="text" class="form-control" id="ir_no" name="ir_no" readonly value="<?php echo 'IR' . '-' . $year . '-' . $month . '-' . $ir_no ?>"/>
                 </div>
 
         </div>
@@ -253,7 +257,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Application No. :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled="" value="123456789" />
+                    <input type="text" class="form-control" id="application_no" name="application_no" value="<?php echo $fetch['year']. '-' . $month2 . '-' .$fetch['application_no'] ?>"  readonly/>
                 </div>
 
             </div>
@@ -263,7 +267,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Owner Name :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled="" value="00000000" />
+                    <input type="text" class="form-control" readonly id="owner_name" name="owner_name" value="<?php echo $fetch['owner_name']?>" />
                 </div>
             </div>
         </div>
@@ -271,7 +275,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Address :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled="" value="00000000" />
+                    <input type="text" class="form-control" readonly id="owner_address" name="owner_address" />
                 </div>
             </div>
         </div>
@@ -311,7 +315,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Building Name :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="building_name" name="building_name" required>
                 </div>
             </div>
         </div>
@@ -320,7 +324,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Address :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control"  id="building_address" name="building_address" required>
                 </div>
             </div>
         </div>
@@ -329,7 +333,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Height of Bldg :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control">
+                    <input type="text" class="form-control" id="bldg_height" name="bldg_height" required>
                 </div>
             </div>
         </div>
@@ -338,7 +342,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Lot Size :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled="" value="00000000" />
+                    <input type="text" class="form-control" id="lot_size" name="lot_size" readonly/>
                 </div>
             </div>
         </div>
@@ -347,7 +351,7 @@ $today = date("y-d-m");
             <label class="col-md-4 control-label">Number of Floors :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" disabled="" value="00000000" />
+                    <input type="text" class="form-control" id="number_of_floors" name="number_of_floors" readonly/>
                 </div>
             </div>
         </div>

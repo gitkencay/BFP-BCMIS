@@ -3,11 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
-<<<<<<< HEAD
--- Generation Time: Nov 30, 2018 at 05:39 PM
-=======
--- Generation Time: Dec 01, 2018 at 07:22 AM
->>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
+-- Generation Time: Dec 09, 2018 at 10:53 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -49,6 +45,7 @@ CREATE TABLE `application` (
   `lot_size` varchar(10) NOT NULL,
   `status` varchar(20) NOT NULL,
   `initial_requirements` varchar(200) NOT NULL,
+  `assessment_status` varchar(20) NOT NULL,
   `month` varchar(10) NOT NULL,
   `year` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -57,35 +54,18 @@ CREATE TABLE `application` (
 -- Dumping data for table `application`
 --
 
-INSERT INTO `application` (`application_no`, `application_type`, `application_name`, `business_name`, `establishment_address`, `building_type`, `barangay_name`, `type_of_permit`, `date_applied`, `username`, `password`, `owner_name`, `number_of_floors`, `lot_size`, `status`, `initial_requirements`, `month`, `year`) VALUES
-<<<<<<< HEAD
-(3, 'FSEC', 'Kenneth Cayetano', 'Puatu Peps', 'San Enrique', '1', 'Alangilan', '', 'November 26, 2018 7:19 pm', 'clarkcan2018', '8080', 'asdasd', '1', '1', 'Pending', 'Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(7, 'FSEC', 'Alvin Yansons', 'Printing', 'Bacolod City', '1', 'Alangilan', 'NA', 'November 27, 2018 4:26 pm', 'alvin', 'alvin', 'Alvin Yanson', '3', '400', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1)', 'Nov', '2018'),
-(9, 'FSEC', 'qwewq', 'qwewq', 'wqewq', '1', 'Alijis', 'NA', 'November 27, 2018 5:33 pm', 'qwewqeqw', 'qwewq', 'wqeqweqw', '1', '1', 'Incomplete', 'Endorsement from building Official,Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(10, 'FSEC', 'Alson Bayon-on', 'Printing', 'Bacolod City', '1', 'Alijis', 'NA', 'November 27, 2018 6:06 pm', 'alson', 'alson', 'Alson Bayon-on', '1', '1', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1)', 'Nov', '2018'),
-(12, 'FSIC', 'Alson Bayon-on', 'Drugs', 'Banago, Bacolod City', '1', 'Alijis', 'Building', 'November 27, 2018 6:25 pm', 'alson', 'alson', 'Alvin Yanson', '1', '1', 'Complete', 'Endorsement from building Official,Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(13, 'FSIC', 'Kenneth D. Cayetano', 'Printing', 'Bacolod City', '1', 'Alijis', 'Building', 'November 27, 2018 6:37 pm', 'clarkcan2018', '8080', 'Alson Bayon-on', '1', '1', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1)', 'Nov', '2018'),
-(14, 'FSIC', 'Erul John Ubas', 'Printing', 'Bacolod City', '1', 'Alangilan', 'Building', 'November 27, 2018 6:39 pm', 'erulgg', 'erulgg', 'Alson Bayon-on', '2', '2', 'Pending', 'Endorsement from building Official,Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(15, 'FSEC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '0', 'Barangay 5 (Poblaciï¿½n)', 'NA', 'November 27, 2018 6:45 pm', 'clarkcan2018', '8080', '', '2', '9', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),', 'Nov', '2018'),
-(16, 'FSEC', 'Clark Canlog', 'IT Solutions', 'Magsungay', '1', 'Barangay 37 ', 'NA', 'November 27, 2018 11:07 pm', 'clarkcan2018', '8080', '', '1', '2', 'Pending', 'Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(17, 'FSEC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '1', 'Barangay 4', 'NA', 'November 27, 2018 11:49 pm', 'clarkcan2018', '8080', '', '3', '3', 'Complete', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Nov', '2018'),
-(18, 'FSEC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '1', 'Barangay 5', 'NA', 'November 28, 2018 6:24 pm', 'clarkcan2018', '8080', ' asd', '2', '3', 'Incomplete', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Nov', '2018'),
-(19, 'FSEC', 'lol', 'lol2', 'lol3', '1', 'Barangay 5', ' ', 'November 28, 2018 10:42 pm', 'clarkcan2018', '8080', ' ', '44', '44', 'Pending', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Nov', '2018'),
-(20, 'FSEC', 'dsad', 'asda', 'asdad', '1', 'Barangay 12', '', 'November 28, 2018 10:57 pm', 'clarkcan2018', '8080', '', '9', '2', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Nov', '2018'),
-(21, 'FSEC', 'Just', 'Tin', 'Puatu', '1', 'Barangay 36', ' ', 'November 28, 2018 11:19 pm', 'clarkcan2018', '8080', ' ', '9', '12', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Nov', '2018'),
-(22, 'FSEC', 'Elmer Haro', 'Information Technology', 'Sitio 6', '1', 'Vista Alegre', ' ', 'November 28, 2018 11:31 pm', 'clarkcan2018', '8080', ' ', '3', '4', 'Complete', 'One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessment Report-1 (FALAR-1) for Occupancy of at least 50 ', 'Nov', '2018'),
-(23, 'FSEC', 'Sir Jose', 'Gibroen', 'Lol', '1', 'Barangay 5', 'Sir Good', 'November 28, 2018 11:46 pm', 'clarkcan2018', '8080', 'Sir Good', '4', '44', 'Complete', 'Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessment Report-1 (FALAR-1) for Occupancy of at least 50 persons,', 'Nov', '2018'),
-(24, 'FSEC', 'Kenneth Cayetano', 'Puatu Peps', 'Bacolod City', '1', 'Barangay 5', 'NA', 'November 28, 2018 11:48 pm', 'clarkcan2018', '8080', 'Kenneth Cayetano', '1', '1', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Nov', '2018'),
-(25, 'FSIC', 'Kenneth Cayetano', 'Printing', 'San Enrique', '0', 'Barangay 5', 'Building', 'November 29, 2018 12:13 am', 'clarkcan2018', '8080', ' ', '1', '1', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Nov', '2018'),
-(26, 'FSIC', 's', 'Printing', 'Bacolod City', '0', 'Barangay 5', 'Building', 'November 29, 2018 12:19 am', 'clarkcan2018', '8080', ' ', '2', '2', 'Pending', 'Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assessment / Tax Bill for Business Permit as the case maybe,Copy of Fire Insurance Polic', 'Nov', '2018'),
-(27, 'FSIC', 's', 'Printing', 'San Enrique', '0', 'Barangay 5', 'Building', 'November 29, 2018 12:27 am', 'clarkcan2018', '8080', ' ', '9', '44', 'Incomplete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),FALAR-1 (3),', 'Nov', '2018'),
-(28, 'FSIC', 'sdad', 'Puatu Peps', 'San Enrique', '1', 'Barangay 5', 'Occupancy', 'December 1, 2018 12:32 am', 'clarkcan2018', '8080', ' ', '4', '2', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Dec', '2018'),
-(29, 'FSEC', 'Clark', 'Canlog', 'Magsungay', '1', 'Barangay 5', '', 'December 1, 2018 12:38 am', 'clarkcan2018', '8080', 'Justin', '3', '4', 'Incomplete', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Dec', '2018');
-=======
-(1, 'FSEC', 'Kenneth Cayetano', 'Security Firm', 'Bacolod City', '1', 'Barangay 4', '', 'December 1, 2018 1:16 am', 'Kenneth', 'Cayetano', 'Kenneth Cayetano', '11', '22', 'Pending', 'Endorsement from Building Official (BO),Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specif', 'Dec', '2018'),
-(2, 'FSIC', 'Kenneth Cayetano', 'Internet Firms', 'Granada', '1', 'Barangay 22', 'Occupancy', 'December 1, 2018 1:19 am', 'qwewqeqw', 'ww', ' as', '22', '44', 'Complete', 'Endorsement from Building Official (BO) / Business Permit Licensing Office (BPLO),Photocopy of Building Permit and Assessment of Occupancy Permit Fee / Asssessment of Business Permit Fee / BPLO Assess', 'Dec', '2018'),
-(3, 'FSEC', 'Sir Jose', 'Good', 'Magsungay', '1', 'Barangay 5', '', 'December 1, 2018 1:25 am', 'clarkcan2018', '8080', 'Kenneth Cayetano', '1', '44', 'Complete', 'Three (3) Sets of Building Plans and Specifications,One (1) Set of Bills of Materials and Cost Estimate,Three (3) Sets  of Detailes Fire Safety Plans and Specifications or Fire and Life Safety Assessm', 'Dec', '2018');
->>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
+INSERT INTO `application` (`application_no`, `application_type`, `application_name`, `business_name`, `establishment_address`, `building_type`, `barangay_name`, `type_of_permit`, `date_applied`, `username`, `password`, `owner_name`, `number_of_floors`, `lot_size`, `status`, `initial_requirements`, `assessment_status`, `month`, `year`) VALUES
+(32, 'FSEC', 'Alvin Yanson', 'Printing', 'Bacolod City', '1', 'Mandalagan', 'NA', 'December 3, 2018 6:33 pm', 'alvin', 'alvin', 'Alvin Yanson', '1', '1', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),', 'Unassessed', 'Dec', '2018'),
+(33, 'FSEC', 'Alson John Bayon-on', 'Printing', 'Bacolod City', '0', 'Banago', 'NA', 'December 3, 2018 6:52 pm', 'alson', 'alson', 'Alson John Bayon-on', '1', '1', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Unassessed', 'Dec', '2018'),
+(34, 'FSEC', 'Alvin Mananquil', 'Printing', 'Bacolod City', '0', 'Barangay 39', 'NA', 'December 3, 2018 6:53 pm', 'alvinmis', 'alvinmis', 'Alvin Mananquil', '1', '1', 'Complete', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Assessed', 'Dec', '2018'),
+(35, 'FSEC', 'Arianne Torres', 'Printing', 'Bacolod City', '0', 'Barangay 39', 'NA', 'December 3, 2018 6:54 pm', 'arianne', 'arianne', 'Arianne Torres', '1', '1', 'Complete', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Unassessed', 'Dec', '2018'),
+(36, 'FSIC', 'Rommel Adricula ', 'CISCO', 'Bacolod City', '1', 'Barangay 39', 'Building', 'December 3, 2018 10:16 pm', 'rommel', 'rommel', 'Rommel Adricula', '2', '10', 'Pending', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),', 'Unassessed', 'Dec', '2018'),
+(37, 'FSIC', 'Rogy Acosta', 'Falcon', 'Bacolod City', '1', 'Barangay 39', 'Building', 'December 3, 2018 10:17 pm', 'rogy', 'rogy', 'Rogy Acosta', '1', '1', 'Complete', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Unassessed', 'Dec', '2018'),
+(38, 'FSEC', 'Juan Dela Cruz', 'Printing', 'Bacolod City', '1', 'Barangay 39', 'NA', 'December 4, 2018 5:13 pm', 'juan', 'juan', 'Juan Dela Cruz', '3', '3', 'Complete', 'Endorsement from building Official,Set of Building Plans (3),Bill of Materials and Cost Estimate (1),FALAR-1 (3),', 'Unassessed', 'Dec', '2018'),
+(39, 'FSEC', 'Kent Adrian', 'Security Firm', 'San Luis', 'Business-Office', 'Barangay 22', 'NA', 'December 7, 2018 9:54 pm', 'clarkcan2018', '8080', 'Kent Adrian', '3', '442', 'Complete', 'IniReq1,IniReq2,IniReq3,IniReq4,', 'Assessed', 'Dec', '2018'),
+(40, 'FSEC', 'John Dale', 'Engineering Firm', 'Tabunan', 'Mercantile', 'Barangay 15', 'NA', 'December 7, 2018 10:43 pm', 'clarkcan2018', '8080', 'John Dale', '55', '99', 'Complete', 'IniReq2,IniReq3,', 'Unassessed', 'Dec', '2018'),
+(41, 'FSIC', 'Ildefonso Obligado', 'Tricycle Tire and Parts', 'Cegasco', 'Storage', 'Barangay 30', 'Occupancy', 'December 7, 2018 11:07 pm', 'clarkcan2018', '8080', ' ', '21', '32', 'Complete', 'IniReq8,', 'Unassessed', 'Dec', '2018'),
+(42, 'FSIC', 'Kent Adrian', 'Kent Adrian', 'Kent Adrian', 'Mercantile', 'Barangay 1', 'Occupancy', 'December 7, 2018 11:13 pm', 'clarkcan2018', '8080', ' Kent Adrian', '77', '77', 'Complete', 'IniReq6,IniReq7,', 'Assessed', 'Dec', '2018');
 
 -- --------------------------------------------------------
 
@@ -95,40 +75,55 @@ INSERT INTO `application` (`application_no`, `application_type`, `application_na
 
 CREATE TABLE `assessment` (
   `ops_no` int(100) NOT NULL,
-<<<<<<< HEAD
   `application_no` varchar(100) NOT NULL,
-=======
->>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
-  `applicant_name` varchar(100) NOT NULL,
+  `application_name` varchar(100) NOT NULL,
   `location` varchar(100) NOT NULL,
   `status` varchar(50) NOT NULL,
   `business_name` varchar(100) NOT NULL,
   `type_of_certificate` varchar(50) NOT NULL,
-  `construction_tax` int(100) NOT NULL,
-  `reality_tax` int(100) NOT NULL,
-  `premium_tax` int(100) NOT NULL,
-  `sales_tax` int(100) NOT NULL,
-  `proceeds_tax` int(100) NOT NULL,
-  `inspection_fee` int(100) NOT NULL,
-  `storage_clearance` int(100) NOT NULL,
-  `conveyance_clearance` int(100) NOT NULL,
-  `installation_clearance` int(100) NOT NULL,
-  `other_clearance` int(100) NOT NULL,
-  `total_amount` int(100) NOT NULL,
+  `construction_tax` varchar(100) NOT NULL,
+  `reality_tax` varchar(100) NOT NULL,
+  `premium_tax` varchar(100) NOT NULL,
+  `sales_tax` varchar(100) NOT NULL,
+  `proceeds_tax` varchar(100) NOT NULL,
+  `inspection_fee` varchar(100) NOT NULL,
+  `storage_clearance` varchar(100) NOT NULL,
+  `conveyance_clearance` varchar(100) NOT NULL,
+  `installation_clearance` varchar(100) NOT NULL,
+  `other_clearance` varchar(100) NOT NULL,
+  `total_amount` varchar(100) NOT NULL,
+  `payment` double NOT NULL,
+  `changed` double NOT NULL,
   `month` varchar(10) NOT NULL,
-  `year` varchar(10) NOT NULL
+  `year` varchar(10) NOT NULL,
+  `date_applied` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-<<<<<<< HEAD
-=======
 
 --
 -- Dumping data for table `assessment`
 --
 
-INSERT INTO `assessment` (`ops_no`, `applicant_name`, `location`, `status`, `business_name`, `type_of_certificate`, `construction_tax`, `reality_tax`, `premium_tax`, `sales_tax`, `proceeds_tax`, `inspection_fee`, `storage_clearance`, `conveyance_clearance`, `installation_clearance`, `other_clearance`, `total_amount`, `month`, `year`) VALUES
-(1, '', '', 'Complete', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Dec', '2018'),
-(2, '', '', 'Complete', '', '', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 'Dec', '2018');
->>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
+INSERT INTO `assessment` (`ops_no`, `application_no`, `application_name`, `location`, `status`, `business_name`, `type_of_certificate`, `construction_tax`, `reality_tax`, `premium_tax`, `sales_tax`, `proceeds_tax`, `inspection_fee`, `storage_clearance`, `conveyance_clearance`, `installation_clearance`, `other_clearance`, `total_amount`, `payment`, `changed`, `month`, `year`, `date_applied`) VALUES
+(6, '34', 'Alvin Mananquil', 'Bacolod City', 'Complete', 'Printing', 'FSEC', '10.8', '10.8', '10.8', '10.8', '10.8', '10.8', '10.8', '10.8', '10.8', '10.8', '100', 0, 0, 'Dec', '2018', ''),
+(7, '', '', 'Bacolod City', 'Select', 'Falcon', 'FSIC', '12.3', '1.23', '4.26', '0.46', '0.64', '43.400000000000006', '4', '34', '3', '23', '126.29', 0, 0, 'Dec', '2018', ''),
+(8, '', '', 'Bacolod City', 'Complete', 'Printing', 'FSEC', '3.2', '1.31', '0.26', '0.26', '0.88', '412.40000000000003', '44', '4124', '4124', '4144', '12854.310000000001', 0, 0, 'Dec', '2018', ''),
+(9, '', '', 'Bacolod City', 'Complete', 'Falcon', 'FSIC', '2.3000000000000003', '1.31', '0.1', '0.9', '0.08', '0.4', '656', '5', '6', '5656', '6328.09', 0, 0, 'Dec', '2018', ''),
+(10, '', '', 'Bacolod City', 'Pending', 'Printing', 'FSEC', '0.1', '1.24', '8248.24', '103.02', '1102.7', '1513.5', '5355', '5325', '0', '0', '21648.800000000003', 0, 0, 'Dec', '2018', ''),
+(11, '', '', 'Bacolod City', 'Complete', 'Printing', 'FSEC', '131.3', '4.34', '6848.4800000000005', '48.480000000000004', '6.26', '0', '12313', '4', '2424', '545', '22324.86', 0, 0, 'Dec', '2018', ''),
+(12, '2018-Dec-35', '', 'Bacolod City', 'Complete', 'Printing', '', '12.3', '1.31', '6.26', '6.26', '0.88', '0.30000000000000004', '44', '24', '4124', '4', '4223.31', 0, 0, 'Dec', '2018', ''),
+(13, '2018-Dec-35', '', 'Bacolod City', 'Complete', 'Printing', 'FSEC', '131.3', '13133.130000000001', '6.26', '2.62', '262626.26', '131.3', '1313', '3313', '131131', '313', '412100.87', 0, 0, 'Dec', '2018', ''),
+(14, '2018-12-35', '', 'Bacolod City', 'Select', 'Printing', 'FSEC', '0.30000000000000004', '0.02', '0.08', '106.5', '471.04', '2.5', '53555', '525', '525', '5', '55190.44', 0, 0, 'Dec', '2018', ''),
+(15, '2018-12-35', '', 'Bacolod City', 'Complete', 'Printing', 'FSEC', '0.1', '0.02', '0.88', '0.08', '0.08', '5.300000000000001', '5', '53', '535', '5', '604.46', 0, 0, 'Dec', '2018', ''),
+(16, '2018-12-39', '', 'San Luis', 'Select', 'Security Firm', 'FSEC', '2.3000000000000003', '323.13', '26.26', '626.26', '0.26', '131.3', '13133', '31', '13', '3131', '17417.510000000002', 2000000000, 1999982582.49, 'Dec', '2018', ''),
+(17, '2018-12-39', '', 'San Luis', 'Pending', 'Security Firm', 'FSEC', '0.30000000000000004', '4.34', '105.04', '104.7', '0.5', '5.5', '2352', '55', '52', '5235', '7914.38', 100000, 92085.62, 'Dec', '2018', ''),
+(18, '2018-12-39', '', 'San Luis', 'Complete', 'Security Firm', 'FSEC', '2.3000000000000003', '0.11', '0.44', '0.44', '1.06', '53.5', '55', '431', '344', '34', '921.85', 10000, 9078.15, 'Dec', '2018', ''),
+(19, '39', 'Kent Adrian', 'San Luis', 'Complete', 'Security Firm', 'FSEC', '0.2', '0.01', '2.48', '82.48', '8.48', '0.4', '4214', '44', '45', '4', '4401.05', 222222, 217820.95, 'Dec', '2018', ''),
+(20, '2018-12-40', 'John Dale', 'Tabunan', 'Complete', 'Engineering Firm', 'FSEC', '67.9', '7.890000000000001', '1.78', '1.96', '1.96', '0.30000000000000004', '57', '57', '47', '7', '249.79', 34444, 34194.21, 'Dec', '2018', ''),
+(21, '2018-12-41', 'Ildefonso Obligado', 'Cegasco', 'Complete', 'Tricycle Tire and Parts', 'FSIC', '0.2', '0.03', '0.08', '0.08', '0.04', '0.4', '34', '4', '5', '34', '77.83', 100, 22.17, 'Dec', '2018', ''),
+(22, '2018-12-42', 'Kent Adrian', 'Kent Adrian', 'Complete', 'Kent Adrian', 'FSIC', '1.2000000000000002', '0.23', '0.68', '1.12', '15.56', '0.9', '56', '564', '545', '45', '1229.69', 13000, 11770.31, 'Dec', '2018', 'December 7, 2018 11:43 pm'),
+(23, '2018-12-42', 'Kent Adrian', 'Kent Adrian', 'Complete', 'Kent Adrian', 'FSIC', '11.100000000000001', '11.11', '2.22', '0.22', '2.22', '11.100000000000001', '11', '11', '1', '1', '61.97', 200, 138.03, 'Dec', '2018', 'December 7, 2018 11:49 pm'),
+(24, '2018-12-40', 'John Dale', 'Tabunan', 'Complete', 'Engineering Firm', 'FSEC', '1.2000000000000002', '1.23', '2.46', '2.46', '2.46', '13.100000000000001', '123', '123', '123', '123', '514.91', 600, 85.09000000000003, 'Dec', '2018', 'December 7, 2018 11:50 pm'),
+(25, '42', 'Kent Adrian', 'Kent Adrian', 'Complete', 'Kent Adrian', 'FSIC', '0.2', '0.22', '42.62', '1.76', '0.44', '312.3', '66', '43', '34', '434', '934.54', 2000, 1065.46, 'Dec', '2018', 'December 7, 2018 11:54 pm');
 
 -- --------------------------------------------------------
 
@@ -211,6 +206,37 @@ INSERT INTO `barangay` (`barangay_id`, `barangay_name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `bldg_construct`
+--
+
+CREATE TABLE `bldg_construct` (
+  `bc_no` int(100) NOT NULL,
+  `ir_no` varchar(100) NOT NULL,
+  `beams` varchar(100) NOT NULL,
+  `columns` varchar(100) NOT NULL,
+  `floor` varchar(100) NOT NULL,
+  `exterior` varchar(100) NOT NULL,
+  `corridor` varchar(100) NOT NULL,
+  `partition_no` varchar(100) NOT NULL,
+  `stair` varchar(100) NOT NULL,
+  `windows` varchar(100) NOT NULL,
+  `ceiling` varchar(100) NOT NULL,
+  `door` varchar(100) NOT NULL,
+  `trusses` varchar(100) NOT NULL,
+  `roof` varchar(100) NOT NULL,
+  `date_applied` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `bldg_construct`
+--
+
+INSERT INTO `bldg_construct` (`bc_no`, `ir_no`, `beams`, `columns`, `floor`, `exterior`, `corridor`, `partition_no`, `stair`, `windows`, `ceiling`, `door`, `trusses`, `roof`, `date_applied`) VALUES
+(1, 'IR-2018-12-1', '1312', '3123123', '21313', '12312312312', '312312', '3123123123123', '1231', '321', '32133123', '213213', '3123123213', '213123', 'December 9, 2018 5:52 pm');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `employee`
 --
 
@@ -243,6 +269,25 @@ INSERT INTO `employee` (`id`, `officer_type`, `rank`, `officer_fname`, `officer_
 --
 
 CREATE TABLE `inspection` (
+  `io_no` int(11) NOT NULL,
+  `application_no` varchar(100) NOT NULL,
+  `inspector_name` varchar(100) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
+  `business_name` varchar(100) NOT NULL,
+  `establishment_address` varchar(100) NOT NULL,
+  `date` varchar(50) NOT NULL,
+  `date_applied` varchar(100) NOT NULL,
+  `month` varchar(50) NOT NULL,
+  `year` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inspection_order`
+--
+
+CREATE TABLE `inspection_order` (
   `inspection_order_no` int(10) NOT NULL,
   `inspection_report_no` varchar(20) NOT NULL,
   `application_no` varchar(20) NOT NULL,
@@ -255,15 +300,64 @@ CREATE TABLE `inspection` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `inspection`
+-- Dumping data for table `inspection_order`
 --
 
-INSERT INTO `inspection` (`inspection_order_no`, `inspection_report_no`, `application_no`, `building_construction_no`, `boc_no`, `date`, `status`, `month`, `year`) VALUES
+INSERT INTO `inspection_order` (`inspection_order_no`, `inspection_report_no`, `application_no`, `building_construction_no`, `boc_no`, `date`, `status`, `month`, `year`) VALUES
 (1, '0001', '2018-11-30', '110', '110', 'November 30, 2018', 'Complete', 'Nov', '2018'),
 (2, '0002', '2018-11-31', '111', '111', 'November 30, 2018', 'Complete', 'Nov', '2018'),
 (3, '0003', '2018-11-32', '112', '112', 'November 30, 2018', 'Complete', 'Nov', '2018'),
 (4, '0004', '2018-11-33', '113', '113', 'November 30, 2018', 'Complete', 'Nov', '2018'),
 (5, '0005', '2018-11-34', '114', '114', 'November 30, 2018', 'Complete', 'Nov', '2018');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inspection_report`
+--
+
+CREATE TABLE `inspection_report` (
+  `ir_no` int(11) NOT NULL,
+  `io_no` varchar(100) NOT NULL,
+  `application_no` varchar(100) NOT NULL,
+  `owner_name` varchar(100) NOT NULL,
+  `owner_address` varchar(100) NOT NULL,
+  `building_name` varchar(100) NOT NULL,
+  `building_address` varchar(100) NOT NULL,
+  `bldg_height` varchar(100) NOT NULL,
+  `lot_size` varchar(100) NOT NULL,
+  `number_of_floors` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `inspection_schedule`
+--
+
+CREATE TABLE `inspection_schedule` (
+  `io_schedule` int(11) NOT NULL,
+  `io_no` varchar(100) NOT NULL,
+  `inspectors` varchar(100) NOT NULL,
+  `inspection_date` varchar(50) NOT NULL,
+  `inspection_time` varchar(50) NOT NULL,
+  `date_applied` varchar(50) NOT NULL,
+  `month` varchar(20) NOT NULL,
+  `year` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inspection_schedule`
+--
+
+INSERT INTO `inspection_schedule` (`io_schedule`, `io_no`, `inspectors`, `inspection_date`, `inspection_time`, `date_applied`, `month`, `year`) VALUES
+(1, 'IO-2018-12-1', 'Dalusay', '2018-12-12', '02:04', 'December 9, 2018 3:36 pm', 'Dec', '2018'),
+(2, 'IO-2018-12-1', 'Jagonoy', '2018-12-05', '', 'December 9, 2018 3:46 pm', 'Dec', '2018'),
+(3, 'IO-2018-12-1', 'Mark As', '2018-12-04', 'g:i a', 'December 9, 2018 4:22 pm', 'Dec', '2018'),
+(4, 'IO-2018-12-1', 'Jagonoy', '2018-12-19', '4:22 pm', 'December 9, 2018 4:22 pm', 'Dec', '2018'),
+(5, 'IO-2018-12-1', 'Mark As', '2018-12-04', '4:24 pm', 'December 9, 2018 4:24 pm', 'Dec', '2018'),
+(6, 'IO-2018-12-1', 'Jagonoy', '2018-11-26', '12:58', 'December 9, 2018 4:26 pm', 'Dec', '2018'),
+(7, 'IO-2018-12-1', 'Dalusay', '2018-12-10', '5:05 pm', 'December 9, 2018 5:30 pm', 'Dec', '2018');
 
 -- --------------------------------------------------------
 
@@ -331,6 +425,12 @@ ALTER TABLE `barangay`
   ADD PRIMARY KEY (`barangay_id`);
 
 --
+-- Indexes for table `bldg_construct`
+--
+ALTER TABLE `bldg_construct`
+  ADD PRIMARY KEY (`bc_no`);
+
+--
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
@@ -340,7 +440,25 @@ ALTER TABLE `employee`
 -- Indexes for table `inspection`
 --
 ALTER TABLE `inspection`
+  ADD PRIMARY KEY (`io_no`);
+
+--
+-- Indexes for table `inspection_order`
+--
+ALTER TABLE `inspection_order`
   ADD PRIMARY KEY (`inspection_order_no`);
+
+--
+-- Indexes for table `inspection_report`
+--
+ALTER TABLE `inspection_report`
+  ADD PRIMARY KEY (`ir_no`);
+
+--
+-- Indexes for table `inspection_schedule`
+--
+ALTER TABLE `inspection_schedule`
+  ADD PRIMARY KEY (`io_schedule`);
 
 --
 -- Indexes for table `user`
@@ -364,27 +482,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `application`
 --
 ALTER TABLE `application`
-<<<<<<< HEAD
-  MODIFY `application_no` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-=======
-  MODIFY `application_no` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
->>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
+  MODIFY `application_no` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT for table `assessment`
 --
 ALTER TABLE `assessment`
-<<<<<<< HEAD
-  MODIFY `ops_no` int(100) NOT NULL AUTO_INCREMENT;
-=======
-  MODIFY `ops_no` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
->>>>>>> 245837892a3157e976a6eb4e9058247adbbf201a
+  MODIFY `ops_no` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `barangay`
 --
 ALTER TABLE `barangay`
   MODIFY `barangay_id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
+
+--
+-- AUTO_INCREMENT for table `bldg_construct`
+--
+ALTER TABLE `bldg_construct`
+  MODIFY `bc_no` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -396,7 +512,25 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `inspection`
 --
 ALTER TABLE `inspection`
+  MODIFY `io_no` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `inspection_order`
+--
+ALTER TABLE `inspection_order`
   MODIFY `inspection_order_no` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `inspection_report`
+--
+ALTER TABLE `inspection_report`
+  MODIFY `ir_no` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `inspection_schedule`
+--
+ALTER TABLE `inspection_schedule`
+  MODIFY `io_schedule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
