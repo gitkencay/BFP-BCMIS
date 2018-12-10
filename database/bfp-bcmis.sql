@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2018 at 10:53 AM
+-- Generation Time: Dec 10, 2018 at 07:39 AM
 -- Server version: 10.1.28-MariaDB
 -- PHP Version: 7.1.11
 
@@ -278,7 +278,8 @@ CREATE TABLE `inspection` (
   `date` varchar(50) NOT NULL,
   `date_applied` varchar(100) NOT NULL,
   `month` varchar(50) NOT NULL,
-  `year` varchar(100) NOT NULL
+  `year` varchar(100) NOT NULL,
+  `inspection_status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -326,7 +327,15 @@ CREATE TABLE `inspection_report` (
   `building_address` varchar(100) NOT NULL,
   `bldg_height` varchar(100) NOT NULL,
   `lot_size` varchar(100) NOT NULL,
-  `number_of_floors` varchar(100) NOT NULL
+  `number_of_floors` varchar(100) NOT NULL,
+  `date_applied` varchar(50) NOT NULL,
+  `month` varchar(50) NOT NULL,
+  `year` varchar(50) NOT NULL,
+  `inspection_status` varchar(50) NOT NULL,
+  `ir_checklist` varchar(50) NOT NULL,
+  `recommendation` varchar(100) NOT NULL,
+  `deficiency` varchar(100) NOT NULL,
+  `type_of_notice` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -357,7 +366,8 @@ INSERT INTO `inspection_schedule` (`io_schedule`, `io_no`, `inspectors`, `inspec
 (4, 'IO-2018-12-1', 'Jagonoy', '2018-12-19', '4:22 pm', 'December 9, 2018 4:22 pm', 'Dec', '2018'),
 (5, 'IO-2018-12-1', 'Mark As', '2018-12-04', '4:24 pm', 'December 9, 2018 4:24 pm', 'Dec', '2018'),
 (6, 'IO-2018-12-1', 'Jagonoy', '2018-11-26', '12:58', 'December 9, 2018 4:26 pm', 'Dec', '2018'),
-(7, 'IO-2018-12-1', 'Dalusay', '2018-12-10', '5:05 pm', 'December 9, 2018 5:30 pm', 'Dec', '2018');
+(7, 'IO-2018-12-1', 'Dalusay', '2018-12-10', '5:05 pm', 'December 9, 2018 5:30 pm', 'Dec', '2018'),
+(8, 'IO-2018-12-1', 'Inspector Dalisay', '2018-12-12', '9:45 am', 'December 9, 2018 11:16 pm', 'Dec', '2018');
 
 -- --------------------------------------------------------
 
@@ -530,7 +540,7 @@ ALTER TABLE `inspection_report`
 -- AUTO_INCREMENT for table `inspection_schedule`
 --
 ALTER TABLE `inspection_schedule`
-  MODIFY `io_schedule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `io_schedule` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `user`

@@ -52,7 +52,7 @@
 <a href="#"><span class="fa fa-file-text-o"></span> <span class="xn-text">Transaction</span></a>
 <ul>
 <li><a href="Transaction-Assessment.html"> Assessments & Payments</a></li>
-<li class="active"><a href="Transaction-Inspection.html"> Inspection & Compliance</a></li>
+<li class="active"><a href="Transaction-Inspection.php"> Inspection & Compliance</a></li>
 <li><a href="Transaction-BuildEval.html">Building Evaluation</a></li>
 <li><a href="#">Status Monitoring</a></li>
 <li><a href="Transaction-Scheduling.html">Scheduling</a></li>
@@ -110,7 +110,7 @@
 <ul class="breadcrumb">
 <li><a href="#">Home</a></li>
 <li><a href="#">Transaction</a></li>
-<li class="active"><a href="Transaction-Inspection.html">Inspection Order and Compliance</a></li>
+<li class="active"><a href="Transaction-Inspection.php">Inspection Order and Compliance</a></li>
 </ul>
 <!-- END BREADCRUMB -->
 
@@ -129,7 +129,7 @@
 
 <!-- Start Inspection Order Tab-->
 <div class="tab-pane active" id="io-tab">
-
+<form method="post" action="actions/addInspection.php" onsubmit="return confirm('Are you sure you want to add this Inspection Information?');"  >
         <!--Start Default Table-->
 
 <div class="panel-body" id="io-panel">
@@ -155,7 +155,6 @@ $ir_no = $fetch3['ir_no'] + 1;
 <div class="row">
 
     <div class="col-md-6">
-
         <div class="form-group">
             <label class="col-md-3 control-label">IO No.</label>
             <div class="col-md-5">
@@ -172,7 +171,7 @@ $ir_no = $fetch3['ir_no'] + 1;
             <div class="col-md-9 col-xs-12">
                 <div class="input-group">
 
-                    <input type="text" class="form-control" id="application_no" name="application_no" value="<?php echo $fetch['year']. '-' . $month2 . '-' .$fetch['application_no'] ?>"  readonly />
+                    <input type="text" class="form-control" id="application_no" name="application_no" value="<?php echo $fetch['year'] . '-' . $month2 . '-' . $fetch['application_no'] ?>"  readonly />
                 </div>
 
             </div>
@@ -193,7 +192,7 @@ $ir_no = $fetch3['ir_no'] + 1;
             <div class="col-md-9 col-xs-12">
                 <div class="input-group">
 
-                    <input type="text" class="form-control" readonly id="owner_name" name="owner_name" value="<?php echo $fetch['owner_name']?>" />
+                    <input type="text" class="form-control" readonly id="owner_name" name="owner_name" value="<?php echo $fetch['owner_name'] ?>" />
                 </div>
 
             </div>
@@ -204,7 +203,7 @@ $ir_no = $fetch3['ir_no'] + 1;
             <div class="col-md-9 col-xs-12">
                 <div class="input-group">
 
-                    <input type="text" class="form-control" readonly id="business_name" name="business_name" value="<?php echo $fetch['business_name']?>"  />
+                    <input type="text" class="form-control" readonly id="business_name" name="business_name" value="<?php echo $fetch['business_name'] ?>"  />
                 </div>
 
             </div>
@@ -213,12 +212,12 @@ $ir_no = $fetch3['ir_no'] + 1;
             <label class="col-md-3 control-label">Est. Address:</label>
             <div class="col-md-9 col-xs-12">
                 <div class="input-group">
-                <input type="text" class="form-control" readonly id="establishment_address" name="establishment_address" value="<?php echo $fetch['establishment_address']?>" />
+                <input type="text" class="form-control" readonly id="establishment_address" name="establishment_address" value="<?php echo $fetch['establishment_address'] ?>" />
                 </div>
 
             </div>
         </div>
-        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add_inspection<?php echo $fetch['application_no']; ?>"><i class="fa fa-plus"></i>Add Schedule</button>
+        <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add_inspection"> <i class="fa fa-plus"></i>Add Schedule</button>
 
     </div>
     <div class="col-md-6">
@@ -257,7 +256,7 @@ $ir_no = $fetch3['ir_no'] + 1;
             <label class="col-md-4 control-label">Application No. :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="application_no" name="application_no" value="<?php echo $fetch['year']. '-' . $month2 . '-' .$fetch['application_no'] ?>"  readonly/>
+                    <input type="text" class="form-control" id="application_no" name="application_no" value="<?php echo $fetch['year'] . '-' . $month2 . '-' . $fetch['application_no'] ?>"  readonly/>
                 </div>
 
             </div>
@@ -267,7 +266,7 @@ $ir_no = $fetch3['ir_no'] + 1;
             <label class="col-md-4 control-label">Owner Name :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" readonly id="owner_name" name="owner_name" value="<?php echo $fetch['owner_name']?>" />
+                    <input type="text" class="form-control" readonly id="owner_name" name="owner_name" value="<?php echo $fetch['owner_name'] ?>" />
                 </div>
             </div>
         </div>
@@ -275,7 +274,7 @@ $ir_no = $fetch3['ir_no'] + 1;
             <label class="col-md-4 control-label">Address :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" readonly id="owner_address" name="owner_address" />
+                    <input type="text" class="form-control" required id="owner_address" name="owner_address" />
                 </div>
             </div>
         </div>
@@ -285,15 +284,15 @@ $ir_no = $fetch3['ir_no'] + 1;
                 <button type="button" class="btn btn-info" data-toggle="modal" data-target="#Bldg_Const"><i class="fa fa-plus"></i> Add Building Construction</button>
             </div>
             <div class="col-md-6">
-                    <select class="form-control" id="bldg-code">
-                            <option value="0">Select</option>
-                            <option value="1">Classification</option>
-                            <option value="2">Exit Details</option>
-                            <option value="3">Lightings and Signs</option>
-                            <option value="4">Features of Fire Protection</option>
-                            <option value="5">Building Service Equipment</option>
-                            <option value="6">Hazardous Areas</option>
-                            <option value="7">Operating Features</option>
+                    <select class="form-control" id="ir_checklist" name="ir_checklist">
+                            <option value="Select">Select</option>
+                            <option value="Classification">Classification</option>
+                            <option value="Exit Details">Exit Details</option>
+                            <option value="Lightings and Signs">Lightings and Signs</option>
+                            <option value="Features of Fire Protection">Features of Fire Protection</option>
+                            <option value="Building Service Equipment">Building Service Equipment</option>
+                            <option value="Hazardous Areas">Hazardous Areas</option>
+                            <option value="Operating Features">Operating Features</option>
                     </select>
             </div>
         </div>
@@ -301,7 +300,7 @@ $ir_no = $fetch3['ir_no'] + 1;
                 <label for="recommend" class="col-md-3 control-label">Recommendation: </label>
                 <br>
                 <div class="col-md-10">
-                    <textarea rows="3" cols="80" placeholder="Recommend for Deficiences"></textarea>
+                    <textarea rows="3" cols="80" placeholder="Recommend for Deficiences" id="recommendation" name="recommendation"></textarea>
                 </div>
         </div>
 
@@ -342,7 +341,7 @@ $ir_no = $fetch3['ir_no'] + 1;
             <label class="col-md-4 control-label">Lot Size :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="lot_size" name="lot_size" readonly/>
+                    <input type="text" class="form-control" id="lot_size" name="lot_size" />
                 </div>
             </div>
         </div>
@@ -351,14 +350,14 @@ $ir_no = $fetch3['ir_no'] + 1;
             <label class="col-md-4 control-label">Number of Floors :</label>
             <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="number_of_floors" name="number_of_floors" readonly/>
+                    <input type="text" class="form-control" id="number_of_floors" name="number_of_floors"/>
                 </div>
             </div>
         </div>
         <hr>
         <div class="form-group">
             <div class="col-md-6">
-                <input id="specify_id"type="text" class="form-control" placeholder="Specify Deficiency"/>
+                <input id="specify_id"type="text" class="form-control" placeholder="Specify Deficiency" id="deficiency" name="deficiency" />
             </div>
             <button type="button" class="btn btn-info" data-target="#New_Defects"><i class="fa fa-plus"></i></button>
         </div>
@@ -374,20 +373,19 @@ $ir_no = $fetch3['ir_no'] + 1;
 </div>
 <div class="form-group">
         <div class="col-sm-13">
-            <select class="btn btn-info pull-right"class="form-control" id="type-notice">
-                <option>Issue Notice</option>
-                <option value="1">Comply</option>
-                <option value="2">Correct Violation</option>
+            <select class="btn btn-info pull-right"class="form-control" id="type_of_notice" name="type_of_notice">
+                <option value="Select">Select</option>
+                <option value="Comply">Comply</option>
+                <option value="Correct Violation">Correct Violation</option>
             </select>
             <br>
-            <button class="btn btn-info pull-right">Save and Proceed to Issue Notice</button>
+            <button type="submit" class="btn btn-info" name="save_inspection"><span class="fa fa-check"></span>Save</button>
         </div>
 
     </div>
 </div>
-
+</form>
 </div>
-
 
 
 

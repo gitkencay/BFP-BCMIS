@@ -33,7 +33,13 @@ $io_no = $fetch2['io_no'] + 1;
                 <label class="col-md-4 control-label">Inspector :</label>
                 <div class="col-md-6">
                 <div class="input-group">
-                    <input type="text" class="form-control" id="inspectors" name="inspectors"  required/>
+                    <select class="form-control select" id="inspectors" name="inspectors" required>
+                        <option value="Select">Select</option>
+                        <option value="Inspector Cardo">Inspector Cardo</option>
+                        <option value="Inspector Dalisay">Inspector Dalisay</option>
+                        <option value="Inspector Poe">Inspector Poe</option>
+                        <option value="Inspector Duterte">Inspector Duterte</option>
+                    </select>
                 </div>
                 </div>
             </div>
@@ -74,12 +80,14 @@ $io_no = $fetch2['io_no'] + 1;
                         </tr>
                     </thead>
                     <tbody>
+                   
                     <?php
 require 'require/databaseconnection.php';
-$query = $conn->query("select * from `inspection_schedule`") or die(mysqli_error());
+$query = $conn->query("select * from `inspection_schedule ") or die(mysqli_error());
 while ($fetch = $query->fetch_array()) {
     ?>
                     <tr>
+
                         <td><?php echo $fetch['io_no'] ?></td>
                         <td><?php echo $fetch['inspection_date'] ?></td>
                         <td><?php echo $fetch['inspection_time'] ?></td>
