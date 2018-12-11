@@ -1,0 +1,119 @@
+
+.page-container .page-sidebar{
+	background: #223462;
+}
+
+#navSid{
+	background: #223462;
+}
+
+#navSid li{
+	background: #223462;
+	
+}
+
+#navSid li > a:hover{
+	background: #E5480D;
+}
+
+#navSid > li > ul > li > a {
+  padding-left: 25px;
+}
+
+#hozironNav{
+	background: #223462;
+	border-bottom: 3px solid #E5480D;
+}
+
+#transacWidget{
+	margin-left: 360px;
+}
+
+.AssessForm{
+	width: 885px;
+	margin-left: 80px;
+	margin-top: 30px;
+}
+
+#Ini_FC_Constr{
+	margin-bottom: 10px;
+}
+#Com_FC_Constr{
+	margin-bottom: 10px;
+}
+#Ini_FC_RT{
+	margin-bottom: 10px;
+}
+#Com_FC_RT{
+	margin-bottom: 10px;
+}
+#Ini_FC_PT{
+	margin-bottom: 10px;
+}
+#Com_FC_PT{
+	margin-bottom: 10px;
+}
+#Ini_FC_ST{
+	margin-bottom: 10px;
+}
+#Com_FC_ST{
+	margin-bottom: 10px;
+}
+#Ini_FC_PreT{
+	margin-bottom: 10px;
+}
+#Com_FC_ProT{
+	margin-bottom: 10px;
+}
+#Ini_FS_InspFee{
+	margin-bottom: 10px;
+}
+#Com_FS_InspFee{
+	margin-bottom: 10px;
+}
+#Ini_StorClear{
+	margin-bottom: 10px;
+}
+#Ini_FC_ST{
+	margin-bottom: 10px;
+}
+#Com_StorClear{
+	margin-bottom: 10px;
+}
+#Ini_ConvClear{
+	margin-bottom: 10px;
+}
+#Com_ConvClear{
+	margin-bottom: 10px;
+}
+#Ini_InstClear{
+	margin-bottom: 10px;
+}
+#Com_InstClear{
+	margin-bottom: 10px;
+}
+#Ini_OtherClear{
+	margin-bottom: 10px;
+}
+#Com_OtherClear{
+	margin-bottom: 10px;
+}
+#totalamt{
+	margin-bottom: 40px;
+	margin-top: 20px;
+}
+
+.AppRecOverView{
+	width: 800px;
+	margin-left: 100px;
+}
+
+#appRec{
+	background-color: #E4E5A2;
+	width: 300px;
+}
+
+.appRecTransac{
+	width: 700px;
+	margin-left: 150px;
+}
