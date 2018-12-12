@@ -1,15 +1,6 @@
-<?php
-require 'require/databaseconnection.php';
-$query2 = $conn->query("SELECT * FROM `bldg_construct` order by ir_no DESC limit 1") or die(mysqli_error());
-$fetch2 = $query->fetch_array();
 
-$month = date("m");
-$year = date('Y');
-$ir_no = $fetch2['ir_no'] + 1;
-$io_schedule = $fetch2['io_schedule'] + 1;
-?>
         <!--Start Modal Building Construction-->
-        <div id="Bldg_Const" class="modal fade" tabindex="-1" role="dialog">
+        <div id="view_bldgConst<?php echo $fetch3['bc_no'];?>" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -21,42 +12,42 @@ $io_schedule = $fetch2['io_schedule'] + 1;
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                            <input type="hidden" name="application_number" value="<?php echo $fetch['application_no']?>"/>
+                            <input type="hidden" name="application_number" value="<?php echo $fetch3['application_no']?>"/>
                             <input type="hidden" class="form-control" id="ir_no" name="ir_no" readonly value="<?php echo $io_schedule?>"/>
                                 <input type="hidden" class="form-control" id="ir_no" name="ir_no" readonly value="<?php echo 'IR' . '-' . $year . '-' . $month . '-' .$ir_no ?>"/>
                                  <label for="beams" class="col-md-3 control-label">Beams</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="beams" name="beams" require>
+                                    <input type="text" class="form-control" id="beams" name="beams"  readonly  value="<?php echo $fetch3['beams'] ?>" require>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="columns" class="col-md-3 control-label">Columns</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="columns" name="columns" require>
+                                    <input type="text" class="form-control" id="columns" name="columns" readonly  value="<?php echo $fetch3['columns'] ?>" require>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="flooring" class="col-md-3 control-label">Flooring</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="floor" name="floor" require>
+                                    <input type="text" class="form-control" id="floor" name="floor" readonly  value="<?php echo $fetch3['floor'] ?>"  require>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="ex_walls" class="col-md-3 control-label">Exterior Walls</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="exterior" name="exterior" require>
+                                    <input type="text" class="form-control" id="exterior" name="exterior" readonly  value="<?php echo $fetch3['exterior'] ?>" require>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="cor_walls" class="col-md-3 control-label">Corridor Walls</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="corridor" name="corridor" require>
+                                    <input type="text" class="form-control" id="corridor" name="corridor" readonly  value="<?php echo $fetch3['corridor'] ?>" require>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="room_part" class="col-md-3 control-label">Room Partitions</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="partition_no" name="partition_no" require>
+                                    <input type="text" class="form-control" id="partition_no" name="partition_no"  readonly  value="<?php echo $fetch3['partition_no'] ?>" require>
                                 </div>
                             </div>
                         </div>
@@ -64,37 +55,37 @@ $io_schedule = $fetch2['io_schedule'] + 1;
                             <div class="form-group">
                                 <label for="main_stair" class="col-md-3 control-label">Main Stair</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="stair" name="stair" require>
+                                    <input type="text" class="form-control" id="stair" name="stair" readonly  value="<?php echo $fetch3['stair'] ?>" require>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="windows" class="col-md-3 control-label">Windows</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="windows" name="windows" require >
+                                    <input type="text" class="form-control" id="windows" name="windows" readonly  value="<?php echo $fetch3['windows'] ?>" require >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="ceiling" class="col-md-3 control-label">Ceiling</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="ceiling" name="ceiling" require >
+                                    <input type="text" class="form-control" id="ceiling" name="ceiling" readonly  value="<?php echo $fetch3['ceiling'] ?>" require >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="main_door" class="col-md-3 control-label">Main Door</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="door" name="door" require >
+                                    <input type="text" class="form-control" id="door" name="door" readonly  value="<?php echo $fetch3['door'] ?>" require >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="trusses" class="col-md-3 control-label">Trusses</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="trusses" name="trusses" require >
+                                    <input type="text" class="form-control" id="trusses" name="trusses" readonly  value="<?php echo $fetch3['trusses'] ?>" require >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="roof" class="col-md-3 control-label">Roof</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="roof" name="roof" require >
+                                    <input type="text" class="form-control" id="roof" name="roof" readonly  value="<?php echo $fetch3['roof'] ?>" require >
                                 </div>
                             </div>
                         </div>
@@ -104,7 +95,7 @@ $io_schedule = $fetch2['io_schedule'] + 1;
                     <div class="col-md-6">
                         <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
                     </div>
-                    <button type="submit" class="btn btn-info" name="save_bldgconstruction"><span class="fa fa-check"></span>Save</button>
+                   
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                 </div>
                 </form>

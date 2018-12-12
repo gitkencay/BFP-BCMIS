@@ -24,24 +24,23 @@
                 <div class="page-content-wrap">
                     <div class="row">
                     <?php
-                    require 'require/databaseconnection.php';
-                    $query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
-                    $fetch = $query->fetch_array();
-                    
-                    $query3 = $conn->query("SELECT * FROM `inspection_report` order by ir_no DESC limit 1") or die(mysqli_error());
-                    $fetch3 = $query->fetch_array();
-                    $ir_no = $fetch3['ir_no'] + 1;
+require 'require/databaseconnection.php';
+$query = $conn->query("SELECT * FROM `inspection_report` WHERE `ir_no` = '$_GET[ir_no]'") or die(mysqli_error());
+$fetch = $query->fetch_array();
 
-                    $month2 = date("m", strtotime($fetch['month']));
-                    
-                    $month = date("m");
-                    $year = date('Y');
-                    $today = date("y-d-m");
+$query2 = $conn->query("select * from `inspection_schedule` ") or die(mysqli_error());
+$fetch2 = $query->fetch_array();
 
-                    $query3 = $conn->query("SELECT * FROM `inspection_report` order by ir_no DESC limit 1") or die(mysqli_error());
-                    $fetch3 = $query->fetch_array();
-                    $ir_no = $fetch3['ir_no'] + 1;
-                    ?>
+$query3 = $conn->query("select * from `bldg_construct` ") or die(mysqli_error());
+$fetch3 = $query->fetch_array();
+
+$query4 = $conn->query("select * from `issue_notice` ") or die(mysqli_error());
+$fetch4 = $query->fetch_array();
+
+$month = date("m", strtotime($fetch['month']));
+$ir_no = $fetch['ir_no'];
+
+?>
                         <div class="col-md-12">
                             <div class="panel panel-default tabs">
                                 <ul class="nav nav-tabs" role="tablist">
@@ -56,16 +55,16 @@
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">IO No.</label>
                                                             <div class="col-sm-10">
-                                                            <input type="hidden" name="application_number" value="<?php echo $fetch['application_no']?>"/>
-                                                                <input type="text" class="form-control" name="io_no" value="<?php echo 'IO' . '-' . $year . '-' . $month . '-' . $ir_no ?>">
+                                                            <input type="hidden" name="application_number" value="<?php echo $fetch['application_no'] ?>"/>
+                                                                <input type="text" class="form-control" name="io_no" value="<?php echo $fetch['io_no'] ?>">
                                                             </div>
                                                         </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Application No</label>
                                                             <div class="col-sm-10">
-                                                            <input type="hidden" name="application_number" value="<?php echo $fetch['application_no']?>"/>
-                                                                <input type="text" class="form-control" name="application_no" value="<?php echo $fetch['year'] . '-' . $month2 . '-' . $fetch['application_no'] ?>" >
+                                                            <input type="hidden" name="application_number" value="<?php echo $fetch['application_no'] ?>"/>
+                                                                <input type="text" class="form-control" name="application_no" value="<?php echo $fetch['application_no'] ?>" >
                                                             </div>
                                                         </div> <br><br><br>
 
@@ -74,36 +73,39 @@
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="owner_name" value="<?php echo $fetch['owner_name'] ?>" >
                                                             </div>
-                                                        </div> <br><br><br>                                                      
+                                                        </div> <br><br><br>
                                                         </div>
-                                                        
+
                                                         <div class="col-md-5">
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Business Name</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="business_name" value="<?php echo $fetch['business_name'] ?>" >
                                                             </div>
-                                                        </div> <br><br><br>  
+                                                        </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Establishment Address</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="establishment_address" value="<?php echo $fetch['establishment_address'] ?>" >
                                                             </div>
-                                                        </div> <br><br><br> 
+                                                        </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Date Applied</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" id="date_applied" name="date_applied" value="<?php echo $today ?>" >
+                                                                <input type="text" class="form-control" id="date_applied" name="date_applied" value="<?php echo $fetch['date_applied'] ?>" >
                                                             </div>
-                                                        </div> <br><br><br>  
+                                                        </div> <br><br><br>
                                                         </div>
                                                         </div>
                                                         <hr>
                                                         <div class="row">
-                                                            <div class="col-md-5">
-                                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#add_inspection"> <i class="fa fa-plus"></i>Add Schedule</button>
+                                                            <div class="col-md-3">
+                                                                <a href="#edit_inspection<?php echo $fetch2['io_schedule']; ?>" data-target="#edit_inspection<?php echo $fetch2['io_schedule']; ?>" data-toggle="modal" class="btn btn-info"> <i class="fa fa-eye"></i> View Schedule</a>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                <a href="#view_bldgConst<?php echo $fetch3['bc_no']; ?>" data-target="#view_bldgConst<?php echo $fetch3['bc_no']; ?>" data-toggle="modal" class="btn btn-info"> <i class="fa fa-eye"></i> View Building Construction</a>
                                                             </div>
                                                         </div>
                                                         <hr>
@@ -112,14 +114,14 @@
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Inspection Report No</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="ir_no" value="<?php echo 'IR' . '-' . $year . '-' . $month . '-' . $ir_no ?>">
+                                                                <input type="text" class="form-control" name="ir_no"value="<?php echo 'IR' . '-' . $fetch['year'] . '-' . $month . '-' . $ir_no ?>" >
                                                             </div>
-                                                        </div> <br><br><br>  
+                                                        </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Application No</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="application_no" value="<?php echo $fetch['year'] . '-' . $month2 . '-' . $fetch['application_no'] ?>" >
+                                                                <input type="text" class="form-control" name="application_no" value="<?php echo $fetch['application_no'] ?>" >
                                                             </div>
                                                         </div> <br><br><br>
 
@@ -128,14 +130,14 @@
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" value="<?php echo $fetch['owner_name'] ?>" readonly>
                                                             </div>
-                                                        </div> <br><br><br>     
+                                                        </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Owner Address</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="owner_address" id="owner_address" require>
+                                                                <input type="text" class="form-control" name="owner_address" id="owner_address" value="<?php echo $fetch['owner_address'] ?>" require>
                                                             </div>
-                                                        </div> <br><br><br>     
+                                                        </div> <br><br><br>
                                                         </div>
                                                         <div class="col-md-5">
                                                         <div class="form-group">
@@ -143,28 +145,28 @@
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" value="<?php echo $fetch['business_name'] ?>" require readonly>
                                                             </div>
-                                                        </div> <br><br><br>  
+                                                        </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Building Address</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="building_address"  value="<?php echo $fetch['establishment_address'] ?>" readonly require >
                                                             </div>
-                                                        </div> <br><br><br>  
+                                                        </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Height of Building</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="bldg_height" id="bldg_height" require >
+                                                                <input type="text" class="form-control" name="bldg_height" id="bldg_height" require  value="<?php echo $fetch['bldg_height'] ?>" >
                                                             </div>
-                                                        </div> <br><br><br>  
+                                                        </div> <br><br><br>
 
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-5 control-label">Lot Size</label>
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="lot_size" id="lot_size" value="<?php echo $fetch['lot_size'] ?>" readonly>
                                                             </div>
-                                                        </div> <br><br><br>                                                        
+                                                        </div> <br><br><br>
                                                         </div>
                                                         <div class="col-md-2">
                                                         <div class="form-group">
@@ -172,18 +174,10 @@
                                                             <div class="col-sm-10">
                                                                 <input type="text" class="form-control" name="number_of_floors" id="number_of_floors" value="<?php echo $fetch['number_of_floors'] ?>" readonly>
                                                             </div>
-                                                        </div> <br><br><br>  
+                                                        </div> <br><br><br>
                                                         </div>
                                                         </div>
                                                         <hr>
-                                                        <div class="row">
-                                                        <div class="col-md-3">
-                                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#Bldg_Const"> <i class="fa fa-plus"></i>Add Building Construction</button>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#IssueNotice"> <i class="fa fa-plus"></i>Issue Notice</button>
-                                                        </div>
-                                                        </div>
                                                         <hr>
                                                         <div class="row">
                                                         <div class="col-md-5">
@@ -191,7 +185,7 @@
                                                         <label for="recommend" class="col-md-12 control-label">Recommendation: </label>
                                                         <br>
                                                         <div class="col-md-10">
-                                                            <textarea rows="3" cols="60" placeholder="Recommend for Deficiences" name="recommendation"  id="recommendation" require></textarea>
+                                                            <textarea rows="3" cols="60" placeholder="Recommend for Deficiences" readonly name="recommendation"  id="recommendation" value="<?php echo $fetch['recommendation'] ?>" require></textarea>
                                                         </div>
                                                         </div>
                                                         </div>
@@ -200,7 +194,7 @@
                                                         <label for="app-name" class="col-sm-12 control-label">Checklist</label>
                                                             <div class="col-sm-10">
                                                             <select class="form-control" name="ir_checklist"  id"ir_checklist">
-                                                            <option value="Select">Select</option>
+                                                            <option value="<?php echo $fetch['ir_checklist'] ?>"><?php echo $fetch['ir_checklist'] ?></option>
                                                             <option value="Classification">Classification</option>
                                                             <option value="Exit Details">Exit Details</option>
                                                             <option value="Lightings and Signs">Lightings and Signs</option>
@@ -209,19 +203,19 @@
                                                             <option value="Hazardous Areas">Hazardous Areas</option>
                                                             <option value="Operating Features">Operating Features</option>
                                                             </select>
-                                                            </div> 
+                                                            </div>
                                                             </div><br><br><br>
                                                         </div>
                                                         <div class="col-md-3">
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-12 control-label">Specify Deficiency</label>
                                                             <div class="col-sm-10">
-                                                                <input type="text" class="form-control" name="deficiency" require>
+                                                                <input type="text" class="form-control" name="deficiency" value="<?php echo $fetch['deficiency'] ?>" require>
                                                             </div>
-                                                        </div> <br><br><br> 
-                                                        
+                                                        </div> <br><br><br>
+
                                                         </div>
-                                                    
+
                                                         </div>
                                                         <hr>
                                                         <button type="submit" class="btn btn-info" name="save_inspection"><span class="fa fa-check"></span>Save</button>
@@ -235,12 +229,11 @@
                     </div>
                 </div>
             </div>
-            <?php require 'modals/addBuildingConst.php'?>
-            <?php require 'modals/addIssueNotice.php'?>
-            <?php require 'modals/addInspectionSchedule.php'?>
+            <?php require 'modals/ViewBuildingConst.php'?>
+            <?php require 'modals/ViewInspectionSchedule.php'?>
             <?php require 'require/logout.php'?>
         </div>
-        
+
         <audio id="audio-fail" src="audio/fail.mp3" preload="auto"></audio>
         <script type="text/javascript" src="js/plugins/jquery/jquery.min.js"></script>
         <script type="text/javascript" src="js/plugins/jquery/jquery-ui.min.js"></script>

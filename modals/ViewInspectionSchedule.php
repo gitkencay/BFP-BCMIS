@@ -1,16 +1,7 @@
 <!--Start MODAL-->
 <!--Start Modal Add Schedule-->
-<?php
-require 'require/databaseconnection.php';
-$query2 = $conn->query("SELECT * FROM `inspection_report`") or die(mysqli_error());
-$fetch2 = $query->fetch_array();
 
-$month = date("m");
-$year = date('Y');
-$io_no = $fetch2['io_no'] + 1;
-?>
-<!--Start Modal Add Schedule-->
-<div class="modal fade" id="add_inspection" role="dialog">
+<div class="modal fade" id="edit_inspection<?php echo $fetch2['io_schedule'];?>" role="dialog">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -20,9 +11,9 @@ $io_no = $fetch2['io_no'] + 1;
         <form method="post" action="actions/addSchedule.php" onsubmit="return confirm('Are you sure you want to add this Schedule?');"  >
         <div class="modal-body">
             <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-12"> 
             <div class="form-group">
-                <input type="hidden" name="application_number" value="<?php echo $fetch['application_no']?>"/>
+                <input type="hidden" name="application_number" value="<?php echo $fetch2['application_no']?>"/>
                 <input type="hidden" class="form-control" id="io_no" name="io_no" readonly value="<?php echo 'IO' . '-' . $year . '-' . $month . '-' . $io_no ?>"/>
                 <div class=col-md-4>
                 <input type="text" class="form-control" id="inspectSearch" placeholder="Search">
@@ -35,7 +26,7 @@ $io_no = $fetch2['io_no'] + 1;
                 <div class="col-md-6">
                 <div class="input-group">
                     <select class="form-control select" id="inspectors" name="inspectors" required>
-                        <option value="Select">Select</option>
+                        <option value="<?php echo $fetch2['inspectors']?>"><?php echo $fetch2['inspectors']?></option>
                         <option value="Inspector Cardo">Inspector Cardo</option>
                         <option value="Inspector Dalisay">Inspector Dalisay</option>
                         <option value="Inspector Poe">Inspector Poe</option>
@@ -49,7 +40,7 @@ $io_no = $fetch2['io_no'] + 1;
                 <div class="form-group">
                     <label for="date" class="col-sm-4 control-label">Date of Inspection</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control datepicker" id="inspection_date" name="inspection_date" required/>
+                            <input type="date" class="form-control datepicker" id="inspection_date" name="inspection_date" readonly value="<?php echo $fetch2['inspection_date'] ?>" required/>
                         </div>
                 </div>
                 <br>
@@ -62,7 +53,7 @@ $io_no = $fetch2['io_no'] + 1;
                 <div class="form-group">
                     <label class="col-md-4 control-label">Time of Inspection: </label>
                         <div class="col-md-4">
-                            <input type="time" id= "inspection_time" name="inspection_time" min="07:30" max="17:30" required/>
+                            <input type="time" id= "inspection_time" readonly name="inspection_time" min="07:30" max="17:30" value="<?php echo $fetch2['inspection_time'] ?>" required/>
                         </div>
                 </div>
             </div>
@@ -105,7 +96,7 @@ $conn->close();
                     <div class="col-sm-8">
                         <p class="text-danger"><small>*If you don't save, your changes will be lost.&emsp;&emsp;&emsp;&nbsp;&nbsp;</small></p>
                     </div>
-                    <button type="submit" class="btn btn-info" name="save_schedule"><span class="fa fa-check"></span>Save</button>
+                   
                     <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-times"></span>Close</button>
                 </div>
 
