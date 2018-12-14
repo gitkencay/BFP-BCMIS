@@ -29,13 +29,10 @@ $query = $conn->query("SELECT * FROM `inspection_report` WHERE `ir_no` = '$_GET[
 $fetch = $query->fetch_array();
 
 $query2 = $conn->query("select * from `inspection_schedule` ") or die(mysqli_error());
-$fetch2 = $query->fetch_array();
+$fetch2 = $query2->fetch_array();
 
 $query3 = $conn->query("select * from `bldg_construct` ") or die(mysqli_error());
-$fetch3 = $query->fetch_array();
-
-$query4 = $conn->query("select * from `issue_notice` ") or die(mysqli_error());
-$fetch4 = $query->fetch_array();
+$fetch3 = $query3->fetch_array();
 
 $month = date("m", strtotime($fetch['month']));
 $ir_no = $fetch['ir_no'];
@@ -48,7 +45,7 @@ $ir_no = $fetch['ir_no'];
                                 <div class="panel-body tab-content">
                                     <div class="tab-pane active" id="tab-first">
                                                 <div class="panel panel-default">
-                                                <form method="post" action="actions/addInspection.php" onsubmit="return confirm('Are you sure you want to add this Inspection Information?');"  >
+                                               
                                                         <div class="panel-body">
                                                         <div class="row">
                                                         <div class="col-md-5">
@@ -102,10 +99,10 @@ $ir_no = $fetch['ir_no'];
                                                         <hr>
                                                         <div class="row">
                                                             <div class="col-md-3">
-                                                                <a href="#edit_inspection<?php echo $fetch2['io_schedule']; ?>" data-target="#edit_inspection<?php echo $fetch2['io_schedule']; ?>" data-toggle="modal" class="btn btn-info"> <i class="fa fa-eye"></i> View Schedule</a>
+                                                                <a href="#edit_inspection<?php echo $fetch2['io_no']; ?>" data-target="#edit_inspection<?php echo $fetch2['io_no']; ?>" data-toggle="modal" class="btn btn-info"> <i class="fa fa-eye"></i> View Schedule</a>
                                                             </div>
                                                             <div class="col-md-3">
-                                                                <a href="#view_bldgConst<?php echo $fetch3['bc_no']; ?>" data-target="#view_bldgConst<?php echo $fetch3['bc_no']; ?>" data-toggle="modal" class="btn btn-info"> <i class="fa fa-eye"></i> View Building Construction</a>
+                                                                <a href="#view_bldgConst<?php echo $fetch3['ir_no']; ?>" data-target="#view_bldgConst<?php echo $fetch3['ir_no']; ?>" data-toggle="modal" class="btn btn-info"> <i class="fa fa-eye"></i> View Building Construction</a>
                                                             </div>
                                                         </div>
                                                         <hr>
@@ -184,8 +181,8 @@ $ir_no = $fetch['ir_no'];
                                                         <div class="form-group">
                                                         <label for="recommend" class="col-md-12 control-label">Recommendation: </label>
                                                         <br>
-                                                        <div class="col-md-10">
-                                                            <textarea rows="3" cols="60" placeholder="Recommend for Deficiences" readonly name="recommendation"  id="recommendation" value="<?php echo $fetch['recommendation'] ?>" require></textarea>
+                                                        <div class="col-md-12">
+                                                        <input type="text" class="form-control" name="recommendation" id="recommendation" value="<?php echo $fetch['recommendation'] ?>" readonly>
                                                         </div>
                                                         </div>
                                                         </div>
@@ -193,16 +190,16 @@ $ir_no = $fetch['ir_no'];
                                                         <div class="form-group">
                                                         <label for="app-name" class="col-sm-12 control-label">Checklist</label>
                                                             <div class="col-sm-10">
-                                                            <select class="form-control" name="ir_checklist"  id"ir_checklist">
-                                                            <option value="<?php echo $fetch['ir_checklist'] ?>"><?php echo $fetch['ir_checklist'] ?></option>
-                                                            <option value="Classification">Classification</option>
-                                                            <option value="Exit Details">Exit Details</option>
-                                                            <option value="Lightings and Signs">Lightings and Signs</option>
-                                                            <option value="Features of Fire Protection">Features of Fire Protection</option>
-                                                            <option value="Building Service Equipment">Building Service Equipment</option>
-                                                            <option value="Hazardous Areas">Hazardous Areas</option>
-                                                            <option value="Operating Features">Operating Features</option>
-                                                            </select>
+                                                                <select class="form-control" name="ir_checklist"  id"ir_checklist">
+                                                                    <option value="<?php echo $fetch['ir_checklist'] ?>"><?php echo $fetch['ir_checklist'] ?></option>
+                                                                    <option value="Classification">Classification</option>
+                                                                    <option value="Exit Details">Exit Details</option>
+                                                                    <option value="Lightings and Signs">Lightings and Signs</option>
+                                                                    <option value="Features of Fire Protection">Features of Fire Protection</option>
+                                                                    <option value="Building Service Equipment">Building Service Equipment</option>
+                                                                    <option value="Hazardous Areas">Hazardous Areas</option>
+                                                                    <option value="Operating Features">Operating Features</option>
+                                                                </select>
                                                             </div>
                                                             </div><br><br><br>
                                                         </div>
@@ -218,9 +215,8 @@ $ir_no = $fetch['ir_no'];
 
                                                         </div>
                                                         <hr>
-                                                        <button type="submit" class="btn btn-info" name="save_inspection"><span class="fa fa-check"></span>Save</button>
-                                                </div>
-                                                </form>
+                                                        <a href="Transaction-Inspection.php"><button type="submit" class="btn btn-danger" name="save_inspection"><span class="fa fa-close"></span>Exit</button></a>
+                                                   </div>
                                         </div>
                                     </div>
                                 </div>

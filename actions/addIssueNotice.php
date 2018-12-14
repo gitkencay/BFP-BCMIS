@@ -22,7 +22,9 @@ if(isset($_POST['save_issue_notice'])){
     require '../require/databaseconnection.php';
 
 
-    $conn->query("INSERT INTO `issue_notice` VALUES('', '$type_of_notice', '$amount', '$owner_name', '$inspector_name', '$deficiency', '$date_issued', '$IR_date_applied', '$application_no', '$inspection_order', '$business_address', '$grace_period_from', '$grace_period_to', '$month', '$year' )") or die(mysqli_error());
+    $conn->query("INSERT INTO `issue_notice` VALUES('', '$type_of_notice', '$amount', '$owner_name', '$inspector_name', '$business_name','$deficiency',
+    '$date_issued', '$IR_date_applied', '$application_no', '$inspection_order', '$business_address', '$grace_period_from',
+     '$grace_period_to', '$month', '$year' )") or die(mysqli_error());
     $conn->close();
 
     echo "<script type='text/javascript'>alert('Successfully added new Issue Notice!');</script>";

@@ -22,7 +22,9 @@ if(isset($_POST['save_inspection'])){
     require '../require/databaseconnection.php';
 
     // blank ang sa first field kay auto increment ang id followed sang application name, business name ... .. 
-   $conn->query("INSERT INTO `inspection_report` VALUES('', '$io_no', '$application_no', '$owner_name', '$owner_address', '$business_name', '$establishment_address', '$bldg_height', '$lot_size', '$number_of_floors', '$date_applied', '$month', '$year', 'Inspection Report', '$ir_checklist', '$recommendation', '$deficiency')") or die(mysqli_error());
+   $conn->query("INSERT INTO `inspection_report` VALUES('', '$io_no', '$application_no', '$owner_name', '$owner_address', '$business_name', 
+   '$establishment_address', '$bldg_height', '$lot_size', '$number_of_floors', '$date_applied', '$month', '$year', 'Inspection Report', 
+   '$ir_checklist', '$recommendation', '$deficiency')") or die(mysqli_error());
    
 
     $conn->query("UPDATE `application` SET `assessment_status` = 'Inspected' WHERE `application_no` = '$application_number'") or die(mysqli_error());

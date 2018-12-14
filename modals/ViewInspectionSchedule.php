@@ -1,7 +1,7 @@
 <!--Start MODAL-->
 <!--Start Modal Add Schedule-->
 
-<div class="modal fade" id="edit_inspection<?php echo $fetch2['io_schedule'];?>" role="dialog">
+<div class="modal fade" id="edit_inspection<?php echo $fetch2['io_no'];?>" role="dialog">
 <div class="modal-dialog">
     <div class="modal-content">
         <div class="modal-header">
@@ -13,7 +13,6 @@
             <div class="row">
             <div class="col-lg-12"> 
             <div class="form-group">
-                <input type="hidden" name="application_number" value="<?php echo $fetch2['application_no']?>"/>
                 <input type="hidden" class="form-control" id="io_no" name="io_no" readonly value="<?php echo 'IO' . '-' . $year . '-' . $month . '-' . $io_no ?>"/>
                 <div class=col-md-4>
                 <input type="text" class="form-control" id="inspectSearch" placeholder="Search">
@@ -27,10 +26,6 @@
                 <div class="input-group">
                     <select class="form-control select" id="inspectors" name="inspectors" required>
                         <option value="<?php echo $fetch2['inspectors']?>"><?php echo $fetch2['inspectors']?></option>
-                        <option value="Inspector Cardo">Inspector Cardo</option>
-                        <option value="Inspector Dalisay">Inspector Dalisay</option>
-                        <option value="Inspector Poe">Inspector Poe</option>
-                        <option value="Inspector Duterte">Inspector Duterte</option>
                     </select>
                 </div>
                 </div>
@@ -40,7 +35,7 @@
                 <div class="form-group">
                     <label for="date" class="col-sm-4 control-label">Date of Inspection</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control datepicker" id="inspection_date" name="inspection_date" readonly value="<?php echo $fetch2['inspection_date'] ?>" required/>
+                            <input type="text" class="form-control datepicker" id="inspection_date" name="inspection_date" readonly value="<?php echo $fetch2['inspection_date'] ?>" required/>
                         </div>
                 </div>
                 <br>
@@ -53,7 +48,7 @@
                 <div class="form-group">
                     <label class="col-md-4 control-label">Time of Inspection: </label>
                         <div class="col-md-4">
-                            <input type="time" id= "inspection_time" readonly name="inspection_time" min="07:30" max="17:30" value="<?php echo $fetch2['inspection_time'] ?>" required/>
+                            <input type="text" class="form-control" id= "inspection_time" readonly name="inspection_time" min="07:30" max="17:30" value="<?php echo $fetch2['inspection_time'] ?>" required/>
                         </div>
                 </div>
             </div>

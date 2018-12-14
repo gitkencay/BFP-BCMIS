@@ -24,7 +24,7 @@
                             <div class="form-group">                                                        
                                 <label for="app-name" class="col-sm-5 control-label">Amount</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="amount" id="amount" require>
+                                    <input type="text" class="form-control" name="amount" id="amount"  require>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -81,7 +81,7 @@
                             <div class="form-group">
                                 <label for="app-name" class="col-sm-8 control-label">Inspection Order</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" name="inspection_order" id="inspection_order" value="<?php echo 'IO' . '-' . $year . '-' . $month . '-' . $io_no ?>">
+                                    <input type="text" class="form-control" name="inspection_order" id="inspection_order" value="<?php echo 'IO' . '-' . $year . '-' . $month . '-' . $ir_no ?>">
                                 </div>
                             </div>
                             <div class="form-group">

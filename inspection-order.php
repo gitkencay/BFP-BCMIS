@@ -27,10 +27,6 @@
                     require 'require/databaseconnection.php';
                     $query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
                     $fetch = $query->fetch_array();
-                    
-                    $query3 = $conn->query("SELECT * FROM `inspection_report` order by ir_no DESC limit 1") or die(mysqli_error());
-                    $fetch3 = $query->fetch_array();
-                    $ir_no = $fetch3['ir_no'] + 1;
 
                     $month2 = date("m", strtotime($fetch['month']));
                     

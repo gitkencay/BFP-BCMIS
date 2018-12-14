@@ -74,9 +74,15 @@
                                     <tbody>
                                         <?php
 require 'require/databaseconnection.php';
+
 $query = $conn->query("select * from `inspection_report` ") or die(mysqli_error());
+
+$query2 = $conn->query("SELECT * FROM `issue_notice`") or die(mysqli_error());
+$fetch2 = $query2->fetch_array();
+
 while ($fetch = $query->fetch_array()) {
     $month = date("m", strtotime($fetch['month']));
+    $io_no2 = $fetch['io_no'];
     ?>
                                         <tr>
                                             <td><?php echo $fetch['io_no'] ?></td>
@@ -86,9 +92,8 @@ while ($fetch = $query->fetch_array()) {
                                             <td>
                                                 <a href="inspection-orderView.php?ir_no=<?php echo $fetch['ir_no'] ?>" class="btn btn-sm btn-info"><i class="fa fa-eye"></i> View</a>
                                             </td>
-                                               <td>
-                                                <a href="#view_notice<?php echo $fetch['inspection_order'] ?>" data-target="#view_notice<?php echo fetch['inspection_order']; ?>" data-toggle="modal" class="btn btn-sm btn-info"><i class="fa fa-edit"></i>Issue Notice</a>
-                                               
+                                            <td>
+                                            <a href="#view_notice<?php echo $io_no2; ?>" data-target="#view_notice<?php echo $io_no2 ; ?>" data-toggle="modal" class="btn btn-info btn-sm"> <i class="fa fa-edit"></i> Issue Notice</a>
                                             </td>
                                         </tr>
                                         <?php
@@ -161,11 +166,11 @@ while ($fetch = $query->fetch_array()) {
     $month = date("m", strtotime($fetch['month']));
     ?>
                                 <tr>
-                                    <td><?php echo $fetch['application_name'] ?></td>
                                     <td><?php echo $fetch['year'] . '-' . $month . '-' . $fetch['application_no'] ?></td>
+                                    <td><?php echo $fetch['application_name'] ?></td>
                                     <td><?php echo $fetch['date_applied'] ?></td>
                                     <td>
-                                    <a href="inspection-order.php?application_no=<?php echo $fetch['application_no'] ?>" class="btn btn-sm btn-info">Proceed</a>
+                                    <a href="inspection-order.php?application_no=<?php echo $fetch['application_no'] ?>" class="btn btn-sm btn-info">Inspect</a>
                                     </td>
                                 </tr>
                                 <?php

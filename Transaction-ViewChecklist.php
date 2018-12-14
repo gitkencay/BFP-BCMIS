@@ -201,35 +201,29 @@
                 <div class="AssessForm">
                     <div class="panel panel-default">
                         <div class="panel-body">
-                        <form method="post" action="actions/addEvalChecklist.php" onsubmit="return confirm('Are you sure you want to add this Evaluation Checklist?');"  >
+                        <form method="post" action="actions/editEvalChecklist.php" onsubmit="return confirm('Are you sure you want to edit this Evaluation Checklist?');"  >
                             <table>
                                 <thead>
-                                    <?php
+                                <?php
 require 'require/databaseconnection.php';
-$query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
+$query = $conn->query("SELECT * FROM `evaluation_checklist` WHERE `checklist_no` = '$_GET[checklist_no]'") or die(mysqli_error());
 $fetch = $query->fetch_array();
-$month2 = date("m", strtotime($fetch['month']));
-
-$query2 = $conn->query("SELECT * FROM `evaluation_checklist` order by checklist_no DESC limit 1") or die(mysqli_error());
-$fetch2 = $query->fetch_array();
-
-$checklist_no = $fetch2['checklist_no'] + 1;
-$month = date("m");
-$year = date('Y');
+$month = date("m", strtotime($fetch['month']));
+$checklist_no = $fetch['checklist_no'];
 ?>
-                                        <tr>
+
+                                            <tr>
                                             <th>
                                                 <label for="plan-eval" class="col-sm-5 control-label">Plan Evaluator&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                <input type="hidden" name="application_number" name="application_number" value="<?php echo $fetch['application_no']?>"/>
-                                                <input type="hidden" id="application_no" name="application_no"  value="<?php echo $fetch['year'] . '-' . $month2 . '-' . $fetch['application_no'] ?>"  />
-                                                    <input type="text" class="form-control" required id="plan_evaluator" name="plan_evaluator">
+                                                <input type="hidden" id="checklist_no" name="checklist_no"  value="<?php echo $fetch['checklist_no']?>"  />
+                                                    <input type="text" class="form-control" required id="plan_evaluator" name="plan_evaluator" value="<?php echo $fetch['plan_evaluator']?>">
                                                 </div>
                                             </th>
                                             <th>
                                                 <label for="eval-checkid" class="col-sm-5 control-label">Checklist No. &nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" id="checklist_no" name="checklist_no" value="<?php echo 'ECN' . '-' . $year . '-' . $month . '-' . $checklist_no ?>">
+                                                    <input type="text" class="form-control" id="checklist_no" name="checklist_no" value="<?php echo 'ECN' . '-' .$fetch['year'] . '-' .$month . '-' . $checklist_no ?>">
                                                 </div>
                                             </th>
                                         </tr>
@@ -254,14 +248,14 @@ $year = date('Y');
                                                 <label for="proj-title" class="col-md-8 control-label">
                                                     <br>Project Title&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" required id="project_title" name="project_title">
+                                                    <input type="text" class="form-control" required id="project_title" name="project_title" value="<?php echo $fetch['project_title']?>">
                                                 </div>
                                             </th>
                                             <th>
                                                 <label for="loc-const" class="col-md-8 control-label">
                                                     <br>Location of Construction&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" required id="location" name="location">
+                                                    <input type="text" class="form-control" required id="location" name="location"  value="<?php echo $fetch['location']?>">
                                                 </div>
                                             </th>
                                         </tr>
@@ -270,14 +264,14 @@ $year = date('Y');
                                                 <label for="occu-class" class="col-md-8 control-label">
                                                     <br>Occupancy Classification&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control" required id="occupancy_classification" name="occupancy_classification">
+                                                    <input type="text" class="form-control" required id="occupancy_classification" name="occupancy_classification"  value="<?php echo $fetch['occupancy_classification']?>">
                                                 </div>
                                             </th>
                                             <th>
                                                 <label for="date-rec" class="col-md-8 control-label">
                                                     <br>Date Received&nbsp;&nbsp;</label>
                                                 <div class="col-sm-10">
-                                                    <input type="text" class="form-control datepicker" required id="date_received" name="date_received">
+                                                    <input type="text" class="form-control datepicker" required id="date_received" name="date_received" value="<?php echo $fetch['date_received']?>"> 
                                                 </div>
                                             </th>
                                         </tr>
@@ -306,15 +300,31 @@ $year = date('Y');
                                                 </h4>
                                             </div>
                                             <div class="panel-body panel-body" id="means_egress_acddg">
-                                                <div class="form-group">
+                                            <div class="form-group">
                                                     <div class="col-md-12">
-                                                        <label><input type="checkbox" class="icheckbox" value="Means_Egrees_Req_1" name="means_of_egrees[]">&nbsp;Provide fire break up to the roof for ceiling areas </label> <br>
+                                                    <?php
+$means_of_egrees = $fetch['means_of_egrees'];
+$check = explode(",", $means_of_egrees);
+?>
+
+                                                    <label><input type="checkbox" class="icheckbox" value="Means_Egrees_Req_1" name="means_of_egrees[]"
+                                                    <?php
+if (in_array("Means_Egrees_Req_1", $check)) {
+    echo "checked";
+}
+?>
+                                                    >&nbsp;Provide fire break up to the roof for ceiling areas </label> <br>
                                                     </div>
                                                     <br>
                                                     <div class="form-group">
                                                         <div class="col-md-12">
                                                         <label>
-                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_2" name="means_of_egrees[]">&nbsp;Provide smoke partition at enclosed areas of 2083
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_2" name="means_of_egrees[]"
+                                                            <?php
+if (in_array("Means_Egrees_Req_2", $check)) {
+    echo "checked";
+}
+?>                                                             >&nbsp;Provide smoke partition at enclosed areas of 2083
                                                                 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft)
                                                                 or less, with self-closing fire doors.
                                                             </label> <br>
@@ -324,7 +334,12 @@ $year = date('Y');
                                                     <div class="form-group">
                                                         <div class="col-md-12">
                                                             <label>
-                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_3" name="means_of_egrees[]">&nbsp;Provide smoke partition of two (2) hour fire resistance
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_3" name="means_of_egrees[]"
+                                                            <?php
+if (in_array("Means_Egrees_Req_3", $check)) {
+    echo "checked";
+}
+?>                                                        >&nbsp;Provide smoke partition of two (2) hour fire resistance
                                                                 from floor to underside of floor above.
                                                             </label>
                                                         </div>
@@ -332,8 +347,18 @@ $year = date('Y');
                                                     <div class="form-group">
                                                         <div class="col-md-12">
                                                             <label>
-                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_4" name="means_of_egrees[]">&nbsp;Provide stopping for all concealed spaces.
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_4" name="means_of_egrees[]"
+                                                            <?php
+if (in_array("Means_Egrees_Req_4", $check)) {
+    echo "checked";
+}
+?>
+                                                            >&nbsp;Provide stopping for all concealed spaces.
                                                             </label>
+                                                            <?php
+$means_of_egrees = $fetch['means_of_egrees'];
+$check = explode(",", $means_of_egrees);
+?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -350,8 +375,18 @@ $year = date('Y');
                                             <div class="panel-body" id="compart_accdg">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
+                                                    <?php
+$compartmentation = $fetch['compartmentation'];
+$check2 = explode(",", $compartmentation);
+?>
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_1" name="compartmentation[]">&nbsp;Provide fire break up to the roof for ceiling areas
+                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_1" name="compartmentation[]"
+                                                        <?php
+if (in_array("Compartmentation_Req_1", $check2)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide fire break up to the roof for ceiling areas
                                                         </label>
                                                     </div>
                                                 </div>
@@ -359,7 +394,13 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_2" name="compartmentation[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_2" name="compartmentation[]"
+                                                        <?php
+if (in_array("Compartmentation_Req_2", $check2)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
                                                         </label>
                                                     </div>
                                                 </div>
@@ -367,15 +408,32 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_3" name="compartmentation[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_3" name="compartmentation[]"
+                                                        <?php
+if (in_array("Compartmentation_Req_3", $check2)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_4" name="compartmentation[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_4" name="compartmentation[]"
+                                                        <?php
+if (in_array("Compartmentation_Req_4", $check2)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide stopping for all concealed spaces.
                                                         </label>
+                                                        <?php
+$compartmentation = $fetch['compartmentation'];
+$check2 = explode(",", $compartmentation);
+?>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -391,8 +449,18 @@ $year = date('Y');
                                             <div class="panel-body" id="walls_accdg">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
+                                                    <?php
+$walls = $fetch['walls'];
+$check3 = explode(",", $walls);
+?>
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_1" name="walls[]">&nbsp;Provide fire break up to the roof for ceiling areas.
+                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_1" name="walls[]"
+                                                        <?php
+if (in_array("Walls_Req_1", $check3)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide fire break up to the roof for ceiling areas.
                                                         </label>
                                                     </div>
                                                 </div>
@@ -400,7 +468,13 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_2" name="walls[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_2" name="walls[]"
+                                                        <?php
+if (in_array("Walls_Req_2", $check3)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
                                                         </label>
                                                     </div>
                                                 </div>
@@ -408,15 +482,31 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_3" name="walls[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_3" name="walls[]"
+                                                        <?php
+if (in_array("Walls_Req_3", $check3)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_4" name="walls[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Walls_Req_4" name="walls[]"
+                                                        <?php
+if (in_array("Walls_Req_4", $check3)) {
+    echo "checked";
+}
+?> 
+                                                        >&nbsp;Provide stopping for all concealed spaces.
                                                         </label>
+                                                        <?php
+$walls = $fetch['walls'];
+$check3 = explode(",", $walls);
+?>
                                                 </div>
                                                 </div>
                                             </div>
@@ -440,8 +530,18 @@ $year = date('Y');
                                             <div class="panel-body panel-body" id="warning_accdg">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
+                                                    <?php
+$warning_systems = $fetch['warning_systems'];
+$check4 = explode(",", $warning_systems);
+?>
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_1" name="warning_systems[]">&nbsp;Provide fire break up to the roof for ceiling areas.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_1" name="warning_systems[]"
+                                                        <?php
+if (in_array("Warning_Req_1", $check4)) {
+    echo "checked";
+}
+?> 
+                                                    >&nbsp;Provide fire break up to the roof for ceiling areas.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -449,7 +549,13 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_2" name="warning_systems[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_2" name="warning_systems[]"
+                                                        <?php
+if (in_array("Warning_Req_2", $check4)) {
+    echo "checked";
+}
+?> 
+                                                    >&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -457,15 +563,31 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_4" name="warning_systems[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_3" name="warning_systems[]"
+                                                        <?php
+if (in_array("Warning_Req_3", $check4)) {
+    echo "checked";
+}
+?>
+                                                    >&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
                                                     </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_5" name="warning_systems[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_5" name="warning_systems[]"
+                                                        <?php
+if (in_array("Warning_Req_5", $check4)) {
+    echo "checked";
+}
+?>
+                                                    >&nbsp;Provide stopping for all concealed spaces.
                                                     </label>
+                                                    <?php
+$warning_systems = $fetch['warning_systems'];
+$check4 = explode(",", $warning_systems);
+?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -481,8 +603,18 @@ $year = date('Y');
                                             <div class="panel-body" id="FirePro_accdg">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
+                                                    <?php
+$fire_protection = $fetch['fire_protection'];
+$check5 = explode(",", $fire_protection);
+?>
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_1" name="fire_protection[]">&nbsp;Provide fire break up to the roof for ceiling areas.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_1" name="fire_protection[]"
+                                                        <?php
+if (in_array("Fire_Protection_Req_1", $check5)) {
+    echo "checked";
+}
+?>
+                                                    >&nbsp;Provide fire break up to the roof for ceiling areas.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -490,7 +622,13 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_2" name="fire_protection[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_2" name="fire_protection[]"
+                                                        <?php
+if (in_array("Fire_Protection_Req_2", $check5)) {
+    echo "checked";
+}
+?>
+                                                        >&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -498,15 +636,31 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_3" name="fire_protection[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_3" name="fire_protection[]"
+                                                        <?php
+if (in_array("Fire_Protection_Req_3", $check5)) {
+    echo "checked";
+}
+?>
+                                                        >&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
                                                     </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_4" name="fire_protection[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_4" name="fire_protection[]"
+                                                        <?php
+if (in_array("Fire_Protection_Req_4", $check5)) {
+    echo "checked";
+}
+?>
+                                                        >&nbsp;Provide stopping for all concealed spaces.
                                                     </label>
+                                                    <?php
+$fire_protection = $fetch['fire_protection'];
+$check5 = explode(",", $fire_protection);
+?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -522,8 +676,18 @@ $year = date('Y');
                                             <div class="panel-body" id="miscell_accdg">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
+                                                    <?php
+$miscellaneous = $fetch['miscellaneous'];
+$check6 = explode(",", $miscellaneous);
+?>
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_1" name="miscellaneous[]">&nbsp;Provide fire break up to the roof for ceiling areas.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_1" name="miscellaneous[]"
+                                                        <?php
+if (in_array("Miscellaneous_Req_1", $check6)) {
+    echo "checked";
+}
+?>
+                                                    >&nbsp;Provide fire break up to the roof for ceiling areas.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -531,7 +695,13 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_2" name="miscellaneous[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_2" name="miscellaneous[]"
+                                                        <?php
+if (in_array("Miscellaneous_Req_2", $check6)) {
+    echo "checked";
+}
+?>                                                  
+                                                    >&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -539,15 +709,31 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_3" name="miscellaneous[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_3" name="miscellaneous[]"
+                                                        <?php
+if (in_array("Miscellaneous_Req_3", $check6)) {
+    echo "checked";
+}
+?>                                                
+                                                    >&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
                                                     </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_4" name="miscellaneous[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_4" name="miscellaneous[]"
+                                                        <?php
+if (in_array("Miscellaneous_Req_4", $check6)) {
+    echo "checked";
+}
+?>                                                
+                                                    >&nbsp;Provide stopping for all concealed spaces.
                                                     </label>
+                                                    <?php
+$miscellaneous = $fetch['miscellaneous'];
+$check6 = explode(",", $miscellaneous);
+?>
                                                     </div>
                                                 </div>
                                             </div>

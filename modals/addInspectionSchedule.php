@@ -49,7 +49,7 @@ $io_no = $fetch2['io_no'] + 1;
                 <div class="form-group">
                     <label for="date" class="col-sm-4 control-label">Date of Inspection</label>
                         <div class="col-sm-4">
-                            <input type="date" class="form-control datepicker" id="inspection_date" name="inspection_date" required/>
+                            <input type="text" class="form-control datepicker" id="inspection_date" name="inspection_date" required/>
                         </div>
                 </div>
                 <br>

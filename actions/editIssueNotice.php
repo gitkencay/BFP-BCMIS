@@ -15,7 +15,6 @@ if(isset($_POST['edit_issue_notice'])){
     $business_address = $_POST['business_address'];
     $grace_period_from = $_POST['grace_period_from'];
     $grace_period_to = $_POST['grace_period_to'];
-    $application_no = $_POST['application_number'];
     $month = date("M");
     $year = date("Y");
 
@@ -28,6 +27,6 @@ if(isset($_POST['edit_issue_notice'])){
     $conn->close();
 
     echo "<script type='text/javascript'>alert('Successfully added new Issue Notice!');</script>";
-    echo "<script>document.location='../inspection-order.php?application_no=$application_no'</script>";
+    echo "<script>document.location='../Transaction-Inspection.php'</script>";
 }
 ?>
