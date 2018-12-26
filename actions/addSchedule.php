@@ -15,7 +15,7 @@ if(isset($_POST['save_schedule'])){
     require '../require/databaseconnection.php';
 
     // blank ang sa first field kay auto increment ang id followed sang application name, business name ... .. 
-    $conn->query("INSERT INTO `inspection_schedule` VALUES('', '$io_no', '$inspectors', '$inspection_date', '$app_date', '$date_applied', '$month', '$year')") or die(mysqli_error());
+    $conn->query("INSERT INTO `inspection_schedule` VALUES('', '$io_no', '$inspectors', '$inspection_date', '$app_date', '$date_applied', '$month', '$year', 'Pending')") or die(mysqli_error());
     $conn->close();
     echo "<script type='text/javascript'>alert('Successfully added new Schedule!');</script>";
     echo "<script>document.location='../inspection-order.php?application_no=$application_no'</script>";
