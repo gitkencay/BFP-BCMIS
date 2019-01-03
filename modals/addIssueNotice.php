@@ -1,4 +1,13 @@
         <!--Start Modal Building Construction-->
+        <?php
+    require 'require/databaseconnection.php';
+            $query = $conn->query("SELECT * FROM `application` WHERE `application_no` = '$_GET[application_no]'") or die(mysqli_error());
+            $fetch = $query->fetch_array();
+            
+            $query3 = $conn->query("SELECT * FROM `inspection_report` order by ir_no DESC limit 1") or die(mysqli_error());
+            $fetch3 = $query3->fetch_array();
+            $ir_no = $fetch3['ir_no'] + 1
+            ?>
         <div id="IssueNotice" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">

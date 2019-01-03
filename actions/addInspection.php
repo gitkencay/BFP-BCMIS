@@ -16,6 +16,8 @@ if(isset($_POST['save_inspection'])){
     $deficiency = $_POST['deficiency'];
     $application_nos = $_POST['application_number'];
     $date_applied = $_POST['date_applied'];
+    date_default_timezone_set('Asia/Manila');
+    $date_applieds=date("F j, Y g:i a");
     $month = date("M");
     $year = date("Y");
 
@@ -23,7 +25,7 @@ if(isset($_POST['save_inspection'])){
 
     // blank ang sa first field kay auto increment ang id followed sang application name, business name ... .. 
    $conn->query("INSERT INTO `inspection_report` VALUES('', '$io_no', '$application_no', '$owner_name', '$owner_address', '$business_name', 
-   '$establishment_address', '$bldg_height', '$lot_size', '$number_of_floors', '$date_applied', '$month', '$year', 'Inspection Report', 
+   '$establishment_address', '$bldg_height', '$lot_size', '$number_of_floors', '$date_applied', '$date_applieds' '$month', '$year', 'Inspection Report', 
    '$ir_checklist', '$recommendation', '$deficiency')") or die(mysqli_error());
    
 

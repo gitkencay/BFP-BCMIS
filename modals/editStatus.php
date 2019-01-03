@@ -1,3 +1,7 @@
+<?php 
+    require 'require/databaseconnection.php';
+
+    ?>
 <div class="modal fade" id="edit_status<?php echo $io_schedule ;?>" role="dialog">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
@@ -11,7 +15,7 @@
         <input type="hidden" name = "io_schedule" id = "io_schedule" value="<?php echo $io_schedule ;?>"/>
         <p>Status</p>
           <select class="form-control select" id="Status" name="Status">
-            <option value="<?php echo $Status?>"> <?php echo $Status?></option>
+            <option value="<?php echo $status?>"> <?php echo $status?></option>
             <option value="Pending">Pending</option>
             <option value="Complete">Complete</option>
             </select>

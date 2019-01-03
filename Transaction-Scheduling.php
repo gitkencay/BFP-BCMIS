@@ -40,7 +40,7 @@
                 <ul class="breadcrumb">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Transaction</a></li>                    
-                    <li class="active"><a href="Transaction-BuildEval">Scheduling</a></li>
+                    <li class="active"><a href="Transaction-Scheduling.php">Scheduling</a></li>
                 </ul>
                 <!-- END BREADCRUMB -->                       
 
@@ -72,32 +72,33 @@
                                                         <?php
 require 'require/databaseconnection.php';
 $query = $conn->query("select * from `inspection_schedule` ") or die(mysqli_error());
-$query2 = $conn->query("select * from `inspection_report` ") or die(mysqli_error());
-$fetch2 = $query2->fetch_array();
 while ($fetch = $query->fetch_array()) {
+    $query2 = $conn->query("select * from `inspection_report` ") or die(mysqli_error());
+    $fetch2 = $query2->fetch_array();
+    $name = $fetch2['owner_name'];
+    
     $month = date("m", strtotime($fetch['month']));
     $day = date("jS", strtotime($fetch['date_applied']));
     $io_schedule = $fetch['io_schedule'];
     $inspectors = $fetch['inspectors'];
-    $Status = $fetch['Status'];
-    $name = $fetch2['owner_name'];
+    $status = $fetch['status'];
     ?>
                                                         <tr>
 
                                                             <td><?php echo $fetch['io_no'] ?></td>
                                                             <td><?php echo $name ?></td>
-                                                            <td><?php echo $fetch['inspectors'] ?></td>
+                                                            <td><?php echo $inspectors?></td>
                                                             <td><?php echo $fetch['inspection_time'] ?></td>
                                                             <td><?php echo $day ?></td>
                                                             <td><?php echo $month ?></td>
                                                             <td><?php echo $fetch['year'] ?></td>
                                                             <td>
-                                                            <?php if ($fetch['Status'] == 'Complete') {
+                                                            <?php if ($fetch['status'] == 'Complete') {
         echo "<span class='badge badge-success'>Complete</span>";
     }
 
-    if ($fetch['Status'] == 'Pending') {
-        echo "<span class='badge badge-danger'>" . $fetch['Status'] . "</span>";
+    if ($fetch['status'] == 'Pending') {
+        echo "<span class='badge badge-danger'>" . $fetch['status'] . "</span>";
     }
     ?>
                                                         <button href="#edit_status<?php echo $io_schedule; ?>" data-target="#edit_status<?php echo $io_schedule; ?>" data-toggle="modal" <i class="fa fa-edit"></i></button>
@@ -173,6 +174,7 @@ $conn->close();
         <script type='text/javascript' src='js/plugins/icheck/icheck.min.js'></script>
         <script type="text/javascript" src="js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js"></script>
         <script type="text/javascript" src="js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script type='text/javascript' src='js/plugins/bootstrap/bootstrap-select.js'></script>
 
 
          <script src="assets/js/dataTables/jquery.dataTables.js"></script>
