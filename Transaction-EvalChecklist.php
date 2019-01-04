@@ -582,7 +582,7 @@ $year = date('Y');
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
@@ -666,6 +666,7 @@ $year = date('Y');
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                     <!-- END ACCORDION -->
                                 </div>
 
