@@ -33,7 +33,7 @@
 
             $month = date("m");
             $year = date('Y');
-            $today = date("y-d-m");
+            $today = date("M-d-Y");
 
             $query3 = $conn->query("SELECT * FROM `inspection_report` order by ir_no DESC limit 1") or die(mysqli_error());
             $fetch3 = $query3->fetch_array();
