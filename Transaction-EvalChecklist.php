@@ -308,15 +308,13 @@ $year = date('Y');
                                             <div class="panel-body panel-body" id="means_egress_acddg">
                                                 <div class="form-group">
                                                     <div class="col-md-12">
-                                                        <label><input type="checkbox" class="icheckbox" value="Means_Egrees_Req_1" name="means_of_egrees[]">&nbsp;Provide fire break up to the roof for ceiling areas </label> <br>
+                                                        <label><input type="checkbox" class="icheckbox" value="Means_Egrees_Req_1" name="means_of_egrees[]">&nbsp;Building exits must abut a public street or approved alley.</label> <br>
                                                     </div>
                                                     <br>
                                                     <div class="form-group">
                                                         <div class="col-md-12">
                                                         <label>
-                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_2" name="means_of_egrees[]">&nbsp;Provide smoke partition at enclosed areas of 2083
-                                                                m2 (22,500 ft2 ) or less with the length of 45.7m (150ft)
-                                                                or less, with self-closing fire doors.
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_2" name="means_of_egrees[]">&nbsp;Provide at least two (2) means of egress for each floor, room.
                                                             </label> <br>
                                                         </div>
                                                     </div>
@@ -324,21 +322,267 @@ $year = date('Y');
                                                     <div class="form-group">
                                                         <div class="col-md-12">
                                                             <label>
-                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_3" name="means_of_egrees[]">&nbsp;Provide smoke partition of two (2) hour fire resistance
-                                                                from floor to underside of floor above.
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_3" name="means_of_egrees[]">&nbsp;Provide secondary stairs/exits as far/remote from main stair, to serve ___.                                                    
                                                             </label>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">
                                                         <div class="col-md-12">
                                                             <label>
-                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_4" name="means_of_egrees[]">&nbsp;Provide stopping for all concealed spaces.
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_4" name="means_of_egrees[]">&nbsp;Enclose all stairways and ire escapes with walls having	hours of fire resistance with access thru self-closing fire doors.
                                                             </label>
                                                         </div>
                                                     </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_5" name="means_of_egrees[]">&nbsp;Provide two (2) doors as exit ways from all rooms.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_6" name="means_of_egrees[]">&nbsp;Interconnect stairs and fire escapes with fire resistive passageways on corridors at least ____ meters wide.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_7" name="means_of_egrees[]">&nbsp;Enclose walls, doors, stairs ramps, escalators and other components of exits systems.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_8" name="means_of_egrees[]">&nbsp;Provide protected/enclosed horizontal exits with self-closing fire doors.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_9" name="means_of_egrees[]">&nbsp;Travel distance to an exit shall not be more than ___ meters.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_10" name="means_of_egrees[]">&nbsp;Exit doors shall swing in the direction of exit travel.
+                                                            </label>
+                                                        </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_11" name="means_of_egrees[]">&nbsp;Revolving doors shall not be used as means of egress except_________.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_12" name="means_of_egrees[]">&nbsp;Exit door/s should be openable from the inside without the use of keys, special knowledge or effort flush bolts or surface bolts are prohibited.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_13" name="means_of_egrees[]">&nbsp;Exit door should have a minimum width of 71 cm and a maximum width 122 cm and shall not restrict the opening.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_14" name="means_of_egrees[]">&nbsp;A floor or landing is required not less than the width of exit door.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_15" name="means_of_egrees[]">&nbsp;Door should be not project into the required corridor width when fully opened so as not to reduce the corridor width to less than 76.17 cm.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_16" name="means_of_egrees[]">&nbsp;Exit doors should provide immediate access to an approved means of egress. Exiting through a bathroom, bedroom or other room subject to locking does not comply.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_17" name="means_of_egrees[]">&nbsp;Corridors should have a minimum width of _________ meters.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_18" name="means_of_egrees[]">&nbsp;Required corridors in   occupancies shall have
+                                                            2.43 meters (8 ft) minimum width
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_19" name="means_of_egrees[]">&nbsp;Dead-end corridors and exit balconies is limited to 6.08 m (20 ft).
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_20" name="means_of_egrees[]">&nbsp;Aisles in auditorium shall be minimum of    meters in width.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_21" name="means_of_egrees[]">&nbsp;Walls and ceilings  of  corridors  should  be  fire  resistive  construction materials.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_22" name="means_of_egrees[]">&nbsp;Interior  openings  into  corridor  should  be  protected  as  set  forth  in ____________________________.
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_23" name="means_of_egrees[]">&nbsp;Main stairways should have a minimum width of 112 cm. Trims and handrails should not project more than 8.90 cm (3 1/2 in) into the required width.                                                            
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_24" name="means_of_egrees[]">&nbsp;Landings on stairways should have a minimum dimension of 112 cm (44 in) in the direction of travel.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_25" name="means_of_egrees[]">&nbsp;Risers on stairways should not exceed 19 cm and tread exclusive of nosing or projections should not be less than 25 cm.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_25" name="means_of_egrees[]">&nbsp;Doors between guest’s rooms and corridors shall be self-closing and shall have a fire protection rating at least twenty (20) minutes.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_26" name="means_of_egrees[]">&nbsp;Doors between guest’s rooms and corridors shall be self-closing and shall have a fire protection rating at least twenty (20) minutes.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_27" name="means_of_egrees[]">&nbsp;Openings in corridor partitions other than door openings shall be prohibited.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_28" name="means_of_egrees[]">&nbsp;Basement portion of stairways should be provided with an approved barrier where continuous to upper floor in an exit enclosure.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_29" name="means_of_egrees[]">&nbsp;Vertical distance between stairway landings are limited to 3.69 m (12 ft) in assembly occupancies, distance is 2.43 m (8 ft)
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_30" name="means_of_egrees[]">&nbsp;Handrails should be placed not less than 81.28 cm (32 in) above the tread. Two (2) handrails are required when stairways exceed 111.7 cm in width.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_31" name="means_of_egrees[]">&nbsp;Guardrails for stairs, balconies, stair landings, ramps & aisles located along the edge of openside floors and mezzanines shall be provided.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_32" name="means_of_egrees[]">&nbsp;There shall be no enclosed usable space under the stairs in an exit enclosure nor shall the open space under such stairs be used for any purpose.                                                        
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_33" name="means_of_egrees[]">&nbsp;Non-combustible outside stairs are required to have 2.03 m (6 ft, 8 in) minimum headroom clearance for stairways which should be indicated on plans.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_34" name="means_of_egrees[]">&nbsp;Ramp slopes should have be roughened or with nonslip surface.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_35" name="means_of_egrees[]">&nbsp;Ramp slopes should not exceed 30.3 cm. (1 ft) in 3.03 m (10 ft.).
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_36" name="means_of_egrees[]">&nbsp;No openings other than the required exits are permitted and exit passageways should be one (1) hr fire resistive construction for a three (3) storey building or less and two (2) hrs for four (4) storey building or more. Any opening therein shall be protected with an approved self-closing fire doors.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_37" name="means_of_egrees[]">&nbsp;Exit illumination and directional EXIT signs shall be provided.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="col-md-12">
+                                                            <label>
+                                                            <input type="checkbox" class="icheckbox" value="Means_Egrees_Req_38" name="means_of_egrees[]">&nbsp;Panic hardware is required on exit doors. In lieu of this, doors shall have no locks or latches.
+                                                        </label>
+                                                        </div>
+                                                    </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
+
                                         <div class="panel panel-info">
                                             <div class="panel-heading">
                                                 <h4 class="panel-title">
@@ -359,7 +603,7 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_2" name="compartmentation[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_2" name="compartmentation[]">&nbsp;Provide monitored and curtained roof of sheet metal or non-combustible material of a minimum of 1.82m (6 ft) high spaced not more than 76 m (250 ft) & curtained area limited to a minimum of 4, 630 m2 (50,000 ft2).
                                                         </label>
                                                     </div>
                                                 </div>
@@ -367,14 +611,22 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_3" name="compartmentation[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_3" name="compartmentation[]">&nbsp;Provide  smoke  partition  of  two  (2)  hour  fire  resistance  from  floor  to underside of floor above.
                                                         </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                         <label>
-                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_4" name="compartmentation[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Compartmentation_Req_4" name="compartmentation[]">&nbsp;Provide interior finish as follows; Exit; Class 	 Access to Exit; Class ___________
+                                                            Other Spaces; Class
+                                                        </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                        <label>
+                                                            <input type="checkbox" class="icheckbox" value="Compartmentation_Req_5" name="compartmentation[]">&nbsp;Provide fire stopping for all concealed spaces.
                                                         </label>
                                                     </div>
                                                 </div>
@@ -422,6 +674,7 @@ $year = date('Y');
                                             </div>
                                         </div>
                                     </div>
+                                </div>
                                     <!-- END ACCORDION -->
                                 </div>
 
@@ -441,7 +694,7 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_1" name="warning_systems[]">&nbsp;Provide fire break up to the roof for ceiling areas.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_1" name="warning_systems[]">&nbsp;Provide approved emergency alarm bell system on each floor with adequate number of sending stations.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -449,7 +702,7 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_2" name="warning_systems[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_2" name="warning_systems[]">&nbsp;Provide approved type heat and smoke detection system.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -457,14 +710,152 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_4" name="warning_systems[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_3" name="warning_systems[]">&nbsp;Provide efficient communication system for warning occupants and calling fire department.
                                                     </label>
                                                     </div>
                                                 </div>
+                                                <br>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_5" name="warning_systems[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_4" name="warning_systems[]">&nbsp;Provide/post   allowable   occupant   load   sign/s.   Such   signs   shall   be conspicuously and suitably located.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_5" name="warning_systems[]">&nbsp;Provide fire protection/suppression during construction.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_6" name="warning_systems[]">&nbsp;Provide fire protection/suppression during construction.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_7" name="warning_systems[]">&nbsp;Provide fire exit plan for each floor of the building showing the routes from each room to appropriate exits, displayed prominently on the door of each room.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_8" name="warning_systems[]">&nbsp;No heating or lighting apparatus or equipment capable of igniting flammable materials shall be used in any storage or work area where rags, excelsior, hair or other highly flammable or combustible materials are stored or used.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_9" name="warning_systems[]">&nbsp;Provide/post "NO SMOKING" sign/s where combustible materials are stored or handled. Such signs shall be conspicuously and suitable located.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_10" name="warning_systems[]">&nbsp;If   high   hazard   commodities   will   be   stored/handled,   automatic   fire suppression system shall be provided
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_11" name="warning_systems[]">&nbsp;Provide/post "DO NOT USE ELEVATOR IN CASE OF FIRE" sign/s.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_12" name="warning_systems[]">&nbsp;LPG tank/s must be installed outside the building and should be provided with safety devices that automatically stop the flow of gas should a leak develop.
+
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_13" name="warning_systems[]">&nbsp;Provide fire resistive walls between stair & kitchen area.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_14" name="warning_systems[]">&nbsp;Provide outside window/s for rescue and ventilation with a minimum clear opening of 55 cm and approximately one half (0.5) m2 in area; the bottom of window opening is not more than eighty two (82) cm above the floor; it can readily be opened from the inside without the use of tools; where storm windows, screens, or antiburglar devices are used, these be provided with quick mechanism so that they may be so arranged that when opened they will not drop to the ground.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                 <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_15" name="warning_systems[]">&nbsp;Rooms used for kindergarten, first or second grade pupils shall not be located above or below the floor of exit discharge. Rooms used for second grade pupils shall not be located more than one (1) storey above the floor of exit discharge.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_16" name="warning_systems[]">&nbsp;Provide firefighters’ elevator.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_17" name="warning_systems[]">&nbsp;All correction indicated on the original approved plan from this office on shall be followed.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_18" name="warning_systems[]">&nbsp;Any changes in occupancy other than stated shall be in accordance with Rule 10.                                                    
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_19" name="warning_systems[]">&nbsp;Subject to inspection during construction.                                             
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_20" name="warning_systems[]">&nbsp;Fire Safety Inspection Certificate must be secured before/prior to issuance of Certificate of Occupancy.                                       
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <br>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Warning_Req_21" name="warning_systems[]">&nbsp;Subject to additional requirements upon recommendation of the Fire Safety Inspector during construction phase and final inspection.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -482,7 +873,8 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_1" name="fire_protection[]">&nbsp;Provide fire break up to the roof for ceiling areas.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_1" name="fire_protection[]">&nbsp;Provide approved type portable fire extinguisher (dry chemical) ABC type, lbs. capacity for every 278 m2. (3000 ft2) of floor area or 22.8 m (75 ft) travel distance on every floor level.
+
                                                     </label>
                                                     </div>
                                                 </div>
@@ -490,7 +882,9 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_2" name="fire_protection[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_2" name="fire_protection[]">&nbsp;Provide dry & wet standpipe system with        mm Ф riser and coupling
+of fire department standards with pumps of reliable pressure & connected to an adequate water supply tank. Hose and hose cabinet shall be provided at every hose gate valve on all floors.
+
                                                     </label>
                                                     </div>
                                                 </div>
@@ -498,14 +892,30 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_3" name="fire_protection[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_3" name="fire_protection[]">&nbsp;Provide Fire Service connection with a standard outlet of 64 mm Ф, and 102 mm Ф dry standpipe, and shall located on a street front.
                                                     </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_4" name="fire_protection[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_4" name="fire_protection[]">&nbsp;Provide automatic fire extinguishing system where kitchen equipment is located (Kitchenhood).
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_5" name="fire_protection[]">&nbsp;Provide automatic chemical extinguishing system on all areas where electronic/electrical equipment are located.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Fire_Protection_Req_6" name="fire_protection[]">&nbsp;Provide   approved-type   automatic   fire   extinguishing   system   in
+accordance with NFPA 13.  Approval of system plan is required prior to installation
+
                                                     </label>
                                                     </div>
                                                 </div>
@@ -523,7 +933,7 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_1" name="miscellaneous[]">&nbsp;Provide fire break up to the roof for ceiling areas.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_1" name="miscellaneous[]">&nbsp;Provide outside window opening on bedrooms with a clear opening of not less than fifty six (56) cm in least dimension and forty five- hundredths (0.45) m2 in area. The bottom of the window shall be not more than one hundred twenty two (122) cm above the floor.
                                                     </label>
                                                     </div>
                                                 </div>
@@ -531,7 +941,8 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_2" name="miscellaneous[]">&nbsp;Provide smoke partition at enclosed areas of 2,, 083 m2 (22,500 ft2 ) or less with the length of 45.7m (150ft) or less, with self-closing fire doors.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_2" name="miscellaneous[]">&nbsp;All  liquefied  petroleum  gas  equipment  including  such  equipment installed at utility gas plants shall be installed in accordance with the provisions of NFPA 59.
+
                                                     </label>
                                                     </div>
                                                 </div>
@@ -539,14 +950,68 @@ $year = date('Y');
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_3" name="miscellaneous[]">&nbsp;Provide smoke partition of two (2) hour fire resistance from floor to underside of floor above.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_3" name="miscellaneous[]">&nbsp;No  grills  or  any  obstruction  shall  be  installed  on  window  openings and/or fire exits.
+
                                                     </label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="col-md-12">
                                                     <label>
-                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_4" name="miscellaneous[]">&nbsp;Provide stopping for all concealed spaces.
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_4" name="miscellaneous[]">&nbsp;Provide emergency lighting facilities with automatic transfer switch to AC/DC power source.
+
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_5" name="miscellaneous[]">&nbsp;Air conditioning ducts must be provided with approved fire dampers.
+
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_6" name="miscellaneous[]">&nbsp;Roof covering must be of non-combustible materials. Combustible roof covering must have fire retardant treatment.
+
+
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_7" name="miscellaneous[]">&nbsp;Provide fire escape ladder/s.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_8" name="miscellaneous[]">&nbsp;Provide fire escape stair/s.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_9" name="miscellaneous[]">&nbsp;All unit partition wall shall be extended up to upper floor slab and/or one (1) meter above the roofline.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_10" name="miscellaneous[]">&nbsp;Provide effective means of smoke ventilation such as access panels, movable windows.
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="col-md-12">
+                                                    <label>
+                                                        <input type="checkbox" class="icheckbox" value="Miscellaneous_Req_11" name="miscellaneous[]">&nbsp;Project  activity  shall  not  affect  the  effectivity  of  the  existing  fire protection facilities.
                                                     </label>
                                                     </div>
                                                 </div>
