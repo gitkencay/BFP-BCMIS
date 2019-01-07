@@ -1,0 +1,1 @@
+<!--?php require_once 'vendor/autoload.php'; $client = new NexmoClient(new NexmoClientCredentialsBasic(cffb201d, qXyb155XjALUZ0so)); $text = new NexmoMessageText(639085553776, Nexmo, 'How to send an SMS with PHP'); $response = $client->message()->send($text);<br ?--> print_r($response->getResponseData());
